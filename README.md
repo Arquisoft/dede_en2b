@@ -50,4 +50,5 @@ You can get more information about the respository in the other README files:
 - Webapp: https://github.com/arquisoft/dede_en2b/tree/master/webapp
 - Restapi: https://github.com/arquisoft/dede_en2b/tree/master/restapi
 
-<p> Participants: Sara María Ramírez Pérez</p>
+## Participants: 
+- Sara María Ramírez Pérez (uo276188@uniovi.es)
