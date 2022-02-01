@@ -55,3 +55,4 @@ You can get more information about the respository in the other README files:
 - Diego Martín Fernández (uo276345@uniovi.es)
 - Stelian Adrian Stanci (uo277653@uniovi.es)
 - Laura Pernía Blanco (uo276264@uniovi.es)
+- Carolina Barrios González (uo275673@uniovi.es)
