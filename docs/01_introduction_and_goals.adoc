@@ -11,7 +11,7 @@ Describes the relevant requirements and the driving forces that software archite
 ****
 A retail company is in the need for an online retail system that ensures the privacy of its users based on the Solid principles (not to be misinterpreted with the SOLID principles of Object Oriented Programming). We will call this app DeDe (Decentralized Delivery).
 
-Moreover, this will be ensured with the utilization of Solid Pods; a specification that lets people store their data securely in decentralized data stores. This grats the user total control of the data that is exposed using this retail service delivery, since they can concede or revoke access when needed (and the app will not store personal info). 
+Moreover, this will be ensured with the utilization of Solid Pods; a specification that lets people store their data securely in decentralized data stores. This grants the user total control of the data that is exposed using this retail service delivery, since they can concede or revoke access when needed (and the app will not store personal info). 
 
 
 === Requirements Overview
@@ -34,13 +34,13 @@ If requirements documents exist this overview should refer to these documents.
 Keep these excerpts as short as possible. Balance readability of this document with potential redundancy w.r.t to requirements documents.
 ****
 
-.These are the main requerements of the application:
+.These are the main requirements of the application:
  * Emulation of an online shopping system where the user can select and order products.
- * Calculation of the delivery cost based on the adress of the user in their Pod.
+ * Calculation of the delivery cost based on the address of the user in their Pod.
  * Simulation of the process of buying a product.
  * Allowing the user to access the orders previously done.
  * Implementation using React and Typescript.
- * The aplication should be accessible and deployed using a continuous integration system. That means having a hosting service in wich we can access the service
+ * The aplication should be accessible and deployed using a continuous integration system. That means having a hosting service in which we can access the service
 
 
 === Quality Goals
