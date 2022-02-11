@@ -19,20 +19,20 @@ conventions (e.g. programming or versioning guidelines, documentation or naming 
 ****
 We divide the constrains into two parts: technical and business constrains.
 
-=== Technical constrains
+=== Technical constraints
 
 [role="arc42help"]
 ****
 .Contents
-The technical constrains for the development of the system.
+The technical constraints for the development of the system.
 
 .Motivation
-Know the fixed technical constrains for the system.
+Know the fixed technical constraints for the system.
 
 .Form
-Table with all the technical constrains and its corresponding description .
+Table with all the technical constraints and its corresponding description .
 ****
-Technical constrains are those that are fixed technical constrains decisions. Most of them appear in the description of the system.
+Technical constraints are those that are fixed technical constraints decisions. Most of them appear in the description of the system.
 
 [options="header",cols="1,2"]
 |===
@@ -44,20 +44,20 @@ Technical constrains are those that are fixed technical constrains decisions. Mo
 | _Keep track of orders done_|The system has to allow users to visualize the orders done, so it has to keep track of them.
 |===
 
-=== Business constrains
+=== Business constraints
 
 [role="arc42help"]
 ****
 .Contents
-The business constrains for the development of the system.
+The business constraints for the development of the system.
 
 .Motivation
-Know the business constrains for the system.
+Know the business constraints for the system.
 
 .Form
-Table with all the business constrains and its corresponding description .
+Table with all the business constraints and its corresponding description .
 ****
-The business constrains are those decisions affecting the software architecture design or that will affect future decisions.
+The business constraints are those decisions affecting the software architecture design or that will affect future decisions.
 
 [options="header",cols="1,2"]
 |===
