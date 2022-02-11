@@ -57,12 +57,17 @@ Keep these excerpts as short as possible. Balance readability of this document w
 
 === Stakeholders
 
-[options="header",cols="1,2,2"]
+[options="header",cols="1,2,2,2"]
 .Stakeholders
 |===
-|Role/Name|Description|Expectations
-| Students | The members of the team that is going to develop this project. | They are expected to deliver a functional version of this product with the use of several different technologies, and which meets the stated requirements.
-| Teachers | Qualified instructors who are able to teach, guide, and supervise students throughout the development process | The teachers are expected to evaluate the work of the students and to help them achieve their objective.
-| Users | The ones that will make use of the application | They are expected to use the application for some purpose, and possibly to even give feedback about it.
-| Inrupt\Empathy | Companies that have contributed to the creation of the SOLID Challenge, which is closely related to this project | They promote the SOLID Challenge, help solving errors through its forum, and reward the winning project.
+|Role/Name|Contact|Description|Expectations
+| Students | Carolina Barrios González +
+ Diego Martín Fernández +
+ Laura Pernía Blanco +
+ Sara María Ramírez Pérez +
+ Stelian Adrian Stanci | The members of the team that is going to develop this project. | They are expected to deliver a functional version of this product with the use of several different technologies, and which meets the stated requirements.
+| Teachers | Pablo González González +
+ José Emilio Labra Gallo | Qualified instructors who are able to teach, guide, and supervise students throughout the development process. | The teachers are expected to evaluate the work of the students and to help them achieve their objective.
+| Users | | The ones that will make use of the application. | They are expected to use the application for some purpose, and possibly to even give feedback about it.
+| Related companies | Inrupt\Empathy | Companies that have contributed to the creation of the SOLID Challenge, which is closely related to this project. | They promote the SOLID Challenge, help solving errors through its forum, and reward the winning project.
 |===
