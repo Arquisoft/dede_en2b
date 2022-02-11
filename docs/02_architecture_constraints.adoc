@@ -27,7 +27,7 @@ We divide the constrains into two parts: technical and business constrains.
 The technical constrains for the development of the system.
 
 .Motivation
-Know the technical constrains for the system.
+Know the fixed technical constrains for the system.
 
 .Form
 Table with all the technical constrains and its corresponding description .
