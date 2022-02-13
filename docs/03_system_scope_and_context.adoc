@@ -75,7 +75,7 @@ Using React will allow us to create iteractive user interfaces in an easy way.
 
 **<Diagram or Table>**
 
-image::images/technical-diagram.png["Technical diagram"]
+image:technical-diagram.png["Technical diagram"]
 
 **<optionally: Explanation of technical interfaces>**
 
