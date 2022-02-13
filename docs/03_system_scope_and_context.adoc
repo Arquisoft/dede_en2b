@@ -67,8 +67,13 @@ E.g. UML deployment diagram describing channels to neighboring systems,
 together with a mapping table showing the relationships between channels and input/output.
 
 ****
+The system will follow the SOLID principles by which the user's privacy will be preserved.
+This means non storing personal information and using "pods" (Personal Online Data Store), where the customer's personal dara is stored. 
 
+All the application will be developed by using Typescript and the React framewrok, 
+Using React will allow us to create iteractive user interfaces in an easy way. 
 **<Diagram or Table>**
+image:technical-diagram.png["Technical diagram"]
 
 **<optionally: Explanation of technical interfaces>**
 
