@@ -9,6 +9,10 @@ Describes the relevant requirements and the driving forces that software archite
 * quality goals for the architecture
 * relevant stakeholders and their expectations
 ****
+A retail company is in the need for an online retail system that ensures the privacy of its users based on the Solid principles (not to be misinterpreted with the SOLID principles of Object Oriented Programming). We will call this app DeDe (Decentralized Delivery).
+
+Moreover, this will be ensured with the utilization of Solid Pods; a specification that lets people store their data securely in decentralized data stores. This grants the user total control of the data that is exposed using this retail service delivery, since they can concede or revoke access when needed (and the app will not store personal info). 
+
 
 === Requirements Overview
 
@@ -30,46 +34,40 @@ If requirements documents exist this overview should refer to these documents.
 Keep these excerpts as short as possible. Balance readability of this document with potential redundancy w.r.t to requirements documents.
 ****
 
+.These are the main requirements of the application:
+ * Emulation of an online shopping system where the user can select and order products.
+ * Calculation of the delivery cost based on the address of the user in their Pod.
+ * Simulation of the process of buying a product.
+ * Allowing the user to access the orders previously done.
+ * Implementation using React and Typescript.
+ * The aplication should be accessible and deployed using a continuous integration system. That means having a hosting service in which we can access the service
+
+
 === Quality Goals
 
-[role="arc42help"]
-****
-.Contents
-The top three (max five) quality goals for the architecture whose fulfillment is of highest importance to the major stakeholders. We really mean quality goals for the architecture. Don't confuse them with project goals. They are not necessarily identical.
-
-.Motivation
-You should know the quality goals of your most important stakeholders, since they will influence fundamental architectural decisions. Make sure to be very concrete about these qualities, avoid buzzwords.
-If you as an architect do not know how the quality of your work will be judged …
-
-.Form
-A table with quality goals and concrete scenarios, ordered by priorities
-****
+[options="header",cols="1,2,2"]
+.Quality Goals, ordered by priority, with the most important ones being on top
+|===
+|Number|Quality|Motivation
+| 1 | Privacy | The task to be done requires the use of SOLID, whose purpose is to secure the data of the users, so no one that is not authorized should be able to access that information.
+| 2 | Usability | The application can be used in an easy and intuitive manner, for all kinds of users.
+| 3 | Performance | The software should be fast and have as least response time as possible.
+| 4 | Availability | The system should be able to be used for as much time as possible.
+|===
 
 === Stakeholders
 
-[role="arc42help"]
-****
-.Contents
-Explicit overview of stakeholders of the system, i.e. all person, roles or organizations that
-
-* should know the architecture
-* have to be convinced of the architecture
-* have to work with the architecture or with code
-* need the documentation of the architecture for their work
-* have to come up with decisions about the system or its development
-
-.Motivation
-You should know all parties involved in development of the system or affected by the system.
-Otherwise, you may get nasty surprises later in the development process.
-These stakeholders determine the extent and the level of detail of your work and its results.
-
-.Form
-Table with role names, person names, and their expectations with respect to the architecture and its documentation.
-****
-
-[options="header",cols="1,2,2"]
+[options="header",cols="1,2,2,2"]
+.Stakeholders
 |===
-|Role/Name|Contact|Expectations
-| _<Role-1>_ | _<Contact-1>_ | _<Expectation-1>_
-| _<Role-2>_ | _<Contact-2>_ | _<Expectation-2>_
+|Role/Name|Contact|Description|Expectations
+| Students | Carolina Barrios González +
+ Diego Martín Fernández +
+ Laura Pernía Blanco +
+ Sara María Ramírez Pérez +
+ Stelian Adrian Stanci | The members of the team that is going to develop this project. | They are expected to deliver a functional version of this product with the use of several different technologies, and which meets the stated requirements.
+| Teachers | Pablo González González +
+ José Emilio Labra Gallo | Qualified instructors who are able to teach, guide, and supervise students throughout the development process. | The teachers are expected to evaluate the work of the students and to help them achieve their objective.
+| Users | | The ones that will make use of the application. | They are expected to use the application for some purpose, and possibly to even give feedback about it.
+| Related companies | Inrupt\Empathy | Companies that have contributed to the creation of the SOLID Challenge, which is closely related to this project. | They promote the SOLID Challenge, help solving errors through its forum, and reward the winning project.
 |===
