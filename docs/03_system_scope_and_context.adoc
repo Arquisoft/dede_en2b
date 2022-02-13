@@ -39,9 +39,18 @@ Alternatively (or additionally) you can use a table.
 The title of the table is the name of your system, the three columns contain the name of the communication partner, the inputs, and the outputs.
 ****
 
-**<Diagram or Table>**
+image:business_context.png["Business context diagram"]
 
-**<optionally: Explanation of external domain interfaces>**
+[options="header"]
+|===
+| Entity         | Description
+| User     | Interacts with system by viewing, selecting and buying products. Users have an account in the system that lets them visualize orders done.
+| Database     | Stores information about users, products and orders. The system reads data from it and writes new one.
+| SOLID pods     | They have information about client's addresses. The system obtains this information to calculate shipping costs and process orders.
+| Carrier API     | DeDe uses them to obtain shipping costs from one address to another one.
+| Delivery     | With all the information collected from the user, the database, carrier APIs and SOLID pods and once everything is processed, an order delivery is simulated.
+                 In a real scenario, the orders would be shipped to their corresponding addresses. 
+|===
 
 === Technical Context
 
@@ -58,8 +67,15 @@ E.g. UML deployment diagram describing channels to neighboring systems,
 together with a mapping table showing the relationships between channels and input/output.
 
 ****
+The system will follow the SOLID principles by which the user's privacy will be preserved.
+This means non storing personal information and using "pods" (Personal Online Data Store), where the customer's personal data is stored. 
+
+All the application will be developed by using Typescript and the React framework, 
+Using React will allow us to create iteractive user interfaces in an easy way. 
 
 **<Diagram or Table>**
+
+image::images/technical-diagram.png["Technical diagram"]
 
 **<optionally: Explanation of technical interfaces>**
 
