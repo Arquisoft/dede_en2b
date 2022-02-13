@@ -39,7 +39,7 @@ Alternatively (or additionally) you can use a table.
 The title of the table is the name of your system, the three columns contain the name of the communication partner, the inputs, and the outputs.
 ****
 
-image::business_context.png["Business context diagram"]
+image:business_context.png["Business context diagram"]
 
 [options="header"]
 |===
@@ -75,7 +75,7 @@ Using React will allow us to create iteractive user interfaces in an easy way.
 
 **<Diagram or Table>**
 
-image:technical-diagram.png["Technical diagram"]
+image::images/technical-diagram.png["Technical diagram"]
 
 **<optionally: Explanation of technical interfaces>**
 
