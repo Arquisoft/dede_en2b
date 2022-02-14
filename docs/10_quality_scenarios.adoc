@@ -17,6 +17,8 @@ decisions you should know for every stakeholder what is really important to them
 concrete and measurable.
 ****
 
+We have already talked about quality goals in section 1.2, but in this section we will expand on that topic, using a quality tree (which will provide an overview of the attributes) and some quality scenarios (which will describe what happens when a stimulus arrives at the system).
+
 === Quality Tree
 
 [role="arc42help"]
