@@ -157,57 +157,25 @@ Please prefer relevance over completeness. Specify important, surprising, risky,
 Leave out normal, simple, boring or standardized parts of your system
 ****
 
-==== White Box _<building block 1>_
+==== White Box DeDe System
 
 [role="arc42help"]
 ****
-...describes the internal structure of _building block 1_.
+...describes the internal structure of _DeDe System_.
 ****
 
-_<white box template>_
+image:buildingblock_level2.png["Building block level 2"]
 
-==== White Box _<building block 2>_
-
-
-_<white box template>_
-
-...
-
-==== White Box _<building block m>_
-
-
-_<white box template>_
+[options="header"]
+|===
+| Building block         | Description
+| Views     | Contains all the user interfaces of the online shop. The user interacts with them to see and select products, visualize past orders...
+| Controller     | Responds to user events in the views by invoking corresponding actions in the model. It is an intermediary.
+| Model     | Implements all the business logic needed. Accesses the database to retrieve products and clients and to register orders. 
+  Besides, it obtains clients' addresses from their PODs.
+|===
 
 
 
-=== Level 3
-
-[role="arc42help"]
-****
-Here you can specify the inner structure of (some) building blocks from level 2 as white boxes.
-
-When you need more detailed levels of your architecture please copy this
-part of arc42 for additional levels.
-****
 
 
-==== White Box <_building block x.1_>
-
-[role="arc42help"]
-****
-Specifies the internal structure of _building block x.1_.
-****
-
-
-_<white box template>_
-
-
-==== White Box <_building block x.2_>
-
-_<white box template>_
-
-
-
-==== White Box <_building block y.1_>
-
-_<white box template>_
