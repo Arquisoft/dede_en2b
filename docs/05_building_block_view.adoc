@@ -70,8 +70,8 @@ Contained Building Blocks::
 | **Name** | **Responsibility**
 | _DeDe_ | Online retail system that preserves the privacy of its users by following the SOLID principles.
 | _User's Pod_ | The user's Pod is where the user stores its data to control it.
-| _Data Base_ | Data base used by the DeDe system to store the needed information, such as the orders done, the adress, etc.
-| _User_| Person accesing to the DeDe system and that has its own Pod.
+| _Database_ | Database used by the DeDe system to store the needed information, such as the orders done, the addresses, etc.
+| _User_| Person accessing to the DeDe system and that has its own Pod.
 |===
 
 Important Interfaces::
