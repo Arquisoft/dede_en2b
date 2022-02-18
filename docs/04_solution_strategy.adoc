@@ -24,8 +24,35 @@ Refer to details in the following sections.
 ****
 
 === Technology commitments
-As we commented before we will use React and TypeScript. Moreover, we have also decided that the most optimal decision regarding the database of the product is a relational one. 
+As we commented before we will use **React** and **TypeScript**. Moreover, we have also decided that the most optimal decision regarding the database of the product is a relational one. 
 
 This is due to the need of knowing the relations between the different items such as clients, products bought from clients, records, deliveries and so on. On the other hand, the experience that we already have will be of great use, since all of us are experienced in SQL databases usage.
+
+=== Decisions about the top-level decomposition of the system
+We have chosen to build the application around the **MVC model**. This means that the system will be divided into a **View** part, which will be the one the user interacts with, a **Model** part, that will work with data, and a **Controller** part, that will connect the other two, acting as an intermediary.
+
+=== Decisions on how to achieve key quality goals
+The goals have already been stated in section 1.2, now we will take a look at how we will work to achieve each one:
+
+**Privacy** will be accomplished mainly through the use of SOLID pods, and using only the information that is necessary for the operations to work.
+
+We will obtain **usability** by making easy and understandable interfaces for the users, that can be understood by people that are not necessarily experts in working with computers.
+
+As for the **performance**, we will work hard to make optimized code, that does not introduce unnecessary complexity and can reduce response times as much as possible.
+
+Finally, the **availability** will be achieved by making sure that when the user wants to access and use the application, it initializes correctly and does what it is supposed to do.
+
+
+=== Relevant organizational decisions
+Working in a project such as this one with many people means that communication is very important, and there are several ways in which our team communicates on a regular basis.
+
+**Laboratory classes**::
+Each week we have 2 hours in which all the members of the team are together and can discuss things about the project. It is also a very useful time to review the work done in the previous week and goals for the future.
+
+**GitHub**::
+GitHub is a very complete tool, that has tons of options that can help with organizing the work of the project. You can see what needs to be done, what has already been done, what are the plans for the future, all of this combining tools such as the issues, discussions or the wiki of the repository (among many others). It also helps a lot in organizing the changes made in the code or the files of the repository, through the use of pull requests.
+
+**Communication channels**::
+We have created a Whatsapp group, where we talk about things related to the project. All of the relevant things that have to do with decisions of the development of the system also go into GitHub, as it helps with keeping track of these important details. Other means of communication that we sometimes use are Discord or Microsoft Teams.
 
 
