@@ -57,18 +57,25 @@ In the best case you will get away with examples or simple signatures.
 
 ****
 
-_**<Overview Diagram>**_
+image:buildingblock_level1.png["Building block level 1"]
 
 Motivation::
 
-_<text explanation>_
+The user creates and interacts with its own Pod and with de DeDe system. The DeDe system has access to the user's pod and to the database.
 
 
 Contained Building Blocks::
-_<Description of contained building block (black boxes)>_
+[cols="1,2" options="header"]
+|===
+| **Name** | **Responsibility**
+| _DeDe_ | Online retail system that preserves the privacy of its users by following the SOLID principles.
+| _User's Pod_ | The user's Pod is where the user stores its data to control it.
+| _Data Base_ | Data base used by the DeDe system to store the needed information, such as the orders done, the adress, etc.
+| _User_| Person accesing to the DeDe system and that has its own Pod.
+|===
 
 Important Interfaces::
-_<Description of important interfaces>_
+ _To do_
 
 [role="arc42help"]
 ****
