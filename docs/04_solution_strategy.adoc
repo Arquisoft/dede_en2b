@@ -53,6 +53,6 @@ Each week we have 2 hours in which all the members of the team are together and 
 GitHub is a very complete tool, that has tons of options that can help with organizing the work of the project. You can see what needs to be done, what has already been done, what are the plans for the future, all of this combining tools such as the issues, discussions or the wiki of the repository (among many others). It also helps a lot in organizing the changes made in the code or the files of the repository, through the use of pull requests.
 
 **Communication channels**::
-We have created a Whatsapp group, where we talk about things related to the project. All of the relevant things that have to do with decisions of the development of the system also go into GitHub, as it helps with keeping track of these important details. Other means of communication that we sometimes use are Discord or Microsoft Teams.
+We have created a Whatsapp group, where we talk about things related to the project. All of the relevant things that have to do with decisions of the development of the system are also put in GitHub, as it helps with keeping track of these important details. Other means of communication that we sometimes use are Discord or Microsoft Teams.
 
 
