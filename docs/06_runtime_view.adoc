@@ -42,7 +42,7 @@ The user will follow the next interaction diagram:
 
 image:06-userDiagram.png["User's interaction diagram"]
 
-***
+****
 [plantuml,"Sequence diagram",png]
 ----
 actor Alice
@@ -54,7 +54,7 @@ Alice  --> Pod: Store route
 Alice -> Bob: Another authentication Request
 Alice <-- Bob: another authentication Response
 ----
-***
+****
 === Administrator interaction
 
 The admin can add and delete products, change the price and update the quantity of products:
