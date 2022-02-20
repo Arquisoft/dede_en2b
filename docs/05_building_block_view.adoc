@@ -90,6 +90,7 @@ responsibility according to the following schema:
 | _<black box 1>_ | _<Text>_
 | _<black box 2>_ | _<Text>_
 |===
+****
 
 === Level 2
 
