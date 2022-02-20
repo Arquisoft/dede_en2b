@@ -30,15 +30,19 @@ There are many notations for describing scenarios, e.g.
 
 ****
 
-=== <Runtime Scenario 1>
+=== User interaction
 
-
+****
 * _<insert runtime diagram or textual description of the scenario>_
 * _<insert description of the notable aspects of the interactions between the
 building block instances depicted in this diagram.>_
+****
 
-It is possible to use a sequence diagram:
+The user will follow the next interaction diagram:
 
+image:06-userDiagram.png["User's interaction diagram"]
+
+****
 [plantuml,"Sequence diagram",png]
 ----
 actor Alice
@@ -50,8 +54,10 @@ Alice  --> Pod: Store route
 Alice -> Bob: Another authentication Request
 Alice <-- Bob: another authentication Response
 ----
-=== <Runtime Scenario 2>
+****
+=== Administrator interaction
 
-=== ...
+The admin can add and delete products, change the price and update the quantity of products:
 
-=== <Runtime Scenario n>
+image:06-adminDiagram.png["Admin's interaction diagram"]
+
