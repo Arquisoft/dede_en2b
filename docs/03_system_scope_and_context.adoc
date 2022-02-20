@@ -70,13 +70,10 @@ together with a mapping table showing the relationships between channels and inp
 The system will follow the SOLID principles by which the user's privacy will be preserved.
 This means non storing personal information and using "pods" (Personal Online Data Store), where the customer's personal data is stored. 
 
-All the application will be developed by using Typescript and the React framework, 
+All the application will be developed by using Typescript and the React framework. 
 Using React will allow us to create iteractive user interfaces in an easy way. 
 
-**<Diagram or Table>**
+We are going to use a relational database to store the information about the products. We have proposed 
+Oracle, but it may change when we start coding.
 
-image:technical-diagram.png["Technical diagram"]
-
-**<optionally: Explanation of technical interfaces>**
-
-**<Mapping Input/Output to Channels>**
+image:03-technicalContext.png["Technical context diagram"]
