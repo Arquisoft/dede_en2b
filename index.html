@@ -461,44 +461,19 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_technical_context">3.2. Technical Context</a></li>
 </ul>
 </li>
-<li><a href="#section-solution-strategy">4. Solution Strategy</a></li>
+<li><a href="#section-solution-strategy">4. Solution Strategy</a>
+<ul class="sectlevel2">
+<li><a href="#_technology_commitments">4.1. Technology commitments</a></li>
+<li><a href="#_decisions_about_the_top_level_decomposition_of_the_system">4.2. Decisions about the top-level decomposition of the system</a></li>
+<li><a href="#_decisions_on_how_to_achieve_key_quality_goals">4.3. Decisions on how to achieve key quality goals</a></li>
+<li><a href="#_relevant_organizational_decisions">4.4. Relevant organizational decisions</a></li>
+</ul>
+</li>
 <li><a href="#section-building-block-view">5. Building Block View</a>
 <ul class="sectlevel2">
 <li><a href="#_whitebox_overall_system">5.1. Whitebox Overall System</a></li>
-<li><a href="#_level_2">5.2. Level 2</a></li>
-<li><a href="#_level_3">5.3. Level 3</a></li>
 </ul>
 </li>
-<li><a href="#section-runtime-view">6. Runtime View</a>
-<ul class="sectlevel2">
-<li><a href="#_runtime_scenario_1">6.1. &lt;Runtime Scenario 1&gt;</a></li>
-<li><a href="#_runtime_scenario_2">6.2. &lt;Runtime Scenario 2&gt;</a></li>
-<li><a href="#">6.3. &#8230;&#8203;</a></li>
-<li><a href="#_runtime_scenario_n">6.4. &lt;Runtime Scenario n&gt;</a></li>
-</ul>
-</li>
-<li><a href="#section-deployment-view">7. Deployment View</a>
-<ul class="sectlevel2">
-<li><a href="#_infrastructure_level_1">7.1. Infrastructure Level 1</a></li>
-<li><a href="#_infrastructure_level_2">7.2. Infrastructure Level 2</a></li>
-</ul>
-</li>
-<li><a href="#section-concepts">8. Cross-cutting Concepts</a>
-<ul class="sectlevel2">
-<li><a href="#_domain_model">8.1. Domain model</a></li>
-<li><a href="#_concept_2">8.2. <em>&lt;Concept 2&gt;</em></a></li>
-<li><a href="#_concept_n">8.3. <em>&lt;Concept n&gt;</em></a></li>
-</ul>
-</li>
-<li><a href="#section-design-decisions">9. Design Decisions</a></li>
-<li><a href="#section-quality-scenarios">10. Quality Requirements</a>
-<ul class="sectlevel2">
-<li><a href="#_quality_tree">10.1. Quality Tree</a></li>
-<li><a href="#_quality_scenarios">10.2. Quality Scenarios</a></li>
-</ul>
-</li>
-<li><a href="#section-technical-risks">11. Risks and Technical Debts</a></li>
-<li><a href="#section-glossary">12. Glossary</a></li>
 </ul>
 </div>
 </div>
@@ -1025,7 +1000,62 @@ Refer to details in the following sections.</p>
 </div>
 </div>
 </div>
+<div class="sect2">
+<h3 id="_technology_commitments">4.1. Technology commitments</h3>
+<div class="paragraph">
+<p>As we commented before we will use <strong>React</strong> and <strong>TypeScript</strong>. Moreover, we have also decided that the most optimal decision regarding the database of the product is a relational one.</p>
+</div>
+<div class="paragraph">
+<p>This is due to the need of knowing the relations between the different items such as clients, products bought from clients, records, deliveries and so on. On the other hand, the experience that we already have will be of great use, since all of us are experienced in SQL databases usage.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_decisions_about_the_top_level_decomposition_of_the_system">4.2. Decisions about the top-level decomposition of the system</h3>
+<div class="paragraph">
+<p>We have chosen to build the application around the <strong>MVC model</strong>. This means that the system will be divided into a <strong>View</strong> part, which will be the one the user interacts with, a <strong>Model</strong> part, that will work with data, and a <strong>Controller</strong> part, that will connect the other two, acting as an intermediary.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_decisions_on_how_to_achieve_key_quality_goals">4.3. Decisions on how to achieve key quality goals</h3>
+<div class="paragraph">
+<p>The goals have already been stated in section 1.2, now we will take a look at how we will work to achieve each one:</p>
+</div>
+<div class="paragraph">
+<p><strong>Privacy</strong> will be accomplished mainly through the use of SOLID pods, and using only the information that is necessary for the operations to work.</p>
+</div>
+<div class="paragraph">
+<p>We will obtain <strong>usability</strong> by making easy and understandable interfaces for the users, that can be understood by people that are not necessarily experts in working with computers.</p>
+</div>
+<div class="paragraph">
+<p>As for the <strong>performance</strong>, we will work hard to make optimized code, that does not introduce unnecessary complexity and can reduce response times as much as possible.</p>
+</div>
+<div class="paragraph">
+<p>Finally, the <strong>availability</strong> will be achieved by making sure that when the user wants to access and use the application, it initializes correctly and does what it is supposed to do.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_relevant_organizational_decisions">4.4. Relevant organizational decisions</h3>
+<div class="paragraph">
+<p>Working in a project such as this one with many people means that communication is very important, and there are several ways in which our team communicates on a regular basis.</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1"><strong>Laboratory classes</strong></dt>
+<dd>
+<p>Each week we have 2 hours in which all the members of the team are together and can discuss things about the project. It is also a very useful time to review the work done in the previous week and goals for the future.</p>
+</dd>
+<dt class="hdlist1"><strong>GitHub</strong></dt>
+<dd>
+<p>GitHub is a very complete tool, that has tons of options that can help with organizing the work of the project. You can see what needs to be done, what has already been done, what are the plans for the future, all of this combining tools such as the issues, discussions or the wiki of the repository (among many others). It also helps a lot in organizing the changes made in the code or the files of the repository, through the use of pull requests.</p>
+</dd>
+<dt class="hdlist1"><strong>Communication channels</strong></dt>
+<dd>
+<p>We have created a Whatsapp group, where we talk about things related to the project. All of the relevant things that have to do with decisions of the development of the system are also put in GitHub, as it helps with keeping track of these important details. Other means of communication that we sometimes use are Discord or Microsoft Teams.</p>
+</dd>
+</dl>
+</div>
 <div style="page-break-after: always;"></div>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -1113,21 +1143,52 @@ In the best case you will get away with examples or simple signatures.</p>
 </div>
 </div>
 <div class="paragraph">
-<p><em><strong>&lt;Overview Diagram&gt;</strong></em></p>
+<p><span class="image"><img src="./images/buildingblock_level1.png" alt="Building block level 1"></span></p>
 </div>
 <div class="dlist">
 <dl>
 <dt class="hdlist1">Motivation</dt>
 <dd>
-<p><em>&lt;text explanation&gt;</em></p>
+<p>The user creates and interacts with its own Pod and with de DeDe system. The DeDe system has access to the user&#8217;s pod and to the database.</p>
 </dd>
 <dt class="hdlist1">Contained Building Blocks</dt>
-<dd>
-<p><em>&lt;Description of contained building block (black boxes)&gt;</em></p>
-</dd>
+</dl>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 66.6667%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"><strong>Name</strong></th>
+<th class="tableblock halign-left valign-top"><strong>Responsibility</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>DeDe</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"> Online retail system that preserves the privacy of its users by following the SOLID principles.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>User&#8217;s Pod</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"> The user&#8217;s Pod is where the user stores its data to control it.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Database</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Database used by the DeDe system to store the needed information, such as the orders done, the addresses, etc.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>User</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Person accessing to the DeDe system and that has its own Pod.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="dlist">
+<dl>
 <dt class="hdlist1">Important Interfaces</dt>
 <dd>
-<p><em>&lt;Description of important interfaces&gt;</em></p>
+<p><em>To do</em></p>
 </dd>
 </dl>
 </div>
@@ -1163,89 +1224,10 @@ responsibility according to the following schema:</p>
 </tbody>
 </table>
 <div class="paragraph">
-<p>If you use a list of black box descriptions then you fill in a separate black box template for every important building block .
-Its headline is the name of the black box.</p>
+<p>=== Level 2</p>
 </div>
 </div>
 </div>
-<div class="sect3">
-<h4 id="_name_black_box_1">5.1.1. &lt;Name black box 1&gt;</h4>
-<div class="sidebarblock arc42help">
-<div class="content">
-<div class="paragraph">
-<p>Here you describe &lt;black box 1&gt;
-according the the following black box template:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Purpose/Responsibility</p>
-</li>
-<li>
-<p>Interface(s), when they are not extracted as separate paragraphs. This interfaces may include qualities and performance characteristics.</p>
-</li>
-<li>
-<p>(Optional) Quality-/Performance characteristics of the black box, e.g.availability, run time behavior, &#8230;&#8203;.</p>
-</li>
-<li>
-<p>(Optional) directory/file location</p>
-</li>
-<li>
-<p>(Optional) Fulfilled requirements (if you need traceability to requirements).</p>
-</li>
-<li>
-<p>(Optional) Open issues/problems/risks</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="paragraph">
-<p><em>&lt;Purpose/Responsibility&gt;</em></p>
-</div>
-<div class="paragraph">
-<p><em>&lt;Interface(s)&gt;</em></p>
-</div>
-<div class="paragraph">
-<p><em>&lt;(Optional) Quality/Performance Characteristics&gt;</em></p>
-</div>
-<div class="paragraph">
-<p><em>&lt;(Optional) Directory/File Location&gt;</em></p>
-</div>
-<div class="paragraph">
-<p><em>&lt;(Optional) Fulfilled Requirements&gt;</em></p>
-</div>
-<div class="paragraph">
-<p><em>&lt;(optional) Open Issues/Problems/Risks&gt;</em></p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_name_black_box_2">5.1.2. &lt;Name black box 2&gt;</h4>
-<div class="paragraph">
-<p><em>&lt;black box template&gt;</em></p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_name_black_box_n">5.1.3. &lt;Name black box n&gt;</h4>
-<div class="paragraph">
-<p><em>&lt;black box template&gt;</em></p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_name_interface_1">5.1.4. &lt;Name interface 1&gt;</h4>
-<div class="paragraph">
-<p>&#8230;&#8203;</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_name_interface_m">5.1.5. &lt;Name interface m&gt;</h4>
-
-</div>
-</div>
-<div class="sect2">
-<h3 id="_level_2">5.2. Level 2</h3>
-<div class="sidebarblock arc42help">
-<div class="content">
 <div class="paragraph">
 <p>Here you can specify the inner structure of (some) building blocks from level 1 as white boxes.</p>
 </div>
@@ -1254,84 +1236,54 @@ according the the following black box template:</p>
 Please prefer relevance over completeness. Specify important, surprising, risky, complex or volatile building blocks.
 Leave out normal, simple, boring or standardized parts of your system</p>
 </div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_white_box_building_block_1">5.2.1. White Box <em>&lt;building block 1&gt;</em></h4>
-<div class="sidebarblock arc42help">
+<div class="sidebarblock">
 <div class="content">
 <div class="paragraph">
-<p>&#8230;&#8203;describes the internal structure of <em>building block 1</em>.</p>
+<p>==== White Box DeDe System</p>
 </div>
 </div>
 </div>
 <div class="paragraph">
-<p><em>&lt;white box template&gt;</em></p>
+<p>&#8230;&#8203;describes the internal structure of <em>DeDe System</em>.</p>
 </div>
-</div>
-<div class="sect3">
-<h4 id="_white_box_building_block_2">5.2.2. White Box <em>&lt;building block 2&gt;</em></h4>
-<div class="paragraph">
-<p><em>&lt;white box template&gt;</em></p>
-</div>
-<div class="paragraph">
-<p>&#8230;&#8203;</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_white_box_building_block_m">5.2.3. White Box <em>&lt;building block m&gt;</em></h4>
-<div class="paragraph">
-<p><em>&lt;white box template&gt;</em></p>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_level_3">5.3. Level 3</h3>
-<div class="sidebarblock arc42help">
+<div class="sidebarblock">
 <div class="content">
 <div class="paragraph">
-<p>Here you can specify the inner structure of (some) building blocks from level 2 as white boxes.</p>
+<p><span class="image"><img src="./images/buildingblock_level2.png" alt="Building block level 2"></span></p>
 </div>
-<div class="paragraph">
-<p>When you need more detailed levels of your architecture please copy this
-part of arc42 for additional levels.</p>
-</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_white_box_building_block_x_1">5.3.1. White Box &lt;_building block x.1_&gt;</h4>
-<div class="sidebarblock arc42help">
-<div class="content">
-<div class="paragraph">
-<p>Specifies the internal structure of <em>building block x.1</em>.</p>
-</div>
-</div>
-</div>
-<div class="paragraph">
-<p><em>&lt;white box template&gt;</em></p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_white_box_building_block_x_2">5.3.2. White Box &lt;_building block x.2_&gt;</h4>
-<div class="paragraph">
-<p><em>&lt;white box template&gt;</em></p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_white_box_building_block_y_1">5.3.3. White Box &lt;_building block y.1_&gt;</h4>
-<div class="paragraph">
-<p><em>&lt;white box template&gt;</em></p>
-</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Building block</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Views</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Contains all the user interfaces of the online shop. The user interacts with them to see and select products, visualize past orders&#8230;&#8203;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Controller</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Responds to user events in the views by invoking corresponding actions in the model. It is an intermediary.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Model</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Implements all the business logic needed. Accesses the database to retrieve products and clients and to register orders.
+  Besides, it obtains clients' addresses from their PODs.</p></td>
+</tr>
+</tbody>
+</table>
 <div style="page-break-after: always;"></div>
+<div id="section-runtime-view" class="paragraph">
+<p>== Runtime View</p>
 </div>
 </div>
 </div>
-</div>
-<div class="sect1">
-<h2 id="section-runtime-view">6. Runtime View</h2>
-<div class="sectionbody">
-<div class="sidebarblock arc42help">
-<div class="content">
 <div class="paragraph">
 <div class="title">Contents</div>
 <p>The runtime view describes concrete behavior and interactions of the system’s building blocks in form of scenarios from the following areas:</p>
@@ -1386,10 +1338,11 @@ You will mainly capture scenarios in your documentation to communicate your arch
 </li>
 </ul>
 </div>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<p>=== &lt;Runtime Scenario 1&gt;</p>
 </div>
-</div>
-<div class="sect2">
-<h3 id="_runtime_scenario_1">6.1. &lt;Runtime Scenario 1&gt;</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -1409,26 +1362,21 @@ building block instances depicted in this diagram.&gt;</em></p>
 <img src="./images/Sequence%20diagram.png" alt="Sequence diagram" width="332" height="343">
 </div>
 </div>
+<div class="paragraph">
+<p>=== &lt;Runtime Scenario 2&gt;</p>
 </div>
-<div class="sect2">
-<h3 id="_runtime_scenario_2">6.2. &lt;Runtime Scenario 2&gt;</h3>
-
+<div class="paragraph">
+<p>=== &#8230;&#8203;</p>
 </div>
-<div class="sect2">
-<h3 id="">6.3. &#8230;&#8203;</h3>
-
+<div class="paragraph">
+<p>=== &lt;Runtime Scenario n&gt;</p>
 </div>
-<div class="sect2">
-<h3 id="_runtime_scenario_n">6.4. &lt;Runtime Scenario n&gt;</h3>
 <div style="page-break-after: always;"></div>
+<div id="section-deployment-view" class="paragraph">
+<p>== Deployment View</p>
 </div>
 </div>
 </div>
-<div class="sect1">
-<h2 id="section-deployment-view">7. Deployment View</h2>
-<div class="sectionbody">
-<div class="sidebarblock arc42help">
-<div class="content">
 <div class="paragraph">
 <div class="title">Content</div>
 <p>The deployment view describes:</p>
@@ -1475,12 +1423,13 @@ when your infrastructure is more complex.</p>
 </li>
 </ul>
 </div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_infrastructure_level_1">7.1. Infrastructure Level 1</h3>
-<div class="sidebarblock arc42help">
+<div class="sidebarblock">
 <div class="content">
+<div class="paragraph">
+<p>=== Infrastructure Level 1</p>
+</div>
+</div>
+</div>
 <div class="paragraph">
 <p>Describe (usually in a combination of diagrams, tables, and text):</p>
 </div>
@@ -1503,8 +1452,8 @@ when your infrastructure is more complex.</p>
 <div class="paragraph">
 <p>For multiple environments or alternative deployments please copy that section of arc42 for all relevant environments.</p>
 </div>
-</div>
-</div>
+<div class="sidebarblock">
+<div class="content">
 <div class="paragraph">
 <p><em><strong>&lt;Overview Diagram&gt;</strong></em></p>
 </div>
@@ -1524,49 +1473,46 @@ when your infrastructure is more complex.</p>
 </dd>
 </dl>
 </div>
+<div class="paragraph">
+<p>=== Infrastructure Level 2</p>
 </div>
-<div class="sect2">
-<h3 id="_infrastructure_level_2">7.2. Infrastructure Level 2</h3>
-<div class="sidebarblock arc42help">
-<div class="content">
+</div>
+</div>
 <div class="paragraph">
 <p>Here you can include the internal structure of (some) infrastructure elements from level 1.</p>
 </div>
 <div class="paragraph">
 <p>Please copy the structure from level 1 for each selected element.</p>
 </div>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<p>==== <em>&lt;Infrastructure Element 1&gt;</em></p>
 </div>
-</div>
-<div class="sect3">
-<h4 id="_infrastructure_element_1">7.2.1. <em>&lt;Infrastructure Element 1&gt;</em></h4>
 <div class="paragraph">
 <p><em>&lt;diagram + explanation&gt;</em></p>
 </div>
+<div class="paragraph">
+<p>==== <em>&lt;Infrastructure Element 2&gt;</em></p>
 </div>
-<div class="sect3">
-<h4 id="_infrastructure_element_2">7.2.2. <em>&lt;Infrastructure Element 2&gt;</em></h4>
 <div class="paragraph">
 <p><em>&lt;diagram + explanation&gt;</em></p>
 </div>
 <div class="paragraph">
 <p>&#8230;&#8203;</p>
 </div>
+<div class="paragraph">
+<p>==== <em>&lt;Infrastructure Element n&gt;</em></p>
 </div>
-<div class="sect3">
-<h4 id="_infrastructure_element_n">7.2.3. <em>&lt;Infrastructure Element n&gt;</em></h4>
 <div class="paragraph">
 <p><em>&lt;diagram + explanation&gt;</em></p>
 </div>
 <div style="page-break-after: always;"></div>
+<div id="section-concepts" class="paragraph">
+<p>== Cross-cutting Concepts</p>
 </div>
 </div>
 </div>
-</div>
-<div class="sect1">
-<h2 id="section-concepts">8. Cross-cutting Concepts</h2>
-<div class="sectionbody">
-<div class="sidebarblock arc42help">
-<div class="content">
 <div class="paragraph">
 <div class="title">Content</div>
 <p>This section describes overall, principal regulations and solution ideas that are
@@ -1659,37 +1605,35 @@ on this list.</p>
 <div class="paragraph">
 <p><span class="image"><img src="./images/08-Crosscutting-Concepts-Structure-EN.png" alt="Possible topics for crosscutting concepts"></span></p>
 </div>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<p>=== Domain model</p>
 </div>
-</div>
-<div class="sect2">
-<h3 id="_domain_model">8.1. Domain model</h3>
 <div class="paragraph">
 <p><span class="image"><img src="./images/UmlDiagram.png" alt="Example UML Diagram"></span></p>
 </div>
+<div class="paragraph">
+<p>=== <em>&lt;Concept 2&gt;</em></p>
 </div>
-<div class="sect2">
-<h3 id="_concept_2">8.2. <em>&lt;Concept 2&gt;</em></h3>
 <div class="paragraph">
 <p><em>&lt;explanation&gt;</em></p>
 </div>
 <div class="paragraph">
 <p>&#8230;&#8203;</p>
 </div>
+<div class="paragraph">
+<p>=== <em>&lt;Concept n&gt;</em></p>
 </div>
-<div class="sect2">
-<h3 id="_concept_n">8.3. <em>&lt;Concept n&gt;</em></h3>
 <div class="paragraph">
 <p><em>&lt;explanation&gt;</em></p>
 </div>
 <div style="page-break-after: always;"></div>
+<div id="section-design-decisions" class="paragraph">
+<p>== Design Decisions</p>
 </div>
 </div>
 </div>
-<div class="sect1">
-<h2 id="section-design-decisions">9. Design Decisions</h2>
-<div class="sectionbody">
-<div class="sidebarblock arc42help">
-<div class="content">
 <div class="paragraph">
 <div class="title">Contents</div>
 <p>Important, expensive, large scale or risky architecture decisions including rationals.
@@ -1724,16 +1668,14 @@ here in this central section or whether you better document it locally
 </li>
 </ul>
 </div>
-</div>
-</div>
-<div style="page-break-after: always;"></div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="section-quality-scenarios">10. Quality Requirements</h2>
-<div class="sectionbody">
-<div class="sidebarblock arc42help">
+<div class="sidebarblock">
 <div class="content">
+<div style="page-break-after: always;"></div>
+<div id="section-quality-scenarios" class="paragraph">
+<p>== Quality Requirements</p>
+</div>
+</div>
+</div>
 <div class="paragraph">
 <div class="title">Content</div>
 <p>This section contains all quality requirements as quality tree with scenarios. The most important ones have already been described in section 1.2. (quality goals)</p>
@@ -1748,15 +1690,16 @@ which will not create high risks when they are not fully achieved.</p>
 decisions you should know for every stakeholder what is really important to them,
 concrete and measurable.</p>
 </div>
-</div>
-</div>
+<div class="sidebarblock">
+<div class="content">
 <div class="paragraph">
 <p>We have already talked about quality goals in section 1.2, but in this section we will expand on that topic, using a quality tree (which will provide an overview of the attributes) and some quality scenarios (which will describe what happens when a stimulus arrives at the system).</p>
 </div>
-<div class="sect2">
-<h3 id="_quality_tree">10.1. Quality Tree</h3>
-<div class="sidebarblock arc42help">
-<div class="content">
+<div class="paragraph">
+<p>=== Quality Tree</p>
+</div>
+</div>
+</div>
 <div class="paragraph">
 <div class="title">Content</div>
 <p>The quality tree (as defined in ATAM – Architecture Tradeoff Analysis Method) with quality/evaluation scenarios as leafs.</p>
@@ -1782,16 +1725,16 @@ concrete and measurable.</p>
 <div class="paragraph">
 <p>In any case the tree should include links to the scenarios of the following section.</p>
 </div>
-</div>
-</div>
+<div class="sidebarblock">
+<div class="content">
 <div class="paragraph">
 <p><span class="image"><img src="./images/qualityTree.png" alt="Quality tree"></span></p>
 </div>
+<div class="paragraph">
+<p>=== Quality Scenarios
+.Quality Scenarios</p>
 </div>
-<div class="sect2">
-<h3 id="_quality_scenarios">10.2. Quality Scenarios</h3>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 3. Quality Scenarios</caption>
 <colgroup>
 <col style="width: 25%;">
 <col style="width: 25%;">
@@ -1840,14 +1783,11 @@ concrete and measurable.</p>
 </tbody>
 </table>
 <div style="page-break-after: always;"></div>
+<div id="section-technical-risks" class="paragraph">
+<p>== Risks and Technical Debts</p>
 </div>
 </div>
 </div>
-<div class="sect1">
-<h2 id="section-technical-risks">11. Risks and Technical Debts</h2>
-<div class="sectionbody">
-<div class="sidebarblock arc42help">
-<div class="content">
 <div class="paragraph">
 <div class="title">Contents</div>
 <p>A list of identified technical risks or technical debts, ordered by priority</p>
@@ -1863,16 +1803,14 @@ concrete and measurable.</p>
 <div class="title">Form</div>
 <p>List of risks and/or technical debts, probably including suggested measures to minimize, mitigate or avoid risks or reduce technical debts.</p>
 </div>
-</div>
-</div>
-<div style="page-break-after: always;"></div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="section-glossary">12. Glossary</h2>
-<div class="sectionbody">
-<div class="sidebarblock arc42help">
+<div class="sidebarblock">
 <div class="content">
+<div style="page-break-after: always;"></div>
+<div id="section-glossary" class="paragraph">
+<p>== Glossary</p>
+</div>
+</div>
+</div>
 <div class="paragraph">
 <div class="title">Contents</div>
 <p>The most important domain and technical terms that your stakeholders use when discussing the system.</p>
@@ -1901,8 +1839,8 @@ concrete and measurable.</p>
 <div class="paragraph">
 <p>Potentially more columns in case you need translations.</p>
 </div>
-</div>
-</div>
+<div class="sidebarblock">
+<div class="content">
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 50%;">
@@ -1944,6 +1882,9 @@ software and system architecture.</p>
 We acknowledge that this document uses material from the
 arc 42 architecture template, <a href="http://www.arc42.de" class="bare">http://www.arc42.de</a>.
 Created by Dr. Peter Hruschka &amp; Dr. Gernot Starke.</p>
+</div>
+</div>
+</div>
 </div>
 </div>
 </div>
