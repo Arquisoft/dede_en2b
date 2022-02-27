@@ -45,11 +45,8 @@ image:business_context.png["Business context diagram"]
 |===
 | Entity         | Description
 | User     | Interacts with system by viewing, selecting and buying products. Users have an account in the system that lets them visualize orders done.
-| Database     | Stores information about users, products and orders. The system reads data from it and writes new one.
 | SOLID pods     | They have information about client's addresses. The system obtains this information to calculate shipping costs and process orders.
 | Carrier API     | DeDe uses them to obtain shipping costs from one address to another one.
-| Delivery     | With all the information collected from the user, the database, carrier APIs and SOLID pods and once everything is processed, an order delivery is simulated.
-                 In a real scenario, the orders would be shipped to their corresponding addresses. 
 |===
 
 === Technical Context
