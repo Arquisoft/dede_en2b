@@ -9,6 +9,8 @@ import  {getUsers} from './api/api';
 import {User} from './shared/shareddtypes';
 import './App.css';
 
+import ButtonAppBar from './components/Appbar';
+
 function App(): JSX.Element {
 
   const [users,setUsers] = useState<User[]>([]);
@@ -23,6 +25,7 @@ function App(): JSX.Element {
 
   return (
     <>
+      <ButtonAppBar/>
       <Container maxWidth="sm">
         <Welcome message="ASW students"/>
         <Box component="div" sx={{ py: 2}}>This is a basic example of a React application using Typescript. You can add your email to the list filling the form below.</Box>

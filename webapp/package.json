@@ -4,7 +4,8 @@
   "dependencies": {
     "@emotion/react": "^11.7.1",
     "@emotion/styled": "^11.6.0",
-    "@mui/icons-material": "^5.2.5",
+    "@material-ui/core": "^4.12.3",
+    "@mui/icons-material": "^5.4.4",
     "@mui/material": "^5.2.5",
     "@testing-library/jest-dom": "^5.16.1",
     "@testing-library/react": "^12.1.2",
@@ -53,9 +54,9 @@
     "jest-cucumber": "^3.0.1",
     "jest-puppeteer": "^6.0.3",
     "puppeteer": "^13.0.1",
+    "react-scripts": "5.0.0",
     "start-server-and-test": "^1.14.0",
     "ts-jest": "^27.1.2",
-    "ts-node-dev": "^1.1.8",
-    "react-scripts": "5.0.0"
+    "ts-node-dev": "^1.1.8"
   }
 }
