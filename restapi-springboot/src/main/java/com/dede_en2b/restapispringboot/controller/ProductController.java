@@ -9,18 +9,20 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@RequestMapping("product/")
+@CrossOrigin("http://localhost:3000/")
 public class ProductController {
 
     @Autowired
     private ProductService productService;
 
-    @PostMapping("/product/add")
+    @PostMapping("add")
     public String addProduct(@RequestBody Product product){
         productService.saveProduct(product);
         return "New Product is added";
     }
 
-    @GetMapping("/product/list")
+    @GetMapping("list")
     public List<Product>getList() {
         return productService.getAllProducts();
 
