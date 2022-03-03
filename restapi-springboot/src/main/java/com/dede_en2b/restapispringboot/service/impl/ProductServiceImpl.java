@@ -18,10 +18,9 @@ public class ProductServiceImpl implements ProductService {
 
     @PostConstruct
     public void init(){
-        saveProduct(new Product());
-        saveProduct(new Product());
-        saveProduct(new Product());
-        saveProduct(new Product());
+        saveProduct(new Product("Strawberry", "Fruit", 1.23));
+        saveProduct(new Product("Salmon", "Fish", 3.20));
+        saveProduct(new Product("Orange", "Fruit", 0.96));
     }
 
     @Override

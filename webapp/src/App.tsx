@@ -1,19 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import Container from '@mui/material/Container';
-import  {getUsers} from './api/api';
-import {User} from './shared/shareddtypes';
+import  {getProductCatalog} from './api/api';
+import {Product} from './shared/shareddtypes';
 import './App.css';
 
 import ButtonAppBar from './components/Appbar';
-import ProductsTable from './components/ProductsTable';
+import EnhancedTable from "./components/ProductsTable";
 
 
 function App(): JSX.Element {
 
-  const [users,setUsers] = useState<User[]>([]);
+  const [products,setProducts] = useState<Product[]>([]);
 
   const refreshUserList = async () => {
-    setUsers(await getUsers());
+      setProducts(await getProductCatalog());
   }
 
   useEffect(()=>{
@@ -24,7 +24,7 @@ function App(): JSX.Element {
     <>
       <ButtonAppBar/>
       <Container>
-        <ProductsTable/>
+        <EnhancedTable products={products}/>
       </Container>
     </>
   );
