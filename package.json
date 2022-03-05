@@ -4,6 +4,7 @@
   "dependencies": {
     "@emotion/react": "^11.7.1",
     "@emotion/styled": "^11.6.0",
+    "@inrupt/solid-ui-react": "^2.7.0",
     "@material-ui/core": "^4.12.3",
     "@mui/icons-material": "^5.4.4",
     "@mui/material": "^5.2.5",
@@ -11,7 +12,7 @@
     "@testing-library/react": "^12.1.2",
     "@testing-library/user-event": "^13.5.0",
     "@types/node": "^16.11.14",
-    "@types/react": "^17.0.37",
+    "@types/react": "^17.0.39",
     "@types/react-dom": "^17.0.11",
     "express": "^4.17.2",
     "react": "^17.0.2",

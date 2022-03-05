@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import { SessionProvider, LoginButton } from "@inrupt/solid-ui-react";
+import React, { useState, useEffect, ReactElement } from 'react';
 import Container from '@mui/material/Container';
 import  {getProductCatalog} from './api/api';
 import {Product} from './shared/shareddtypes';
@@ -31,3 +32,28 @@ function App(): JSX.Element {
 }
 
 export default App;
+
+
+function WithChildren({
+  oidcIssuer,
+  onError,
+}: {
+  oidcIssuer: string;
+  onError: (error: Error) => void;
+}): ReactElement {
+  return (
+    <SessionProvider sessionId="log-in-example">
+      <p>
+        Prueba de Pods.
+      </p>
+
+      <LoginButton
+        oidcIssuer={oidcIssuer}
+        redirectUrl={window.location.href}
+        onError={onError}
+      >
+        <button color="primary">Log In</button>
+      </LoginButton>
+    </SessionProvider>
+  );
+}
