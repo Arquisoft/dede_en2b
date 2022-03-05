@@ -19,6 +19,7 @@ import FilterListIcon from '@mui/icons-material/FilterList';
 import { visuallyHidden } from '@mui/utils';
 import { Button } from '@mui/material';
 import {Product} from '../shared/shareddtypes';
+import Container from '@mui/material/Container';
 
 type ProductListProps = {
   products: Product[];
@@ -268,6 +269,7 @@ export default function EnhancedTable(props:ProductListProps): JSX.Element {
     page > 0 ? Math.max(0, (1 + page) * rowsPerPage - props.products.length) : 0;
 
   return (
+      <Container>
     <Box sx={{ width: '100%' }}>
       <Paper sx={{ width: '100%', mb: 2 }}>
         <EnhancedTableToolbar numSelected={selected.length} />
@@ -342,6 +344,7 @@ export default function EnhancedTable(props:ProductListProps): JSX.Element {
         <Button> Add </Button>
       </Paper>
     </Box>
+      </Container>
   );
 
 }
