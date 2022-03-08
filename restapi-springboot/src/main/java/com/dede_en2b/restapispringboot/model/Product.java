@@ -16,11 +16,13 @@ public class Product {
     private String name;
     private String category;
     private double price;
+    private String image;
 
-    public Product( String name, String category, double price){
+    public Product( String name, String category, double price, String image){
         this.name = name;
         this.category = category;
         this.price = price;
+        this.image = image;
     }
 
     public Product(){
@@ -60,4 +62,8 @@ public class Product {
     public void setPrice(double price) {
         this.price = price;
     }
+
+    public String getImage() { return image; }
+
+    public void setImage(String image) { this.image = image; }
 }

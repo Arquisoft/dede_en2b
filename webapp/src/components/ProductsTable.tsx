@@ -18,11 +18,11 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import FilterListIcon from '@mui/icons-material/FilterList';
 import { visuallyHidden } from '@mui/utils';
 import { Button } from '@mui/material';
-import {Product} from '../shared/shareddtypes';
+import {ProductType} from '../shared/shareddtypes';
 import Container from '@mui/material/Container';
 
 type ProductListProps = {
-  products: Product[];
+  products: ProductType[];
 }
 
 
@@ -39,15 +39,15 @@ function descendingComparator<T>(a: T, b: T, orderBy: keyof T) {
 type Order = 'asc' | 'desc';
 
 function getComparator<Key extends keyof any>(
-  order: Order,
-  orderBy: Key,
+    order: Order,
+    orderBy: Key,
 ): (
-  a: { [key in Key]: number | string },
-  b: { [key in Key]: number | string },
+    a: { [key in Key]: number | string },
+    b: { [key in Key]: number | string },
 ) => number {
   return order === 'desc'
-    ? (a, b) => descendingComparator(a, b, orderBy)
-    : (a, b) => -descendingComparator(a, b, orderBy);
+      ? (a, b) => descendingComparator(a, b, orderBy)
+      : (a, b) => -descendingComparator(a, b, orderBy);
 }
 
 // This method is created for cross-browser compatibility, if you don't
@@ -66,7 +66,7 @@ function stableSort<T>(array: readonly T[], comparator: (a: T, b: T) => number) 
 
 interface HeadCell {
   disablePadding: boolean;
-  id: keyof Product;
+  id: keyof ProductType;
   label: string;
   numeric: boolean;
 }
@@ -94,7 +94,7 @@ const headCells: readonly HeadCell[] = [
 
 interface EnhancedTableProps {
   numSelected: number;
-  onRequestSort: (event: React.MouseEvent<unknown>, property: keyof Product) => void;
+  onRequestSort: (event: React.MouseEvent<unknown>, property: keyof ProductType) => void;
   onSelectAllClick: (event: React.ChangeEvent<HTMLInputElement>) => void;
   order: Order;
   orderBy: string;
@@ -103,49 +103,49 @@ interface EnhancedTableProps {
 
 function EnhancedTableHead(props: EnhancedTableProps) {
   const { onSelectAllClick, order, orderBy, numSelected, rowCount, onRequestSort } =
-    props;
+      props;
   const createSortHandler =
-    (property: keyof Product) => (event: React.MouseEvent<unknown>) => {
-      onRequestSort(event, property);
-    };
+      (property: keyof ProductType) => (event: React.MouseEvent<unknown>) => {
+        onRequestSort(event, property);
+      };
 
   return (
-    <TableHead>
-      <TableRow>
-        <TableCell padding="checkbox">
-          <Checkbox
-            color="primary"
-            indeterminate={numSelected > 0 && numSelected < rowCount}
-            checked={rowCount > 0 && numSelected === rowCount}
-            onChange={onSelectAllClick}
-            inputProps={{
-              'aria-label': 'select all desserts',
-            }}
-          />
-        </TableCell>
-        {headCells.map((headCell) => (
-          <TableCell
-            key={headCell.id}
-            //align={headCell.numeric ? 'right' : 'left'}
-            padding={headCell.disablePadding ? 'none' : 'normal'}
-            sortDirection={orderBy === headCell.id ? order : false}
-          >
-            <TableSortLabel
-              active={orderBy === headCell.id}
-              direction={orderBy === headCell.id ? order : 'asc'}
-              onClick={createSortHandler(headCell.id)}
-            >
-              {headCell.label}
-              {orderBy === headCell.id ? (
-                <Box component="span" sx={visuallyHidden}>
-                  {order === 'desc' ? 'sorted descending' : 'sorted ascending'}
-                </Box>
-              ) : null}
-            </TableSortLabel>
+      <TableHead>
+        <TableRow>
+          <TableCell padding="checkbox">
+            <Checkbox
+                color="primary"
+                indeterminate={numSelected > 0 && numSelected < rowCount}
+                checked={rowCount > 0 && numSelected === rowCount}
+                onChange={onSelectAllClick}
+                inputProps={{
+                  'aria-label': 'select all desserts',
+                }}
+            />
           </TableCell>
-        ))}
-      </TableRow>
-    </TableHead>
+          {headCells.map((headCell) => (
+              <TableCell
+                  key={headCell.id}
+                  //align={headCell.numeric ? 'right' : 'left'}
+                  padding={headCell.disablePadding ? 'none' : 'normal'}
+                  sortDirection={orderBy === headCell.id ? order : false}
+              >
+                <TableSortLabel
+                    active={orderBy === headCell.id}
+                    direction={orderBy === headCell.id ? order : 'asc'}
+                    onClick={createSortHandler(headCell.id)}
+                >
+                  {headCell.label}
+                  {orderBy === headCell.id ? (
+                      <Box component="span" sx={visuallyHidden}>
+                        {order === 'desc' ? 'sorted descending' : 'sorted ascending'}
+                      </Box>
+                  ) : null}
+                </TableSortLabel>
+              </TableCell>
+          ))}
+        </TableRow>
+      </TableHead>
   );
 }
 
@@ -157,63 +157,63 @@ const EnhancedTableToolbar = (props: EnhancedTableToolbarProps) => {
   const { numSelected } = props;
 
   return (
-    <Toolbar
-      sx={{
-        pl: { sm: 2 },
-        pr: { xs: 1, sm: 1 },
-        ...(numSelected > 0 && {
-          bgcolor: (theme) =>
-            alpha(theme.palette.primary.main, theme.palette.action.activatedOpacity),
-        }),
-      }}
-    >
-      {numSelected > 0 ? (
-        <Typography
-          sx={{ flex: '1 1 100%' }}
-          color="inherit"
-          variant="subtitle1"
-          component="div"
-        >
-          {numSelected} selected
-        </Typography>
-      ) : (
-        <Typography
-          sx={{ flex: '1 1 100%' }}
-          variant="h6"
-          id="tableTitle"
-          component="div"
-        >
-          List of products
-        </Typography>
-      )}
-      {numSelected > 0 ? (
-        <Tooltip title="Delete">
-          <IconButton>
-            <DeleteIcon />
-          </IconButton>
-        </Tooltip>
-      ) : (
-        <Tooltip title="Filter list">
-          <IconButton>
-            <FilterListIcon />
-          </IconButton>
-        </Tooltip>
-      )}
-    </Toolbar>
+      <Toolbar
+          sx={{
+            pl: { sm: 2 },
+            pr: { xs: 1, sm: 1 },
+            ...(numSelected > 0 && {
+              bgcolor: (theme) =>
+                  alpha(theme.palette.primary.main, theme.palette.action.activatedOpacity),
+            }),
+          }}
+      >
+        {numSelected > 0 ? (
+            <Typography
+                sx={{ flex: '1 1 100%' }}
+                color="inherit"
+                variant="subtitle1"
+                component="div"
+            >
+              {numSelected} selected
+            </Typography>
+        ) : (
+            <Typography
+                sx={{ flex: '1 1 100%' }}
+                variant="h6"
+                id="tableTitle"
+                component="div"
+            >
+              List of products
+            </Typography>
+        )}
+        {numSelected > 0 ? (
+            <Tooltip title="Delete">
+              <IconButton>
+                <DeleteIcon />
+              </IconButton>
+            </Tooltip>
+        ) : (
+            <Tooltip title="Filter list">
+              <IconButton>
+                <FilterListIcon />
+              </IconButton>
+            </Tooltip>
+        )}
+      </Toolbar>
   );
 };
 
 export default function EnhancedTable(props:ProductListProps): JSX.Element {
   const [order, setOrder] = React.useState<Order>('asc');
-  const [orderBy, setOrderBy] = React.useState<keyof Product>('price');
+  const [orderBy, setOrderBy] = React.useState<keyof ProductType>('price');
   const [selected, setSelected] = React.useState<readonly string[]>([]);
   const [page, setPage] = React.useState(0);
   const [dense, setDense] = React.useState(false);
   const [rowsPerPage, setRowsPerPage] = React.useState(5);
 
   const handleRequestSort = (
-    event: React.MouseEvent<unknown>,
-    property: keyof Product,
+      event: React.MouseEvent<unknown>,
+      property: keyof ProductType,
   ) => {
     const isAsc = orderBy === property && order === 'asc';
     setOrder(isAsc ? 'desc' : 'asc');
@@ -241,8 +241,8 @@ export default function EnhancedTable(props:ProductListProps): JSX.Element {
       newSelected = newSelected.concat(selected.slice(0, -1));
     } else if (selectedIndex > 0) {
       newSelected = newSelected.concat(
-        selected.slice(0, selectedIndex),
-        selected.slice(selectedIndex + 1),
+          selected.slice(0, selectedIndex),
+          selected.slice(selectedIndex + 1),
       );
     }
 
@@ -266,84 +266,84 @@ export default function EnhancedTable(props:ProductListProps): JSX.Element {
 
   // Avoid a layout jump when reaching the last page with empty rows.
   const emptyRows =
-    page > 0 ? Math.max(0, (1 + page) * rowsPerPage - props.products.length) : 0;
+      page > 0 ? Math.max(0, (1 + page) * rowsPerPage - props.products.length) : 0;
 
   return (
       <Container>
-    <Box sx={{ width: '100%' }}>
-      <Paper sx={{ width: '100%', mb: 2 }}>
-        <EnhancedTableToolbar numSelected={selected.length} />
-        <TableContainer>
-          <Table
-            sx={{ minWidth: 750 }}
-            aria-labelledby="tableTitle"
-            size={dense ? 'small' : 'medium'}
-          >
-            <EnhancedTableHead
-              numSelected={selected.length}
-              order={order}
-              orderBy={orderBy}
-              onSelectAllClick={handleSelectAllClick}
-              onRequestSort={handleRequestSort}
-              rowCount={props.products.length}
-            />
+        <Box sx={{ width: '100%' }}>
+          <Paper sx={{ width: '100%', mb: 2 }}>
+            <EnhancedTableToolbar numSelected={selected.length} />
+            <TableContainer>
+              <Table
+                  sx={{ minWidth: 750 }}
+                  aria-labelledby="tableTitle"
+                  size={dense ? 'small' : 'medium'}
+              >
+                <EnhancedTableHead
+                    numSelected={selected.length}
+                    order={order}
+                    orderBy={orderBy}
+                    onSelectAllClick={handleSelectAllClick}
+                    onRequestSort={handleRequestSort}
+                    rowCount={props.products.length}
+                />
 
-                  <TableBody>
-                    {/* if you don't need to support IE11, you can replace the `stableSort` call with:
+                <TableBody>
+                  {/* if you don't need to support IE11, you can replace the `stableSort` call with:
               rows.slice().sort(getComparator(order, orderBy)) */}
-                    {stableSort(props.products, getComparator(order, orderBy))
-                        .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-                        .map((row, index) => {
-                          const isItemSelected = isSelected(row.name as string);
-                          const labelId = `enhanced-table-checkbox-${index}`;
+                  {stableSort(props.products, getComparator(order, orderBy))
+                      .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                      .map((row, index) => {
+                        const isItemSelected = isSelected(row.name as string);
+                        const labelId = `enhanced-table-checkbox-${index}`;
 
-                          return (
-                              <TableRow
-                                  hover
-                                  onClick={(event) => handleClick(event, row.name as string)}
-                                  role="checkbox"
-                                  aria-checked={isItemSelected}
-                                  tabIndex={-1}
-                                  key={row.name}
-                                  selected={isItemSelected}
+                        return (
+                            <TableRow
+                                hover
+                                onClick={(event) => handleClick(event, row.name as string)}
+                                role="checkbox"
+                                aria-checked={isItemSelected}
+                                tabIndex={-1}
+                                key={row.name}
+                                selected={isItemSelected}
+                            >
+                              <TableCell padding="checkbox">
+                                <Checkbox
+                                    color="primary"
+                                    checked={isItemSelected}
+                                    inputProps={{
+                                      'aria-labelledby': labelId,
+                                    }}
+                                />
+                              </TableCell>
+                              <TableCell
+                                  component="th"
+                                  id={labelId}
+                                  scope="row"
+                                  padding="none"
                               >
-                                <TableCell padding="checkbox">
-                                  <Checkbox
-                                      color="primary"
-                                      checked={isItemSelected}
-                                      inputProps={{
-                                        'aria-labelledby': labelId,
-                                      }}
-                                  />
-                                </TableCell>
-                                <TableCell
-                                    component="th"
-                                    id={labelId}
-                                    scope="row"
-                                    padding="none"
-                                >
-                                  {row.name}
-                                </TableCell>
-                                <TableCell align="left">{row.category}</TableCell>
-                                <TableCell align="left">{row.price}</TableCell>
-                              </TableRow>
-                          );
-                        })}
-                    {emptyRows > 0 && (
-                        <TableRow
-                            style={{
-                              height: (dense ? 33 : 53) * emptyRows,
-                            }}
-                        >
-                          <TableCell colSpan={6}/>
-                        </TableRow>
-                    )}
-                  </TableBody>
-          </Table>
-        </TableContainer>
-        <Button> Add </Button>
-      </Paper>
-    </Box>
+                                {row.name}
+                              </TableCell>
+                              <TableCell align="left">{row.category}</TableCell>
+                              <TableCell align="left">{row.price}</TableCell>
+                            </TableRow>
+                        );
+                      })}
+                  {emptyRows > 0 && (
+                      <TableRow
+                          style={{
+                            height: (dense ? 33 : 53) * emptyRows,
+                          }}
+                      >
+                        <TableCell colSpan={6}/>
+                      </TableRow>
+                  )}
+                </TableBody>
+              </Table>
+            </TableContainer>
+            <Button> Add </Button>
+          </Paper>
+        </Box>
       </Container>
   );
 

@@ -1,40 +1,28 @@
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 
-import {getProductCatalog} from './api/api';
-import {Product} from './shared/shareddtypes';
 import './App.css';
 
-import ButtonAppBar from './components/Appbar';
 import HomePage from "./components/HomePage";
-import EnhancedTable from "./components/ProductsTable";
 
-import {BrowserRouter as Router, Routes, Route, BrowserRouter} from "react-router-dom";
-
+import {Routes, Route, BrowserRouter} from "react-router-dom";
+import Navbar from "./components/Navbar";
+import ListProducts from "./components/ListProducts";
+import {CartProvider} from "./components/CartContext";
+import Cart from "./components/Cart/Cart";
 
 function App(): JSX.Element {
 
-    const [products, setProducts] = useState<Product[]>([]);
-
-    const refreshUserList = async () => {
-        setProducts(await getProductCatalog());
-    }
-
-    useEffect(() => {
-        refreshUserList();
-    }, []);
-
     return (
-        <>
-            <BrowserRouter>
-                <ButtonAppBar/>
-                <div className="body">
+        <BrowserRouter>
+            <CartProvider>
+                <Navbar/>
                     <Routes>
                         <Route path="/" element={<HomePage />}/>
-                        <Route path="/products" element={<EnhancedTable products={products}/>}/>
+                        <Route path="/products" element={<ListProducts/>}/>
+                        <Route path="/cart" element={<Cart/>}/>
                     </Routes>
-                </div>
-            </BrowserRouter>
-        </>
+            </CartProvider>
+        </BrowserRouter>
     );
 }
 
