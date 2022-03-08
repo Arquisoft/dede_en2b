@@ -71,7 +71,9 @@ const Navbar = () => {
                    </SearchContainer>
                </Left>
                <Center>
-                   <Logo>DeDe</Logo>
+                   <Link to="/" style={{color:"black", textDecoration: 'none' }}>
+                    <Logo>DeDe</Logo>
+                   </Link>
                </Center>
                <Right>
                    <MenuItem>LOGIN</MenuItem>
