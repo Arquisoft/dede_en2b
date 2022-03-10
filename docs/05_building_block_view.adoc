@@ -40,86 +40,73 @@ Thus it contains the white box description of selected building blocks of level 
 ****
 Here you describe the decomposition of the overall system using the following white box template. It contains
 
- * an overview diagram
- * a motivation for the decomposition
- * black box descriptions of the contained building blocks. For these we offer you alternatives:
+* an overview diagram
+* a motivation for the decomposition
+* black box descriptions of the contained building blocks. For these we offer you alternatives:
 
-   ** use _one_ table for a short and pragmatic overview of all contained building blocks and their interfaces
-   ** use a list of black box descriptions of the building blocks according to the black box template (see below).
-   Depending on your choice of tool this list could be sub-chapters (in text files), sub-pages (in a Wiki) or nested elements (in a modeling tool).
+** use _one_ table for a short and pragmatic overview of all contained building blocks and their interfaces
+** use a list of black box descriptions of the building blocks according to the black box template (see below).
+Depending on your choice of tool this list could be sub-chapters (in text files), sub-pages (in a Wiki) or nested elements (in a modeling tool).
 
 
- * (optional:) important interfaces, that are not explained in the black box templates of a building block, but are very important for understanding the white box.
+* (optional:) important interfaces, that are not explained in the black box templates of a building block, but are very important for understanding the white box.
 Since there are so many ways to specify interfaces why do not provide a specific template for them.
- In the worst case you have to specify and describe syntax, semantics, protocols, error handling,
- restrictions, versions, qualities, necessary compatibilities and many things more.
+In the worst case you have to specify and describe syntax, semantics, protocols, error handling,
+restrictions, versions, qualities, necessary compatibilities and many things more.
 In the best case you will get away with examples or simple signatures.
 
 ****
 
-image:buildingblock_level1.png["Building block level 1"]
+image:05_building_blocks_complete.png["Building block level 1"]
+
+=== Scope and context
 
 Motivation::
 
-The user creates and interacts with its own Pod and with de DeDe system. The DeDe system has access to the user's pod and to the database.
+The user creates and interacts with its own Pod and with de DeDe system. The DeDe system has access to the user's pod.
 
 
-Contained Building Blocks::
-[cols="1,2" options="header"]
+[options="header"]
 |===
-| **Name** | **Responsibility**
-| _DeDe_ | Online retail system that preserves the privacy of its users by following the SOLID principles.
-| _User's Pod_ | The user's Pod is where the user stores its data to control it.
-| _Database_ | Database used by the DeDe system to store the needed information, such as the orders done, the addresses, etc.
+| Building block | Description
+| _DeDe_ | Online retail system that preserves the privacy of its users by following the SOLID principles.
+| _User's Pod_ | The user's Pod is where the user stores its data to control it.
 | _User_| Person accessing to the DeDe system and that has its own Pod.
 |===
 
 Important Interfaces::
- _To do_
+_To do_
 
-[role="arc42help"]
-****
-Insert your explanations of black boxes from level 1:
+=== Level 1
 
-If you use tabular form you will only describe your black boxes with name and
-responsibility according to the following schema:
+Motivation::
 
-[cols="1,2" options="header"]
-|===
-| **Name** | **Responsibility**
-| _<black box 1>_ | _<Text>_
-| _<black box 2>_ | _<Text>_
-|===
-****
-
-=== Level 2
-
-[role="arc42help"]
-****
-Here you can specify the inner structure of (some) building blocks from level 1 as white boxes.
-
-You have to decide which building blocks of your system are important enough to justify such a detailed description.
-Please prefer relevance over completeness. Specify important, surprising, risky, complex or volatile building blocks.
-Leave out normal, simple, boring or standardized parts of your system
-****
-
-==== White Box DeDe System
-
-[role="arc42help"]
-****
-...describes the internal structure of _DeDe System_.
-****
-
-image:buildingblock_level2.png["Building block level 2"]
+The DeDe system is expanded in order to give more details about its internal implementation
 
 [options="header"]
 |===
 | Building block         | Description
-| Views     | Contains all the user interfaces of the online shop. The user interacts with them to see and select products, visualize past orders...
-| Controller     | Responds to user events in the views by invoking corresponding actions in the model. It is an intermediary.
-| Model     | Implements all the business logic needed. Accesses the database to retrieve products and clients and to register orders. 
-  Besides, it obtains clients' addresses from their PODs.
+| _Frontend_ | The part that is seen by the user when using the application.
+| _Backend_ | The part of the application that deals with its logic and communicates with the database.
+| _Database_ | Database used by the DeDe system to store the needed information, such as the orders done, the addresses, etc. In our case we will use a MySQL database.
+
 |===
+
+=== Level 2
+
+Motivation::
+
+The frontend and the backend are expanded to give a further insight into its composition
+
+[options="header"]
+|===
+| Building block         | Description
+| _Views (GUI)_     | Contains all the user interfaces of the online shop. The user interacts with them to see and select products, visualize past orders and confirm the purchase, among others.
+| _Controller (RestAPI)_ | It is implemented following the RestAPI architecture. Responds to user events in the views by invoking corresponding actions in the model. It is an intermediary.
+| _Model_     | Implements all the business logic needed. Accesses the database to retrieve products and clients and to register orders.
+Besides, it obtains clients' addresses from their PODs.
+|===
+
 
 
 
