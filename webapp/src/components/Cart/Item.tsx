@@ -28,8 +28,8 @@ const Item = ({item}:Props) => {
                     image={item.image}
                     alt={item.name}
                 />
-                <Box sx={{display:'flex'}}>
-                <Box sx={{display: 'flex', flexDirection: 'column' }}>
+                <Box sx={{display:'flex', flex: 1}}>
+                <Box sx={{display: 'flex', flexDirection: 'column', flex: 1}}>
                     <div className="item-detail">
                         <div className="detail-info">
                             <div className="item-name">

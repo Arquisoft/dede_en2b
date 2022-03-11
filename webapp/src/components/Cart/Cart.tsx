@@ -3,12 +3,15 @@ import {CartContext} from "../CartContext";
 import Item from "./Item";
 import Footer from "./Footer";
 import "./Cart.css";
+import logo from '../../img/emptyshoppingcart.png';
 
 const Cart = () => {
 
     const {cartItems} = useContext(CartContext);
 
-    if (!cartItems.length) return <h5>Shopping cart is empty</h5>;
+    if (!cartItems.length) return <div id={"emptyCart"}> <h5>Shopping cart is empty</h5>
+        <img src={logo} alt="emptyShoppingCard"/>
+    </div>;
 
     return (
         <div className="CartContainer">
