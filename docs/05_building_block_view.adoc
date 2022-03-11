@@ -13,7 +13,7 @@ datas structures, ...) as well as their dependencies (relationships, association
 This view is mandatory for every architecture documentation.
 In analogy to a house this is the _floor plan_.
 
-.Motivatio
+.Motivation
 Maintain an overview of your source code by making its structure understandable through
 abstraction.
 
