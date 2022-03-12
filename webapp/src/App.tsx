@@ -10,6 +10,7 @@ import ListProducts from "./components/ListProducts";
 import {CartProvider} from "./components/CartContext";
 import Cart from "./components/Cart/Cart";
 
+
 function App(): JSX.Element {
 
     return (
@@ -20,6 +21,7 @@ function App(): JSX.Element {
                         <Route path="/" element={<HomePage />}/>
                         <Route path="/products" element={<ListProducts/>}/>
                         <Route path="/cart" element={<Cart/>}/>
+                      
                     </Routes>
             </CartProvider>
         </BrowserRouter>
