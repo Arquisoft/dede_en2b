@@ -5,7 +5,7 @@ import Footer from "./Footer";
 import "./Cart.css";
 import logo from '../../img/emptyshoppingcart.png';
 
-const Cart = () => {
+export default function Cart() {
 
     const {cartItems} = useContext(CartContext);
 
@@ -31,6 +31,7 @@ const Cart = () => {
 
         </div>
     )
+
+    
 }
 
-export default Cart;

@@ -1,10 +1,13 @@
-import React, {useContext} from 'react'
+import React, { useContext, useState } from 'react';
 import styled from "styled-components";
-import {Search, ShoppingCartOutlined} from "@mui/icons-material";
+import { Search, ShoppingCartOutlined } from "@mui/icons-material";
 import Badge from "@mui/material/Badge";
-import {CartContext} from "./CartContext";
-import {getTotalItemsNumber} from "../helper/calculateCartTotal";
-import {Link} from "react-router-dom";
+import { CartContext } from "./CartContext";
+import { getTotalItemsNumber } from "../helper/calculateCartTotal";
+import { Link } from "react-router-dom";
+import { Button } from '@mui/material';
+import { Tooltip } from '@material-ui/core';
+
 
 const Container = styled.div`
     height: 60px;
@@ -59,37 +62,60 @@ const MenuItem = styled.div`
 
 const Navbar = () => {
 
-    const {cartItems} = useContext(CartContext);
+    const { cartItems } = useContext(CartContext);
+    let price = "Price "
+    
+    const handleMouseIn = () => {
+
+       
+      
+       
+      };
+    
+    const handleMouseOut = () => {
+        
+    };
 
     return (
         <Container>
-           <Wrapper>
-               <Left>
-                   <SearchContainer>
-                       <Input/>
-                       <Search style={{color:"gray", fontSize:20}}/>
-                   </SearchContainer>
-               </Left>
-               <Center>
-                   <Link to="/" style={{color:"black", textDecoration: 'none' }}>
-                    <Logo>DeDe</Logo>
-                   </Link>
-               </Center>
-               <Right>
-                   <MenuItem>LOGIN</MenuItem>
-
-                    <Link to="/cart" >
-                        <MenuItem>
-                            <Badge badgeContent={getTotalItemsNumber(cartItems)} color="primary">
-                                <ShoppingCartOutlined/>
-                            </Badge>
-                        </MenuItem>
+            <Wrapper>
+                <Left>
+                    <SearchContainer>
+                        <Input />
+                        <Search style={{ color: "gray", fontSize: 20 }} />
+                    </SearchContainer>
+                </Left>
+                <Center>
+                    <Link to="/" style={{ color: "black", textDecoration: 'none' }}>
+                        <Logo>DeDe</Logo>
                     </Link>
+                </Center>
+                <Right>
+                    <MenuItem>LOGIN</MenuItem>
+
+                    
+                    <Button onMouseOver={handleMouseIn} onMouseOut={handleMouseOut}>
+                        <Link to="/cart" >
+                            <MenuItem
+                                >
+                                <Badge badgeContent={getTotalItemsNumber(cartItems)} color="primary">
+                                    <ShoppingCartOutlined />
+                                </Badge>
+
+                            </MenuItem>
+                        </Link>
+                    </Button>
+                    
+                
 
 
 
-               </Right>
-           </Wrapper>
+
+
+
+
+                </Right>
+            </Wrapper>
         </Container>
     )
 }
