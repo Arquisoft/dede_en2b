@@ -10,7 +10,6 @@ import ListProducts from "./components/ListProducts";
 import {CartProvider} from "./components/CartContext";
 import Cart from "./components/Cart/Cart";
 
-
 function App(): JSX.Element {
 
     return (
