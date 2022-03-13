@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { LoginButton } from "@inrupt/solid-ui-react";
 import { Button, TextField, FormGroup, Container } from "@material-ui/core";
+import "./Login.css";
 
 
 const LoginButtonContainer = () => {
@@ -22,9 +23,11 @@ const LoginButtonContainer = () => {
                     onChange={(e) => setIdp(e.target.value)}
                     InputProps={{
                         endAdornment: (
-                            <LoginButton oidcIssuer={idp} redirectUrl={currentUrl}>
-                                    Login
-                            </LoginButton>
+                            <div className="loginButton">
+                                <LoginButton oidcIssuer={idp} redirectUrl={currentUrl}>
+                                        Login
+                                </LoginButton>
+                            </div>
                         ),
                     }}
                 />

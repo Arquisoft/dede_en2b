@@ -2,7 +2,7 @@ import {useSession, CombinedDataProvider, Image, LogoutButton, Text} from "@inru
 import {Button, Card, CardActionArea, CardContent, Container, Typography} from "@material-ui/core";
 import {FOAF, VCARD} from "@inrupt/lit-generated-vocab-common";
 import {Box} from '@mui/system';
-import "./UserInfoContainer.css";
+import "./Login.css";
 
 const UserInfoContainer = () => {
     const {session} = useSession();
