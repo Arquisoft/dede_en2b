@@ -472,7 +472,9 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#section-building-block-view">5. Building Block View</a>
 <ul class="sectlevel2">
 <li><a href="#_whitebox_overall_system">5.1. Whitebox Overall System</a></li>
-<li><a href="#_level_2">5.2. Level 2</a></li>
+<li><a href="#_scope_and_context">5.2. Scope and context</a></li>
+<li><a href="#_level_1">5.3. Level 1</a></li>
+<li><a href="#_level_2">5.4. Level 2</a></li>
 </ul>
 </li>
 <li><a href="#section-runtime-view">6. Runtime View</a>
@@ -601,21 +603,66 @@ If requirements documents exist this overview should refer to these documents.</
 <ul>
 <li>
 <p>Emulation of an online shopping system where the user can select and order products.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Like any other web app but in a reduced way.</p>
+</li>
+</ul>
+</div>
 </li>
 <li>
 <p>Calculation of the delivery cost based on the address of the user in their Pod.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>The cost is based on an external API.</p>
+</li>
+</ul>
+</div>
 </li>
 <li>
 <p>Simulation of the process of buying a product.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>The user can buy a product and add it to the shopping cart.</p>
+</li>
+<li>
+<p>There is a list of products for the user to buy.</p>
+</li>
+</ul>
+</div>
 </li>
 <li>
 <p>Allowing the user to access the orders previously done.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Like checking the search history in your browser.</p>
+</li>
+</ul>
+</div>
 </li>
 <li>
 <p>Implementation using React and Typescript.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>This will be for the front-end, for the back-end we will use other frameworks such as SpringBoot.</p>
+</li>
+</ul>
+</div>
 </li>
 <li>
-<p>The aplication should be accessible and deployed using a continuous integration system. That means having a hosting service in which we can access the service</p>
+<p>The aplication should be accessible and deployed using a continuous integration system.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>That means having a hosting service in which we can access the service.</p>
+</li>
+</ul>
+</div>
 </li>
 </ul>
 </div>
@@ -927,21 +974,12 @@ The title of the table is the name of your system, the three columns contain the
 <td class="tableblock halign-left valign-top"><p class="tableblock">Interacts with system by viewing, selecting and buying products. Users have an account in the system that lets them visualize orders done.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Database</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Stores information about users, products and orders. The system reads data from it and writes new one.</p></td>
-</tr>
-<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">SOLID pods</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">They have information about client&#8217;s addresses. The system obtains this information to calculate shipping costs and process orders.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Carrier API</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">DeDe uses them to obtain shipping costs from one address to another one.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Delivery</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">With all the information collected from the user, the database, carrier APIs and SOLID pods and once everything is processed, an order delivery is simulated.
-                 In a real scenario, the orders would be shipped to their corresponding addresses.</p></td>
 </tr>
 </tbody>
 </table>
@@ -1158,8 +1196,8 @@ Depending on your choice of tool this list could be sub-chapters (in text files)
 <li>
 <p>(optional:) important interfaces, that are not explained in the black box templates of a building block, but are very important for understanding the white box.
 Since there are so many ways to specify interfaces why do not provide a specific template for them.
- In the worst case you have to specify and describe syntax, semantics, protocols, error handling,
- restrictions, versions, qualities, necessary compatibilities and many things more.
+In the worst case you have to specify and describe syntax, semantics, protocols, error handling,
+restrictions, versions, qualities, necessary compatibilities and many things more.
 In the best case you will get away with examples or simple signatures.</p>
 </li>
 </ul>
@@ -1167,40 +1205,38 @@ In the best case you will get away with examples or simple signatures.</p>
 </div>
 </div>
 <div class="paragraph">
-<p><span class="image"><img src="./images/buildingblock_level1.png" alt="Building block level 1"></span></p>
+<p><span class="image"><img src="./images/05_building_blocks_complete.png" alt="Building block level 1"></span></p>
 </div>
+</div>
+<div class="sect2">
+<h3 id="_scope_and_context">5.2. Scope and context</h3>
 <div class="dlist">
 <dl>
 <dt class="hdlist1">Motivation</dt>
 <dd>
-<p>The user creates and interacts with its own Pod and with de DeDe system. The DeDe system has access to the user&#8217;s pod and to the database.</p>
+<p>The user creates and interacts with its own Pod and with de DeDe system. The DeDe system has access to the user&#8217;s pod.</p>
 </dd>
-<dt class="hdlist1">Contained Building Blocks</dt>
 </dl>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
-<col style="width: 33.3333%;">
-<col style="width: 66.6667%;">
+<col style="width: 50%;">
+<col style="width: 50%;">
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top"><strong>Name</strong></th>
-<th class="tableblock halign-left valign-top"><strong>Responsibility</strong></th>
+<th class="tableblock halign-left valign-top">Building block</th>
+<th class="tableblock halign-left valign-top">Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><em>DeDe</em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"> Online retail system that preserves the privacy of its users by following the SOLID principles.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Online retail system that preserves the privacy of its users by following the SOLID principles.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><em>User&#8217;s Pod</em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"> The user&#8217;s Pod is where the user stores its data to control it.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Database</em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Database used by the DeDe system to store the needed information, such as the orders done, the addresses, etc.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The user&#8217;s Pod is where the user stores its data to control it.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><em>User</em></p></td>
@@ -1216,65 +1252,16 @@ In the best case you will get away with examples or simple signatures.</p>
 </dd>
 </dl>
 </div>
-<div class="sidebarblock arc42help">
-<div class="content">
-<div class="paragraph">
-<p>Insert your explanations of black boxes from level 1:</p>
-</div>
-<div class="paragraph">
-<p>If you use tabular form you will only describe your black boxes with name and
-responsibility according to the following schema:</p>
-</div>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 33.3333%;">
-<col style="width: 66.6667%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top"><strong>Name</strong></th>
-<th class="tableblock halign-left valign-top"><strong>Responsibility</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>&lt;black box 1&gt;</em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"> <em>&lt;Text&gt;</em></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>&lt;black box 2&gt;</em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"> <em>&lt;Text&gt;</em></p></td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
 </div>
 <div class="sect2">
-<h3 id="_level_2">5.2. Level 2</h3>
-<div class="sidebarblock arc42help">
-<div class="content">
-<div class="paragraph">
-<p>Here you can specify the inner structure of (some) building blocks from level 1 as white boxes.</p>
-</div>
-<div class="paragraph">
-<p>You have to decide which building blocks of your system are important enough to justify such a detailed description.
-Please prefer relevance over completeness. Specify important, surprising, risky, complex or volatile building blocks.
-Leave out normal, simple, boring or standardized parts of your system</p>
-</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_white_box_dede_system">5.2.1. White Box DeDe System</h4>
-<div class="sidebarblock arc42help">
-<div class="content">
-<div class="paragraph">
-<p>&#8230;&#8203;describes the internal structure of <em>DeDe System</em>.</p>
-</div>
-</div>
-</div>
-<div class="paragraph">
-<p><span class="image"><img src="./images/buildingblock_level2.png" alt="Building block level 2"></span></p>
+<h3 id="_level_1">5.3. Level 1</h3>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Motivation</dt>
+<dd>
+<p>The DeDe system is expanded in order to give more details about its internal implementation</p>
+</dd>
+</dl>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -1289,22 +1276,58 @@ Leave out normal, simple, boring or standardized parts of your system</p>
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Views</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Contains all the user interfaces of the online shop. The user interacts with them to see and select products, visualize past orders&#8230;&#8203;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Frontend</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The part that is seen by the user when using the application.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Controller</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Responds to user events in the views by invoking corresponding actions in the model. It is an intermediary.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Backend</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The part of the application that deals with its logic and communicates with the database.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Model</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Database</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Database used by the DeDe system to store the needed information, such as the orders done, the addresses, etc. In our case we will use a MySQL database.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_level_2">5.4. Level 2</h3>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Motivation</dt>
+<dd>
+<p>The frontend and the backend are expanded to give a further insight into its composition</p>
+</dd>
+</dl>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Building block</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Views (GUI)</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Contains all the user interfaces of the online shop. The user interacts with them to see and select products, visualize past orders and confirm the purchase, among others.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Controller (RestAPI)</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">It is implemented following the RestAPI architecture. Responds to user events in the views by invoking corresponding actions in the model. It is an intermediary.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Model</em></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Implements all the business logic needed. Accesses the database to retrieve products and clients and to register orders.
-  Besides, it obtains clients' addresses from their PODs.</p></td>
+Besides, it obtains clients' addresses from their PODs.</p></td>
 </tr>
 </tbody>
 </table>
 <div style="page-break-after: always;"></div>
-</div>
 </div>
 </div>
 </div>
@@ -1375,7 +1398,7 @@ You will mainly capture scenarios in your documentation to communicate your arch
 <p>The user will follow the next interaction diagram:</p>
 </div>
 <div class="paragraph">
-<p><span class="image"><img src="./images/06.1-userDiagram.png" alt="User&#8217;s interaction diagram"></span></p>
+<p><span class="image"><img src="./images/06.1.2-userDiagram.png" alt="User&#8217;s interaction diagram"></span></p>
 </div>
 </div>
 <div class="sect2">
@@ -1787,7 +1810,7 @@ concrete and measurable.</p>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Performance</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The users should be able to complete all the operations of the application in a reasonable amount of time (the response time of every operation might be different)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The users should be able to complete all the operations of the application in a reasonable amount of time (the response time of every operation might be different, but it should not surpass 3 seconds)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">High</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Medium</p></td>
 </tr>
@@ -1798,8 +1821,8 @@ concrete and measurable.</p>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Easy</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Accesibility</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Users with disabilities should also be able to use the application. They should be provided several different alternatives for doing operations.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Accessibility</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Users with disabilities should also be able to use the application. They should be provided several different alternatives for doing operations. We will aim for reaching the AA Web Accessibility Guidelines.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Medium</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Medium</p></td>
 </tr>
