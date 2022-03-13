@@ -1,21 +1,8 @@
-import {User} from '../shared/shareddtypes';
+import {ProductType} from '../shared/shareddtypes';
 
-export async function addUser(user:User):Promise<boolean>{
-    const apiEndPoint= process.env.REACT_APP_API_URI || 'http://localhost:5000/api'
-    let response = await fetch(apiEndPoint+'/users/add', {
-        method: 'POST',
-        headers: {'Content-Type':'application/json'},
-        body: JSON.stringify({'name':user.name, 'email':user.email})
-      });
-    if (response.status===200)
-      return true;
-    else
-      return false;
-}
+const PRODUCT_LIST_API = "http://localhost:8080/product/list";
 
-export async function getUsers():Promise<User[]>{
-    const apiEndPoint= process.env.REACT_APP_API_URI || 'http://localhost:5000/api'
-    let response = await fetch(apiEndPoint+'/users/list');
-    //The objects returned by the api are directly convertible to User objects
+export async function getProductCatalog():Promise<ProductType[]>{
+    let response = await fetch(PRODUCT_LIST_API);
     return response.json()
 }
