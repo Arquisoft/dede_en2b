@@ -18,8 +18,9 @@ const UserInfoContainer = () => {
                         datasetUrl={session.info.webId}
                         thingUrl={session.info.webId}>
 
+
                             <CardContent>
-                                <Text property={FOAF.name.iri.value}/>
+                                <Text property={VCARD.fn.iri.value}/>
                             </CardContent>
 
                     </CombinedDataProvider>
