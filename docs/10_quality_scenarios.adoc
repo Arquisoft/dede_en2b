@@ -59,7 +59,7 @@ image:qualityTree.png["Quality tree"]
 |Medium
 
 |Performance
-|The users should be able to complete all the operations of the application in a reasonable amount of time (the response time of every operation might be different)
+|The users should be able to complete all the operations of the application in a reasonable amount of time (the response time of every operation might be different, but it should not surpass 3 seconds)
 |High
 |Medium
 
@@ -68,8 +68,8 @@ image:qualityTree.png["Quality tree"]
 |High
 |Easy
 
-|Accesibility
-|Users with disabilities should also be able to use the application. They should be provided several different alternatives for doing operations.
+|Accessibility
+|Users with disabilities should also be able to use the application. They should be provided several different alternatives for doing operations. We will aim for reaching the AA Web Accessibility Guidelines.
 |Medium
 |Medium
 

@@ -34,7 +34,7 @@ There are many notations for describing scenarios, e.g.
 
 The user will follow the next interaction diagram:
 
-image:06.1-userDiagram.png["User's interaction diagram"]
+image:06.1.2-userDiagram.png["User's interaction diagram"]
 
 
 === Administrator interaction
