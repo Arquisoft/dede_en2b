@@ -5,7 +5,7 @@ import "./Login.css";
 
 
 const LoginButtonContainer = () => {
-    const [idp, setIdp] = useState("https://broker.pod.inrupt.com/");
+    const [idp, setIdp] = useState("https://inrupt.net");
     const [currentUrl, setCurrentUrl] = useState("https://localhost:3000");
 
     useEffect(() => {

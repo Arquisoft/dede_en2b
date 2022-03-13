@@ -8,6 +8,7 @@ import { Link } from "react-router-dom";
 import { SessionProvider, LoginButton, useSession} from "@inrupt/solid-ui-react";
 import LoginButtonContainer from "./LoginButtonContainer";
 import UserInfoContainer from "./UserInfoContainer";
+import "./Navbar.css";
 
 
 const Container = styled.div`
@@ -89,22 +90,26 @@ const Navbar = () => {
         <Container>
             <Wrapper>
                 <Left>
-                    <SearchContainer>
-                        <Input />
-                        <Search style={{ color: "gray", fontSize: 20 }} />
-                    </SearchContainer>
+                    <div className={"searchContainer"}>
+                        <SearchContainer>
+                            <Input />
+                            <Search style={{ color: "gray", fontSize: 20 }} />
+                        </SearchContainer>
+                    </div>
                 </Left>
                 <Center>
-                    <Link to="/" style={{ color: "black", textDecoration: 'none' }}>
-                        <Logo>DeDe</Logo>
-                    </Link>
+                    <div className={"logoContainer"}>
+                        <Link to="/" style={{ color: "black", textDecoration: 'none' }}>
+                            <Logo>DeDe</Logo>
+                        </Link>
+                    </div>
                 </Center>
                 <Right>
                     <SessionProvider sessionId="some-id">
                         {(!isLoggedIn) ? <LoginButtonContainer/> : <UserInfoContainer/>}
                     </SessionProvider>
                     <Link to="/cart" >
-                        <MenuItem>
+                        <MenuItem className={"shopIcon"}>
                             <Badge badgeContent={getTotalItemsNumber(cartItems)} color="primary">
                                 <ShoppingCartOutlined />
                             </Badge>
