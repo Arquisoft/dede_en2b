@@ -23,9 +23,7 @@ const LoginButtonContainer = () => {
                     InputProps={{
                         endAdornment: (
                             <LoginButton oidcIssuer={idp} redirectUrl={currentUrl}>
-                                <Button variant="contained" color="primary">
                                     Login
-                                </Button>
                             </LoginButton>
                         ),
                     }}

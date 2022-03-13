@@ -2,6 +2,7 @@ import {useSession, CombinedDataProvider, Image, LogoutButton, Text} from "@inru
 import {Button, Card, CardActionArea, CardContent, Container, Typography} from "@material-ui/core";
 import {FOAF, VCARD} from "@inrupt/lit-generated-vocab-common";
 import {Box} from '@mui/system';
+import "./UserInfoContainer.css";
 
 const UserInfoContainer = () => {
     const {session} = useSession();
@@ -23,11 +24,13 @@ const UserInfoContainer = () => {
 
                     </CombinedDataProvider>
                 ) : null}
+                <div className={"logoutButton"}>
                 <LogoutButton>
-                    <Button style={{marginTop: "10%"}} variant="contained" color="primary">
+                    <div>
                         Logout
-                    </Button>
+                    </div>
                 </LogoutButton>
+                </div>
             </Box>
         </Container>
     );
