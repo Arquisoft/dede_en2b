@@ -1,0 +1,19 @@
+.shopIcon:hover {
+    box-shadow: 0 0 20px rgba(100,100,100,.2);
+}
+
+.searchContainer:hover {
+    box-shadow: 0 0 30px rgba(100,100,100,.2);
+}
+
+.logoContainer {
+    -webkit-transition: text-shadow 1s linear;
+    -moz-transition: text-shadow 1s linear;
+    -ms-transition: text-shadow 1s linear;
+    -o-transition: text-shadow 1s linear;
+    transition: text-shadow 1s linear;
+}
+.logoContainer:hover,
+.logoContainer.glow {
+    text-shadow: 0 0 10px gold;
+}

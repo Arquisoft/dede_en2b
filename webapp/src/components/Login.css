@@ -1,0 +1,28 @@
+.logoutButton {
+    display: inline-flex;
+    align-items: center;
+    transition-duration: 0.4s;
+    padding: 0.5em;
+}
+
+.logoutButton:hover {
+    background-color: #4CAF50; /* Green */
+    color: white;
+    cursor: pointer;
+}
+
+.loginButton {
+    display: inline-flex;
+    align-items: center;
+    transition-duration: 0.4s;
+    border-color: #282c34;
+    border-width: thick;
+    padding: 0.5em;
+}
+
+.loginButton:hover {
+    background-color: #4CAF50; /* Green */
+    color: white;
+    cursor: pointer;
+}
+

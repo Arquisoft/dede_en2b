@@ -20,6 +20,7 @@ function App(): JSX.Element {
                         <Route path="/" element={<HomePage />}/>
                         <Route path="/products" element={<ListProducts/>}/>
                         <Route path="/cart" element={<Cart/>}/>
+                      
                     </Routes>
             </CartProvider>
         </BrowserRouter>
