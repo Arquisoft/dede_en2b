@@ -8,22 +8,21 @@ import { Link } from "react-router-dom";
 import { SessionProvider, LoginButton, useSession} from "@inrupt/solid-ui-react";
 import LoginButtonContainer from "./LoginButtonContainer";
 import UserInfoContainer from "./UserInfoContainer";
-import "./Navbar.css";
+
 
 
 const Container = styled.div`
-    height: 60px;
-    padding-bottom: 30px;
+    
 `;
 
 const Wrapper = styled.div`
-    padding: 10px 20px;
+    
     display: flex;
     justify-content: space-between;
 `;
 
 const Left = styled.div`
-    flex: 1;
+    
     display: flex;
     align-items: center;
 `;
@@ -59,7 +58,7 @@ const Right = styled.div`
 const MenuItem = styled.div`
     font-size: 14px;
     cursor: pointer;
-    margin-left: 25px;
+    
 `;
 
 

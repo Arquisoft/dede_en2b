@@ -8,6 +8,8 @@
     font-size: 2.5em;
 }
 
+
+
 .cartDetailsContainer {
     display: flex;
     justify-content: center;
@@ -15,11 +17,11 @@
 }
 
 .cartProductInfo {
-    padding: 1.5em;
+    padding: 0.5em;
 }
 
 .cartSummaryContainer{
-    padding: 1.5em;
+    padding: 0.5em;
 }
 
 .cartSummary {
@@ -46,6 +48,7 @@
     text-align: center;
     display: grid;
     grid-auto-columns: auto;
+
 }
 
 #emptyCart > img {
@@ -60,7 +63,7 @@
     color: #000000;
     margin-top: 3%;
     font-family: 'Lato', sans-serif;
-    font-size: 54px;
+    font-size: 2.5em;
     font-weight: 300;
     line-height: 58px;
 }
