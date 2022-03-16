@@ -27,13 +27,6 @@ const Left = styled.div`
     align-items: center;
 `;
 
-const SearchContainer = styled.div`
-    border: 1px solid lightgray;
-    display: flex;
-    align-items: center;
-    margin-left: 25px;
-    padding: 5px;
-`;
 
 const Input = styled.input`
     border: none;
@@ -56,7 +49,7 @@ const Right = styled.div`
 `;
 
 const MenuItem = styled.div`
-    font-size: 14px;
+    font-size: 2.5em;
     cursor: pointer;
     
 `;
@@ -88,14 +81,7 @@ const Navbar = () => {
     return (
         <Container>
             <Wrapper>
-                <Left>
-                    <div className={"searchContainer"}>
-                        <SearchContainer>
-                            <Input />
-                            <Search style={{ color: "gray", fontSize: 20 }} />
-                        </SearchContainer>
-                    </div>
-                </Left>
+                
                 <Center>
                     <div className={"logoContainer"}>
                         <Link to="/" style={{ color: "black", textDecoration: 'none' }}>
