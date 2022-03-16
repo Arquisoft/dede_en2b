@@ -1,0 +1,22 @@
+.checkoutContainer {
+
+    display:flex;
+    justify-content: center;
+    padding-top: 5em;
+    padding-bottom: 2em;
+}
+
+.checkoutContent{
+    border: solid 0.2em black;
+    border-radius: 0.5em;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    padding: 1em;
+    width:50%;
+    height: 50%;
+}
+
+.checkoutButtons{
+    display:grid;
+    grid-template-columns: auto auto;
+    grid-gap: 2em;
+}

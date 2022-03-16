@@ -24,6 +24,8 @@ const Wrapper = styled.div`
 
 const Left = styled.div`
     flex: 1;
+    
+    padding: 10px 20px;
     display: flex;
     align-items: center;
 `;
