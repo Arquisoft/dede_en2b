@@ -1,9 +1,11 @@
 import React, { useContext } from "react";
 import useFetch from "../hooks/useFetch";
+
 import Product from "./Product";
-import styled from "styled-components";
-import { ProductType } from "../shared/shareddtypes";
 import { CartContext } from "./CartContext";
+
+import { ProductType } from "../shared/shareddtypes";
+
 import Grid from "@mui/material/Grid";
 
 const ListProducts = () => {
@@ -19,17 +21,17 @@ const ListProducts = () => {
   };
 
   return (
-    <Grid container spacing={2} sx={{p: 2, m: 0, width: "100vw"}}>
-      {products.map((product) => (
-        <Grid item xs={6} md={4} lg={3}>
-          <Product
-            key={product.id}
-            product={product}
-            handleAddToCart={handleAddToCart}
-          />
-        </Grid>
-      ))}
-    </Grid>
+      <Grid container spacing={2} sx={{ px: 2 }}>
+        {products.map((product) => (
+          <Grid item xs={6} md={4} lg={3}>
+            <Product
+              key={product.id}
+              product={product}
+              handleAddToCart={handleAddToCart}
+            />
+          </Grid>
+        ))}
+      </Grid>
   );
 };
 

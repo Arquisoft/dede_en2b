@@ -8,44 +8,15 @@ import { Link } from "react-router-dom";
 import { SessionProvider, LoginButton, useSession} from "@inrupt/solid-ui-react";
 import LoginButtonContainer from "./LoginButtonContainer";
 import UserInfoContainer from "./UserInfoContainer";
-
-
-
-const Container = styled.div`
-    
-`;
-
-const Wrapper = styled.div`
-    
-    display: flex;
-    justify-content: space-between;
-`;
-
-const Left = styled.div`
-    
-    display: flex;
-    align-items: center;
-`;
-
+import Stack from "@mui/material/Stack"
 
 const Input = styled.input`
     border: none;
 `;
 
-const Center = styled.div`
-    flex: 1;
-`;
-
 const Logo = styled.h1`
     font-weight: bold;
     text-align: center;
-`;
-
-const Right = styled.div`
-    flex: 1;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
 `;
 
 const MenuItem = styled.div`
@@ -79,30 +50,28 @@ const Navbar = () => {
     // LOGIN
 
     return (
-        <Container>
-            <Wrapper>
-                
-                <Center>
-                    <div className={"logoContainer"}>
-                        <Link to="/" style={{ color: "black", textDecoration: 'none' }}>
-                            <Logo>DeDe</Logo>
-                        </Link>
-                    </div>
-                </Center>
-                <Right>
-                    <SessionProvider sessionId="some-id">
-                        {(!isLoggedIn) ? <LoginButtonContainer/> : <UserInfoContainer/>}
-                    </SessionProvider>
-                    <Link to="/cart" >
-                        <MenuItem className={"shopIcon"}>
-                            <Badge badgeContent={getTotalItemsNumber(cartItems)} color="primary">
-                                <ShoppingCartOutlined />
-                            </Badge>
-                        </MenuItem>
+        <Stack justifyContent="space-around" direction="row">
+            <Stack justifyContent="center" alignItems="center">
+                <div className={"logoContainer"}>
+                    <Link to="/" style={{ color: "black", textDecoration: 'none' }}>
+                        <Logo>DeDe</Logo>
                     </Link>
-                </Right>
-            </Wrapper>
-        </Container>
+                </div>
+            </Stack>
+
+            <Stack justifyContent="space-even" direction="row" alignItems="center">
+                <SessionProvider sessionId="some-id">
+                    {(!isLoggedIn) ? <LoginButtonContainer/> : <UserInfoContainer/>}
+                </SessionProvider>
+                <Link to="/cart" >
+                    <MenuItem className={"shopIcon"}>
+                        <Badge badgeContent={getTotalItemsNumber(cartItems)} color="primary">
+                            <ShoppingCartOutlined />
+                        </Badge>
+                    </MenuItem>
+                </Link>
+            </Stack>
+        </Stack>
     )
 }
 

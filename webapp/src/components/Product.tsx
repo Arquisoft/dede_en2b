@@ -1,11 +1,10 @@
-
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import {Button, CardActionArea, CardActions} from '@mui/material';
-import {ProductType} from '../shared/shareddtypes';
 
+import {ProductType} from '../shared/shareddtypes';
 
 type Props = {
     product: ProductType;
@@ -14,7 +13,7 @@ type Props = {
 
 const Product  = ({product, handleAddToCart}: Props) => {
     return (
-        <Card sx={{ maxWidth: 345 }}>
+        <Card>
             <CardActionArea>
                 <CardMedia
                     component="img"
