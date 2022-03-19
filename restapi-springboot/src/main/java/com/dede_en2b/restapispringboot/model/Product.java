@@ -25,11 +25,7 @@ public class Product {
         this.image = image;
     }
 
-    public Product(){
-        this.name = "test";
-        this.category = "test";
-        this.price = 0.0;
-    }
+    public Product() { }
 
     public long getId() {
         return id;
