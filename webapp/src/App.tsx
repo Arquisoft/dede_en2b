@@ -19,14 +19,16 @@ function App(): JSX.Element {
             
             <Stack direction="column" sx={{ width: "100%" }}>
                 <BrowserRouter>
-                    <Navbar />
-                    <CartProvider />
-                    
-                    <Routes>
-                        <Route path="/" element={<HomePage />} />
-                        <Route path="/products" element={<ListProducts />} />
-                        <Route path="/cart" element={<Cart />} />
-                    </Routes>
+                    <CartProvider>
+                        <Navbar />
+                        
+                        
+                        <Routes>
+                            <Route path="/" element={<HomePage />} />
+                            <Route path="/products" element={<ListProducts />} />
+                            <Route path="/cart" element={<Cart />} />
+                        </Routes>
+                    </CartProvider >
                 </BrowserRouter>
             </Stack>
         </Stack>
