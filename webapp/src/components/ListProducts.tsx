@@ -1,40 +1,38 @@
-import React, {useContext} from "react";
+import React, { useContext } from "react";
 import useFetch from "../hooks/useFetch";
-import Product from "./Product";
-import styled from "styled-components";
-import {ProductType} from "../shared/shareddtypes";
-import {CartContext} from "./CartContext";
 
-const Container = styled.div`
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-`;
+import Product from "./Product";
+import { CartContext } from "./CartContext";
+
+import { ProductType } from "../shared/shareddtypes";
+
+import Grid from "@mui/material/Grid";
 
 const ListProducts = () => {
+  const { dispatch } = useContext(CartContext);
 
-    const {dispatch} = useContext(CartContext);
+  const products = useFetch();
 
-    const products  = useFetch();
+  const handleAddToCart = (product: ProductType) => {
+    dispatch({
+      payload: product,
+      type: "ADD",
+    });
+  };
 
-    const handleAddToCart = (product: ProductType) => {
-        dispatch({
-            payload: product,
-            type: 'ADD'
-        });
-    }
-
-    return (
-        <Container>
-            {
-                products.map(product => (
-                    <Product
-                        key={product.id}
-                        product={product}
-                        handleAddToCart={handleAddToCart}/>
-                ))
-            }
-        </Container>
-    )
-}
+  return (
+      <Grid container spacing={2} sx={{ px: 2 }}>
+        {products.map((product) => (
+          <Grid item xs={6} md={4} lg={3}>
+            <Product
+              key={product.id}
+              product={product}
+              handleAddToCart={handleAddToCart}
+            />
+          </Grid>
+        ))}
+      </Grid>
+  );
+};
 
 export default ListProducts;

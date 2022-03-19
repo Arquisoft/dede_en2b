@@ -1,14 +1,19 @@
 package com.dede_en2b.restapispringboot.service.impl;
 
 import com.dede_en2b.restapispringboot.model.Order;
+import com.dede_en2b.restapispringboot.model.OrderProduct;
+import com.dede_en2b.restapispringboot.model.Product;
 import com.dede_en2b.restapispringboot.repository.OrderRepository;
 import com.dede_en2b.restapispringboot.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+import javax.annotation.PostConstruct;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+@Service
 public class OrderServiceImpl implements OrderService {
 
     @Autowired
@@ -21,8 +26,8 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
-    public List<Order> getUserOrders(String user_id) {
-        return orderRepository.findAllByUser(user_id);
+    public List<Order> getUserOrders(String webId) {
+        return orderRepository.findAllByUser(webId);
     }
 
     @Override
