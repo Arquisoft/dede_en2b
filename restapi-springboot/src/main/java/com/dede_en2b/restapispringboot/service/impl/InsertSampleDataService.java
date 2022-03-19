@@ -83,11 +83,12 @@ public class InsertSampleDataService {
         OrderProduct orderProduct4 = new OrderProduct(1, 1.08, banana, order2);
         OrderProduct orderProduct5 = new OrderProduct(1, 1.00, spinach, order2);
         Set<OrderProduct> products2 = new HashSet<>();
-        orderProductService.saveOrderProduct(orderProduct4);
-        orderProductService.saveOrderProduct(orderProduct5);
         products2.add(orderProduct4);
         products2.add(orderProduct5);
         order2.setOrderProducts(products2);
+        orderService.saveOrder(order2);
+        orderProductService.saveOrderProduct(orderProduct4);
+        orderProductService.saveOrderProduct(orderProduct5);
 
     }
 }
