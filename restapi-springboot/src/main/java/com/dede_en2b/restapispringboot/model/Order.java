@@ -1,6 +1,7 @@
 package com.dede_en2b.restapispringboot.model;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -20,13 +21,20 @@ public class Order {
     private LocalDate date;
 
     private String user;
-    private float totalPrice;
+    private double totalPrice;
 
-    @OneToMany (mappedBy = "product",
-                cascade = CascadeType.REMOVE)
+    @OneToMany (mappedBy = "order",
+            cascade = CascadeType.REMOVE,
+            fetch=FetchType.EAGER)
+    @JsonManagedReference
     private Set<OrderProduct> orderProducts;
 
     public Order() {
+    }
+
+    public Order(String user, double totalPrice) {
+        this.user = user;
+        this.totalPrice = totalPrice;
     }
 
     public long getId() {
@@ -53,11 +61,11 @@ public class Order {
         this.user = user;
     }
 
-    public float getTotalPrice() {
+    public double getTotalPrice() {
         return totalPrice;
     }
 
-    public void setTotalPrice(float totalPrice) {
+    public void setTotalPrice(double totalPrice) {
         this.totalPrice = totalPrice;
     }
 
@@ -67,5 +75,9 @@ public class Order {
 
     public Set<OrderProduct> _getOrderProducts() {
         return orderProducts;
+    }
+
+    public void setOrderProducts(Set<OrderProduct> orderProducts) {
+        this.orderProducts = orderProducts;
     }
 }

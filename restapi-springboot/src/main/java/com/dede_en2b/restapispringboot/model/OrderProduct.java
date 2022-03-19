@@ -1,6 +1,7 @@
 package com.dede_en2b.restapispringboot.model;
 
 import javax.persistence.*;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 @Entity
 public class OrderProduct {
@@ -9,12 +10,27 @@ public class OrderProduct {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    public OrderProduct(long id, int quantity, float price, Product product, Order order) {
-        this.id = id;
+    private int quantity;
+    private double price;
+
+    @ManyToOne
+    @JoinColumn (name = "product_id")
+    private Product product;
+
+    @ManyToOne
+    @JoinColumn (name = "order_id")
+    @JsonBackReference
+    private Order order;
+
+    public OrderProduct(int quantity, double price, Product product, Order order) {
         this.quantity = quantity;
         this.price = price;
         this.product = product;
         this.order = order;
+    }
+
+    public OrderProduct() {
+
     }
 
     public long getId() {
@@ -33,11 +49,11 @@ public class OrderProduct {
         this.quantity = quantity;
     }
 
-    public float getPrice() {
+    public double getPrice() {
         return price;
     }
 
-    public void setPrice(float price) {
+    public void setPrice(double price) {
         this.price = price;
     }
 
@@ -57,15 +73,6 @@ public class OrderProduct {
         this.order = order;
     }
 
-    private int quantity;
-    private float price;
 
-    @ManyToOne
-    @JoinColumn (name = "product_id")
-    private Product product;
-
-    @ManyToOne
-    @JoinColumn (name = "order_id")
-    private Order order;
 
 }
