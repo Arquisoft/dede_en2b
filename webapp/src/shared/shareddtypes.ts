@@ -21,6 +21,23 @@ export type CartItem = {
     amount: number;
 }
 
+export type OrderType = {
+    id: number;
+    user: string;
+    orderProducts: OrderProduct[];
+    totalPrice: number;
+    date: string;
+    status: string;
+}
+
+export type OrderProduct = {
+    id:number
+    quantity:number
+    price:number
+    product: ProductType
+    order: OrderType
+}
+
 export type CartActionReducer = {
     payload: any;
     type: 'ADD' | 'REMOVE' | 'REMOVE-ALL' | 'CLEAR';
