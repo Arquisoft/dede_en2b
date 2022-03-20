@@ -8,7 +8,8 @@ import { Link } from "react-router-dom";
 import { SessionProvider, LoginButton, useSession} from "@inrupt/solid-ui-react";
 import LoginButtonContainer from "./LoginButtonContainer";
 import UserInfoContainer from "./UserInfoContainer";
-import Stack from "@mui/material/Stack"
+import Stack from "@mui/material/Stack";
+import "./Navbar.css";
 
 const Input = styled.input`
     border: none;

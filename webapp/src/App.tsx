@@ -8,6 +8,7 @@ import Navbar from "./components/Navbar";
 import ListProducts from "./components/ListProducts";
 import { CartProvider } from "./components/CartContext";
 import Cart from "./components/Cart/Cart";
+import Checkout from "./components/Checkout/Checkout";
 import Sidebar from "./components/Sidebar/Sidebar"
 
 import Stack from "@mui/material/Stack";
@@ -21,12 +22,11 @@ function App(): JSX.Element {
                 <BrowserRouter>
                     <CartProvider>
                         <Navbar />
-                        
-                        
                         <Routes>
                             <Route path="/" element={<HomePage />} />
                             <Route path="/products" element={<ListProducts />} />
                             <Route path="/cart" element={<Cart />} />
+                          <Route path="/checkout" element={<Checkout/>}/>
                         </Routes>
                     </CartProvider >
                 </BrowserRouter>
