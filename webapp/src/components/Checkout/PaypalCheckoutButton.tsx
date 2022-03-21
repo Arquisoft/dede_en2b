@@ -1,10 +1,11 @@
 import React from 'react';
 import ReactDom from 'react-dom';
-import * as paypal from 'paypal-checkout';
-import order from '../Order/Order';
-import cartTotal from '../../helper/calculateCartTotal';
+import paypal from 'paypal-checkout';
+import { calculateTotal } from '../../helper/calculateCartTotal';
 
-const PaypalCheckoutButton = () => {
+const PayPalButton = paypal.Buttons.driver("react", { React, ReactDom });
+
+function PaypalCheckoutButton() {
     const paypalConf = {
         //configure the environment
         currency: 'EUR',
@@ -12,7 +13,6 @@ const PaypalCheckoutButton = () => {
         client: {
             sandbox: 'AZl80cnJ3GAjahCeDby4Hw7amZs3fr-C1gUfC5pkIu6z_i3GinKI8KhCcg1BcRsDVn1ms0WwaVD7uHDY',
             production: '-- id --', // This is empty
-
         },
         style: {
             color: 'white',
@@ -22,36 +22,26 @@ const PaypalCheckoutButton = () => {
         }
     };
 
-    const PaypalButton = paypal.Button.driver('react', {React, ReactDom}); //returning
-
     //set up a payment
-    const payment = (data, actions) => {
-        const payment = {
-            transactions: [{
-                amount: {
-                    total: cartTotal.calculateTotal,
-                    currency: paypalConf.currency,
-                },
-            }]
-        };
-        return actions.payment.create({payment});
-    };
+    const createOrder = () => { 
+        return (calculateTotal);
+    }
 
 
     const onAuthorize = (data, actions) => {
         return actions.payment.execute()
-            .then(response =>{
+            .then(response => {
                 console.log(response);
                 alert('Pago procesado correctamente, ID: ${response.id}');
             })
-            .catch(error => {
-                console.log(error);
+            .catch((Error: any)  => {
+                console.log(Error);
                 alert('Error al procesar pago con PayPal');
-            })
-    }
+            });
+    };
 
-    const onError = (error) =>{
-        console.log(error);
+    const onError = (Error: any) => {
+        console.log(Error);
         alert('Pago no realizado, vuelva a intentarlo');
     };
 
@@ -61,15 +51,14 @@ const PaypalCheckoutButton = () => {
 
     return (
         <PaypalButton
-            env = {paypalConf.env}
-            client = {paypalConf.client}
-            payment = {(data, actions) => payment(data, actions)}
-            onAuthorize = {(data, actions) => onAuthorize(data, actions)}
-            onCancel = {(data, actions) => onCancel(data, actions)}
-            onError = {(error) => onError(error)}
-            style = {paypalConf.style}
-            commit
-        />
-    ); 
-};
+            env={paypalConf.env}
+            client={paypalConf.client}
+            payment={(data, actions) => payment(data, actions)}
+            onAuthorize={(data, actions) => onAuthorize(data, actions)}
+            onCancel={(order : any, actions) => onCancel(order, actions)}
+            onError={(error : any) => onError(error)}
+            style={paypalConf.style}
+            commit />
+    );
+}
 export default PaypalCheckoutButton;
