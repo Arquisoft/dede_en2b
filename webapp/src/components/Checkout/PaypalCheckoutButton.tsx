@@ -1,9 +1,7 @@
-import React from 'react';
-import ReactDom from 'react-dom';
-import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
+import { PayPalButtons } from "@paypal/react-paypal-js";
 import { calculateTotal } from '../../helper/calculateCartTotal';
-import Order from '../Order/Order';
 
+//
 const sandboxId = 'AZl80cnJ3GAjahCeDby4Hw7amZs3fr-C1gUfC5pkIu6z_i3GinKI8KhCcg1BcRsDVn1ms0WwaVD7uHDY';
 
 export default function PaypalCheckoutButton() : JSX.Element {
@@ -23,37 +21,46 @@ export default function PaypalCheckoutButton() : JSX.Element {
         }
     };
 
-    //set up a payment
-    const createOrder = () => { 
-        return (calculateTotal);
-    }
-
-
-    const onAuthorize = (data, actions) => {
-        return actions.payment.execute()
-            .then((response: Response) => {
-                console.log(response);
-                alert('Pago procesado correctamente, ID: ${response.id}');
-            })
-            .catch((error : Error) => {
-                console.log(Error);
-                alert('Error al procesar pago con PayPal');
-            });
-    };
-
-    const onCancel = (data, actions) => {
-        alert('Pago cancelado');
-    };
+    const totalString = calculateTotal.toString();
 
     return (
         <PayPalButtons
-            env={paypalConf.env}
-            client={paypalConf.client}
-            payment={(data, actions) => payment(data, actions)}
-            onAuthorize={(data, actions) => onAuthorize(data, actions)}
-            onCancel={(order : Order, actions) => onCancel(order, actions)}
-            onError={(error : any) => onError(error)}
-            style={paypalConf.style}
-            commit />
-    );
+            style = {{
+                color : 'white',
+                shape : 'pill',
+                label : 'pay',
+            }}
+           
+            createOrder={(data, actions) => {
+                return actions.order.create({
+                    purchase_units: [{
+                        amount: {
+                            value: totalString,
+                            currency_code: 'EUR',
+                        },
+                    },],
+                });
+            }}
+            
+            onCancel = {(data, actions) => {
+                alert('Pago cancelado');
+            }}
+
+            onApprove={async (data, actions: any) => {
+                let order = await actions.order.capture();
+            }}
+
+            createSubscription =  {(data, actions) => {
+                return actions.subscription.create({
+                    plan_id : sandboxId,
+                    quantity : totalString,
+                })
+            }}
+
+            onError = {(error) => {
+                console.log(error);
+                alert('Pago no realizado, vuelva a intentarlo');
+            }}
+        />
+    )
 }
