@@ -1,17 +1,18 @@
 import React from 'react';
 import ReactDom from 'react-dom';
-import paypal from 'paypal-checkout';
+import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
 import { calculateTotal } from '../../helper/calculateCartTotal';
+import Order from '../Order/Order';
 
-const PayPalButton = paypal.Buttons.driver("react", { React, ReactDom });
+const sandboxId = 'AZl80cnJ3GAjahCeDby4Hw7amZs3fr-C1gUfC5pkIu6z_i3GinKI8KhCcg1BcRsDVn1ms0WwaVD7uHDY';
 
-function PaypalCheckoutButton() {
+export default function PaypalCheckoutButton() : JSX.Element {
     const paypalConf = {
         //configure the environment
         currency: 'EUR',
         env: 'sandbox',
         client: {
-            sandbox: 'AZl80cnJ3GAjahCeDby4Hw7amZs3fr-C1gUfC5pkIu6z_i3GinKI8KhCcg1BcRsDVn1ms0WwaVD7uHDY',
+            sandbox: sandboxId,
             production: '-- id --', // This is empty
         },
         style: {
@@ -30,19 +31,14 @@ function PaypalCheckoutButton() {
 
     const onAuthorize = (data, actions) => {
         return actions.payment.execute()
-            .then(response => {
+            .then((response: Response) => {
                 console.log(response);
                 alert('Pago procesado correctamente, ID: ${response.id}');
             })
-            .catch((Error: any)  => {
+            .catch((error : Error) => {
                 console.log(Error);
                 alert('Error al procesar pago con PayPal');
             });
-    };
-
-    const onError = (Error: any) => {
-        console.log(Error);
-        alert('Pago no realizado, vuelva a intentarlo');
     };
 
     const onCancel = (data, actions) => {
@@ -50,15 +46,14 @@ function PaypalCheckoutButton() {
     };
 
     return (
-        <PaypalButton
+        <PayPalButtons
             env={paypalConf.env}
             client={paypalConf.client}
             payment={(data, actions) => payment(data, actions)}
             onAuthorize={(data, actions) => onAuthorize(data, actions)}
-            onCancel={(order : any, actions) => onCancel(order, actions)}
+            onCancel={(order : Order, actions) => onCancel(order, actions)}
             onError={(error : any) => onError(error)}
             style={paypalConf.style}
             commit />
     );
 }
-export default PaypalCheckoutButton;
