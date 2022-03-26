@@ -12,6 +12,7 @@ import CelebrationIcon from '@mui/icons-material/Celebration';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import "./Checkout.css";
 import Order from "../Order/Order";
+import PaypalCheckoutButton from './PaypalCheckoutButton';
 
 const ColorlibConnector = styled(StepConnector)(({theme}) => ({
     [`&.${stepConnectorClasses.alternativeLabel}`]: {
@@ -96,7 +97,7 @@ export default function Checkout() {
             case 0:
                 return (<Order/>);
             case 1:
-                return (<h1>Payment processing</h1>);
+                return (<PaypalCheckoutButton/>);
             case 2:
                 return (<h1>The order has been completed!</h1>);
         }
