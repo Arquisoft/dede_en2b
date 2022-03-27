@@ -8,11 +8,12 @@ import "./Order.css";
 import Box from "@mui/material/Box";
 import logo from '../../img/shippingicon.jpg';
 import logoReceipt from '../../img/receipticon.png';
+import {calculateDeliveryCost} from "../../helper/calculateDeliveryCost";
 
 export default function Order() {
 
     const {cartItems} = useContext(CartContext);
-    const shippingCost = 0;
+    const shippingCost = calculateDeliveryCost();
     const subTotal = calculateTotal(cartItems).toFixed(2); // ADD SHIPPING COST
 
     return <div className="cartProductInfo">
