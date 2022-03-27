@@ -1,8 +1,8 @@
 import {OrderType, ProductType} from '../shared/shareddtypes';
 
-const PRODUCT_LIST_API = "https://localhost:8080/product/list";
-const ORDER_LIST_API = "https://localhost:8080/order/listByUser";
-const ORDER_ID_API = "https://localhost:8080/order/";
+const PRODUCT_LIST_API = "http://localhost:8080/product/list";
+const ORDER_LIST_API = "http://localhost:8080/order/listByUser";
+const ORDER_ID_API = "http://localhost:8080/order/";
 
 export async function getProductCatalog():Promise<ProductType[]>{
     let response = await fetch(PRODUCT_LIST_API);
