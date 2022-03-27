@@ -8,6 +8,8 @@ import {useSession} from "@inrupt/solid-ui-react";
 import {stringToHexadecimal} from "../../helper/stringToHexadecimal";
 import useFetch from "../../hooks/useFetch";
 import useOrdersByUser from "../../hooks/useOrdersByUser";
+import {Link} from "react-router-dom";
+import './CompleteOrder.css';
 
 const CompleteOrder = () => {
 
@@ -47,8 +49,13 @@ const CompleteOrder = () => {
 
 
     return (
-        <div>
-            The order has been completed!
+        <div className={"centerDiv"}>
+            <p>Thank you for your purchase</p>
+            <Link to="/products">
+                <button type="button">
+                    Continue shopping!
+                </button>
+            </Link>
         </div>
     );
 }

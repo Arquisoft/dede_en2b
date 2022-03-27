@@ -84,11 +84,11 @@ export default function Checkout() {
     const steps = ["Order information", "Payment", "Order completed"];
 
     const moveToNextStep = () => {
-        setStep((previousStep) => previousStep + 1);
+        setStep(step + 1);
     };
 
     const moveToPreviousStep = () => {
-        setStep((prevActiveStep) => prevActiveStep - 1);
+        setStep(step - 1);
     };
 
 
@@ -119,8 +119,7 @@ export default function Checkout() {
 
                     <div className="checkoutButtons">
                         <Button
-                            disabled={step === 0}
-                            hidden={step === steps.length}
+                            disabled={step===0 || step===steps.length-1}
                             onClick={moveToPreviousStep}
                             variant="outlined"
                             > Back
@@ -130,7 +129,7 @@ export default function Checkout() {
                             disabled={step === steps.length-1}
                             variant="contained"
                             onClick={moveToNextStep}
-                            > {step === steps.length - 1 ? "Finish" : "Next"}
+                            > {step === steps.length - 1 ? "Finished" : "Next"}
                         </Button>
                     </div>
                 </Stack>
