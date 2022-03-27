@@ -36,4 +36,10 @@ public class OrderServiceImpl implements OrderService {
         orderRepository.findAll().forEach(orders::add);
         return orders;
     }
+
+    @Override
+    public Order getOrderById(Long order_id) {
+        return orderRepository.findById(order_id).get();
+    }
+
 }

@@ -73,6 +73,7 @@ public class InsertSampleDataService {
         products.add(orderProduct2);
         products.add(orderProduct3);
         order1.setOrderProducts(products);
+        order1.setStatus("SHIPPED");
         orderService.saveOrder(order1);
         orderProductService.saveOrderProduct(orderProduct1);
         orderProductService.saveOrderProduct(orderProduct2);
@@ -86,6 +87,7 @@ public class InsertSampleDataService {
         products2.add(orderProduct4);
         products2.add(orderProduct5);
         order2.setOrderProducts(products2);
+        order2.setStatus("PROCESSING");
         orderService.saveOrder(order2);
         orderProductService.saveOrderProduct(orderProduct4);
         orderProductService.saveOrderProduct(orderProduct5);
