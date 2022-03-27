@@ -127,7 +127,7 @@ export default function Checkout() {
                         </Button>
 
                         <Button
-                            hidden={step === steps.length-1}
+                            disabled={step === steps.length-1}
                             variant="contained"
                             onClick={moveToNextStep}
                             > {step === steps.length - 1 ? "Finish" : "Next"}

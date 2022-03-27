@@ -16,7 +16,6 @@ const CompleteOrder = () => {
     const orderProductsToPut: OrderProduct[] = [];
     let orderP: OrderProduct;
     let productsType:OrderType;
-    const products = useFetch();
 
     cartItems.map( item => orderProductsToPut.push(orderP = {
         id: 5, order: productsType, quantity: item.amount , price: item.price,
@@ -35,7 +34,6 @@ const CompleteOrder = () => {
         month = date.getMonth().toString();
     }
 
-    // COMM Crear OrderType
     productsType = {
         id: 0,
         date: date.getDate() + "/" + month + "/" + date.getFullYear(),
@@ -45,7 +43,7 @@ const CompleteOrder = () => {
         orderProducts: orderProductsToPut
     }
 
-    addOrderForUser(productsType);
+    const addOrder = addOrderForUser(productsType);
 
 
     return (

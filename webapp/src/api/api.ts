@@ -25,5 +25,4 @@ export async function addOrderForUser(order:OrderType){
     })
 
     return fetchApi;
-
 }
