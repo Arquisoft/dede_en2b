@@ -1,14 +1,21 @@
 version: '3.5'
 services:
   mysqldb:
-    image: mysql
-    networks:
-      - dede-network
+    image: mysql/mysql-server
     environment:
       - MYSQL_ROOT_PASSWORD=root 
-      - MYSQL_DATABASE=dede 
+      - MYSQL_DATABASE=dede
+      - MYSQL_USER=user
+      - MYSQL_PASSWORD=pass
+      - MYSQL_ROOT_HOST=%
+    networks:
+      - dede-network
     ports:
       - "3306:3306"
+    healthcheck:
+      test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"]
+      timeout: 20s
+      retries: 10
     
 
   restapi:
@@ -17,13 +24,15 @@ services:
       - dede-network
     environment:
       - MYSQL_HOST=dede_en2b-mysqldb-1 
-      - MYSQL_USER=root 
-      - MYSQL_PASSWORD=root 
+      - MYSQL_USER=user 
+      - MYSQL_PASSWORD=pass 
       - MYSQL_PORT=3306
     ports:
       - "5000:5000"
     depends_on:
-      - mysqldb
+      mysqldb:
+        condition: service_healthy
+      
     
 
   webapp:
