@@ -2,14 +2,19 @@ version: '3.5'
 services:
   mysqldb:
     image: mysql
+    networks:
+      - dede-network
     environment:
       - MYSQL_ROOT_PASSWORD=root 
       - MYSQL_DATABASE=dede 
     ports:
       - "3306:3306"
+    
 
   restapi:
     build: ./restapi-springboot
+    networks:
+      - dede-network
     environment:
       - MYSQL_HOST=dede_en2b-mysqldb-1 
       - MYSQL_USER=root 
@@ -19,10 +24,18 @@ services:
       - "5000:5000"
     depends_on:
       - mysqldb
+    
 
   webapp:
     build: ./webapp
+    networks:
+      - dede-network
     ports:
       - "3000:3000"
     depends_on: 
       - restapi
+    
+
+networks:
+  dede-network:
+    driver: bridge
