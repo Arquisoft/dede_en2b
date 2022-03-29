@@ -12,6 +12,7 @@ import Checkout from "./components/Checkout/Checkout";
 import Sidebar from "./components/Sidebar/Sidebar"
 
 import Stack from "@mui/material/Stack";
+import ListOrders from "./components/PastOrders/ListOrders";
 
 function App(): JSX.Element {
     return (
@@ -26,7 +27,9 @@ function App(): JSX.Element {
                             <Route path="/" element={<HomePage />} />
                             <Route path="/products" element={<ListProducts />} />
                             <Route path="/cart" element={<Cart />} />
-                          <Route path="/checkout" element={<Checkout/>}/>
+                            <Route path="/orders" element={<ListOrders/>}>
+                            </Route>
+                            <Route path="/checkout" element={<Checkout/>}/>
                         </Routes>
                     </CartProvider >
                 </BrowserRouter>
