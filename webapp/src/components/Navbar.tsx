@@ -21,7 +21,7 @@ const Logo = styled.h1`
 `;
 
 const MenuItem = styled.div`
-    font-size: 2.5em;
+    font-size: 1.1em;
     cursor: pointer;
     
 `;
@@ -63,6 +63,11 @@ const Navbar = () => {
             <Stack justifyContent="space-even" direction="row" alignItems="center">
                 <SessionProvider sessionId="some-id">
                     {(!isLoggedIn) ? <LoginButtonContainer/> : <UserInfoContainer/>}
+                    {(isLoggedIn) ?
+                        <Link to="/orders" style={{ color: "black", textDecoration: 'none' }}>
+                            <MenuItem>Orders</MenuItem>
+                        </Link>
+                        : null}
                 </SessionProvider>
                 <Link to="/cart" >
                     <MenuItem className={"shopIcon"}>
