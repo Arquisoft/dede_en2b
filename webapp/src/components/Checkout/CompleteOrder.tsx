@@ -1,15 +1,18 @@
 import * as React from "react";
 import {addOrderForUser} from "../../api/api";
 import {OrderProduct, OrderType, ProductType} from "../../shared/shareddtypes";
-import {useContext} from "react";
+import {useContext, useReducer} from "react";
 import {calculateTotal} from "../../helper/calculateCartTotal";
 import {CartContext} from "../CartContext";
 import {useSession} from "@inrupt/solid-ui-react";
 import {stringToHexadecimal} from "../../helper/stringToHexadecimal";
-import useFetch from "../../hooks/useFetch";
-import useOrdersByUser from "../../hooks/useOrdersByUser";
 import {Link} from "react-router-dom";
 import './CompleteOrder.css';
+
+const initialState = {
+    cartItemsToReduce: [],
+    dispatch: () => {}
+}
 
 const CompleteOrder = () => {
 
@@ -47,12 +50,16 @@ const CompleteOrder = () => {
 
     const addOrder = addOrderForUser(productsType);
 
+    const {dispatch} = useContext(CartContext);
 
     return (
         <div className={"centerDiv"}>
             <p>Thank you for your purchase</p>
             <Link to="/products">
-                <button type="button">
+                <button onClick={() => dispatch({
+                    payload: "",
+                    type: 'CLEAR'
+                })} type="button">
                     Continue shopping!
                 </button>
             </Link>
