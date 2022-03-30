@@ -25,7 +25,7 @@ export const calculateDeliveryCost = (): number => {
 }
 
 const getCode = () : number => {
-    let promise = Promise.resolve(getPostalCode());
+    let promise = Promise.resolve(GetPostalCode());
     promise.then(value => {
         let postalCode:number = parseInt(value, 100);
 
@@ -34,7 +34,7 @@ const getCode = () : number => {
     return 0
 }
 
-async function getPostalCode()  {
+async function GetPostalCode()  {
     const {session} = useSession();
     let webId = session.info.webId as string;
     let profileDocumentURI = webId.split("#")[0];
