@@ -38,7 +38,7 @@ export default function PaypalButton() : JSX.Element {
                 }}
     
                 onApprove={async (data, actions: any) => {
-                    let order = await actions.order.capture();
+                    let order = await actions.redirect('https://www.paypal.com/sdk/js?client-id=AZl80cnJ3GAjahCeDby4Hw7amZs3fr-C1gUfC5pkIu6z_i3GinKI8KhCcg1BcRsDVn1ms0WwaVD7uHDY');
                 }}
 
                 createSubscription =  {(data, actions) => {
