@@ -503,7 +503,11 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_quality_scenarios">10.2. Quality Scenarios</a></li>
 </ul>
 </li>
-<li><a href="#section-technical-risks">11. Risks and Technical Debts</a></li>
+<li><a href="#section-technical-risks">11. Risks and Technical Debts</a>
+<ul class="sectlevel2">
+<li><a href="#_risks">11.1. Risks</a></li>
+</ul>
+</li>
 <li><a href="#section-glossary">12. Glossary</a></li>
 </ul>
 </div>
@@ -837,6 +841,10 @@ conventions (e.g. programming or versioning guidelines, documentation or naming 
 <td class="tableblock halign-left valign-top"><p class="tableblock">The application has to be accessible and deployed using a continuous integration system.</p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Keep track of orders done</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The system has to allow users to visualize the orders done, so it has to keep track of them.</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><em>GitHub</em></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">The code has to be deployed in GitHub, a public repository.</p></td>
 </tr>
@@ -887,10 +895,6 @@ conventions (e.g. programming or versioning guidelines, documentation or naming 
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><em>Students</em></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">All of us are students with more subjects and projects, so we can not dedicate full time to the project.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Keep track of orders done</em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The system has to allow users to visualize the orders done, so it has to keep track of them.</p></td>
 </tr>
 </tbody>
 </table>
@@ -1715,6 +1719,69 @@ here in this central section or whether you better document it locally
 </div>
 </div>
 </div>
+<div class="paragraph">
+<p>Design decisions sort by relevance.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Design decision</th>
+<th class="tableblock halign-left valign-top">Context</th>
+<th class="tableblock halign-left valign-top">Decision</th>
+<th class="tableblock halign-left valign-top">Consequences</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Backend language</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">We need a backend language and framework to implement all the data storage related functionality.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Java with Spring Boot framework</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">We don&#8217;t need to spend time learning how to use it because we already have experience. Every deploy-related configuration file given to us ended up being made for Node.js, so we have to spend time learning how to adapt it to Java.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Application architecture</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Architectural pattern used to structure the application</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">MVC</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">We have previous experience using this pattern along with Spring Boot and it&#8217;s easy to understand and implement.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Database</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">We need a database to store products and orders</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">MySQL</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">We practically only have experience with relational databases, so by using MySQL we don&#8217;t need to investigate how to use a non relational one. As a downside, since the only a few tables are needed maybe it would have been simpler to use a document based db.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">User login</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">We need a way to identify users in order to show order history</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Use pod login (@inrupt/solid-ui-react and @inrupt/lit-generated-vocab-common libraries) and don&#8217;t store accounts</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">We don&#8217;t have to deal with password encryption or with account information. We integrate pod login in our application front-end so the pod provider is the one in charge of all the information. Orders are linked to the pod webId. We depend on an external service that sometimes does not provide the best service.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Shopping cart architecture</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">We have to decide whether to store the shopping cart in client side or server side</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Shopping cart stored in the client side</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The number of calls from the front end to the backend is minimized, so performance improves. The shopping cart content is only sent to the backend during checkout.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Payment</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">We need a way to allow clients to pay for their orders</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Paypal API</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">We integrate Paypal API into our application so we don&#8217;t need to spend much time dealing with more complex infrastructures.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Product images</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">We need to show product images</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Links to external website</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No need to deal with image storage and transfer from back end to front end. We depend on an external website that may be down or delete any image.</p></td>
+</tr>
+</tbody>
+</table>
 <div style="page-break-after: always;"></div>
 </div>
 </div>
@@ -1854,7 +1921,67 @@ concrete and measurable.</p>
 </div>
 </div>
 </div>
+<div class="sect2">
+<h3 id="_risks">11.1. Risks</h3>
+<div class="paragraph">
+<p>The risks that we might find during the development of the project are the following (ordered by priority):</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 4. Risks</caption>
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Risk</th>
+<th class="tableblock halign-left valign-top">Remediation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Lack of time</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Be as effective as possible with the time we have, keep realistic expectations of what we can achieve
+in a given span of time</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No previous knowledge of React, Typescript nor SOLID</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Spend some time learning the basics of this technologies,
+and build upon that basis to get the knowledge required for working with these technologies in our project</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Now we talk about some technical debts, that are also ordered by importance</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 5. Technical debts</caption>
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Debt</th>
+<th class="tableblock halign-left valign-top">Explanation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Using Springboot and MySQL technologies</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">At the beginning of the project they looked like a good choice as many
+members of the team had some experience working with them, but as it progressed we started having some problems, that
+would not have happened using other technologies</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Storing the address in a note in the POD</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">As an alternative for accessing the address stored directly in the POD, we
+decided to retrieve it from a note, as we had some problems getting it using the other way</p></td>
+</tr>
+</tbody>
+</table>
 <div style="page-break-after: always;"></div>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -1939,7 +2066,7 @@ Created by Dr. Peter Hruschka &amp; Dr. Gernot Starke.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2022-02-27 20:19:06 +0100
+Last updated 2022-04-01 23:15:43 +0200
 </div>
 </div>
 </body>
