@@ -73,3 +73,11 @@ Our intention is to make the user interface as intuitive as possible, following 
 To achieve it, cart is at the upper-right corner, login at the left of the cart, page-navigation at the left, etc. 
 
 The entire web is in English.
+
+=== _Security_
+
+We are not storing information about the user. Instead, we access it through the POD the user provides us, so we only have the necessary information at the right time.
+
+=== _Additional libraries_
+
+-To do-
