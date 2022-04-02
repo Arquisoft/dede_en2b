@@ -52,16 +52,24 @@ image:08-Crosscutting-Concepts-Structure-EN.png["Possible topics for crosscuttin
 
 === Domain model
 
-image:UmlDiagram.png["Example UML Diagram"]
+image:08.1-domainModel.png["Domain model"]
 
+=== _Domain concepts_
 
+[options="header",cols="1,2"]
+|===
+|Concept|Description
+| _POD_ | Stores the user information following Solid specification.
+| _User_| Represents the client logged in. Its information will be accessed through its POD.
+| _Order_| List of CartItems that has been ordered once or that is in the Cart at the moment with the total price.
+| _Cart_| Contains the Order to be ordered in the current session.
+| _CartItem_| Units of a specific Item that is in the order with the total price.
+| _Item_| Food product available to buy.
+|===
 
-=== _<Concept 2>_
+=== _User experience_
 
-_<explanation>_
+Our intention is to make the user interface as intuitive as possible, following the usual standars of the e-commerce webs. 
+To achieve it, cart is at the upper-right corner, login at the left of the cart, page-navigation at the left, etc. 
 
-...
-
-=== _<Concept n>_
-
-_<explanation>_
+The entire web is in English.
