@@ -15,3 +15,33 @@ This should be your motto for systematic detection and evaluation of risks and t
 .Form
 List of risks and/or technical debts, probably including suggested measures to minimize, mitigate or avoid risks or reduce technical debts.
 ****
+
+=== Risks
+
+The risks that we might find during the development of the project are the following (ordered by priority):
+
+.Risks
+[%header, cols=2]
+|===
+| Risk | Remediation
+
+| Lack of time | Be as effective as possible with the time we have, keep realistic expectations of what we can achieve
+in a given span of time
+| No previous knowledge of React, Typescript nor SOLID | Spend some time learning the basics of this technologies,
+and build upon that basis to get the knowledge required for working with these technologies in our project
+|===
+
+Now we talk about some technical debts, that are also ordered by importance
+
+.Technical debts
+[%header, cols=2]
+|===
+| Debt | Explanation
+
+| Using Springboot and MySQL technologies | At the beginning of the project they looked like a good choice as many
+members of the team had some experience working with them, but as it progressed we started having some problems, that
+would not have happened using other technologies
+| Storing the address in a note in the POD | As an alternative for accessing the address stored directly in the POD, we
+decided to retrieve it from a note, as we had some problems getting it using the other way
+
+|===

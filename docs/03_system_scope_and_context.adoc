@@ -46,7 +46,7 @@ image:business_context.png["Business context diagram"]
 | Entity         | Description
 | User     | Interacts with system by viewing, selecting and buying products. Users have an account in the system that lets them visualize orders done.
 | SOLID pods     | They have information about client's addresses. The system obtains this information to calculate shipping costs and process orders.
-| Carrier API     | DeDe uses them to obtain shipping costs from one address to another one.
+| Paypal API     | During checkout process, DeDe uses the PayPal API to allow clients to play for their order.
 |===
 
 === Technical Context
