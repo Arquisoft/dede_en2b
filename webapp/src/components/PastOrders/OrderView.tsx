@@ -13,7 +13,7 @@ type Props = {
 const OrderView = ({order}: Props) => {
     return (
         <Card sx={{ maxWidth: 600 }}>
-            <CardActionArea component={Link} to={"/orders/" + order.id}>
+            <CardActionArea>
                 <CardMedia
                     component="img"
                     height="140"
