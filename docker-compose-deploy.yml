@@ -8,6 +8,7 @@ services:
             test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"]
             timeout: 20s
             retries: 10
+            
     restapi:
         image: ghcr.io/arquisoft/dede_en2b/restapi:latest
         ports:
