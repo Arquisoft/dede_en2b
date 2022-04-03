@@ -70,7 +70,7 @@ image:08.1-domainModel.png["Domain model"]
 === _User experience_
 
 Our intention is to make the user interface as intuitive as possible, following the usual standars of the e-commerce webs. 
-To achieve it, cart is at the upper-right corner, login at the left of the cart, page-navigation at the left, etc. 
+To achieve it, cart is at the upper-right corner, login at the left of the cart, page-navigation at the left, logo at upper-left, etc. 
 
 The entire web is in English.
 
@@ -80,4 +80,12 @@ We are not storing information about the user. Instead, we access it through the
 
 === _Additional libraries_
 
--To do-
+[options="header",cols="1,2"]
+|===
+|Libraries|Description
+| _React and React-dom_ | Necessary for codding with React, a constraint for the webapp.
+| _Typescript_| Necessary for coding in Typescript, a constraint for the webapp.
+| _Web-vitals_| Modular library for measuring all the Web Vitals metrics on real users.
+|===
+
+_<To do: keep adding as libraries are added>_
