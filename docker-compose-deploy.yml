@@ -19,7 +19,7 @@ services:
     
 
   restapi:
-    build: ./restapi-springboot
+    image: ghcr.io/arquisoft/dede_en2b/restapi:latest
     networks:
       - dede-network
     environment:
@@ -32,6 +32,7 @@ services:
     depends_on:
       mysqldb:
         condition: service_healthy
+
   webapp:
     image: ghcr.io/arquisoft/dede_en2b/webapp:latest
     ports:
