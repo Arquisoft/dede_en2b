@@ -1,19 +1,25 @@
-import {OrderType, ProductType} from '../shared/shareddtypes';
+import { OrderType, ProductType } from "../shared/shareddtypes";
 
-const PRODUCT_LIST_API = "http://localhost:5000/product/list";
-const ORDER_LIST_API = "http://localhost:5000/order/listByUser";
-const ORDER_ID_API = "http://localhost:5000/order/";
-const ADD_ORDER_API = "http://localhost:5000/order/add";
 
-export async function getProductCatalog():Promise<ProductType[]>{
+const apiEndPoint =
+    process.env.REACT_APP_API_URI
+   || "http://localhost:5000";
+const PRODUCT_LIST_API = apiEndPoint + "/product/list";
+const ORDER_LIST_API = apiEndPoint + "/order/listByUser";
+const ORDER_ID_API = apiEndPoint + "/order/";
+const ADD_ORDER_API = apiEndPoint +"/order/add";
+
+export async function getProductCatalog(): Promise<ProductType[]> {
+
     let response = await fetch(PRODUCT_LIST_API);
-    return response.json()
+    return response.json();
 }
 
-export async function getOrdersForUser(webId:string):Promise<OrderType[]> {
-    let response = await fetch(ORDER_LIST_API + "/" + webId)
-    return response.json()
+export async function getOrdersForUser(webId: string): Promise<OrderType[]> {
+    let response = await fetch(ORDER_LIST_API + "/" + webId);
+    return response.json();
 }
+
 
 export async function addOrderForUser(order:OrderType){
 
@@ -29,6 +35,7 @@ export async function addOrderForUser(order:OrderType){
 }
   
 export async function getOrderById(orderId:string):Promise<OrderType> {
+
     let response = await fetch(ORDER_ID_API + orderId);
     return response.json();
 }
