@@ -3,6 +3,7 @@ import {OrderType, ProductType} from '../shared/shareddtypes';
 const PRODUCT_LIST_API = "http://localhost:5000/product/list";
 const ORDER_LIST_API = "http://localhost:5000/order/listByUser";
 const ORDER_ID_API = "http://localhost:5000/order/";
+const ADD_ORDER_API = "http://localhost:5000/order/add";
 
 export async function getProductCatalog():Promise<ProductType[]>{
     let response = await fetch(PRODUCT_LIST_API);
@@ -25,6 +26,7 @@ export async function addOrderForUser(order:OrderType){
     })
 
     return fetchApi;
+}
   
 export async function getOrderById(orderId:string):Promise<OrderType> {
     let response = await fetch(ORDER_ID_API + orderId);
