@@ -24,8 +24,8 @@ services:
       - dede-network
     environment:
       - MYSQL_HOST=dede_en2b-mysqldb-1 
-      - MYSQL_USER=user 
-      - MYSQL_PASSWORD=pass 
+      - MYSQL_USER=user
+      - MYSQL_PASSWORD=pass
       - MYSQL_PORT=3306
     ports:
       - "5000:5000"
