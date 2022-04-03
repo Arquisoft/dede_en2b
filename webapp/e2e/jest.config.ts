@@ -1,8 +1,8 @@
 export default {
     transform: {
-        "^.+\\.tsx?$": "ts-jest"
+        "^.+\\.tsx?$": "help.ts-jest"
     },
-    testMatch: ["**/steps/*.ts"],
-    moduleFileExtensions: ["ts", "tsx", "js", "jsx", "json", "node"],
+    testMatch: ["**/steps/*.help.ts"],
+    moduleFileExtensions: ["help.ts", "tsx", "js", "jsx", "json", "node"],
     preset: "jest-puppeteer",
 }
