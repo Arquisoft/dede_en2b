@@ -47,3 +47,7 @@ export type CartContextType = {
     cartItems: CartItem[],
     dispatch: React.Dispatch<CartActionReducer>
 }
+
+export type DeliveryHelper = {
+    postalCodeString: string
+}
