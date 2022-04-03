@@ -1,4 +1,4 @@
-import React, {useContext} from "react";
+import React from "react";
 import useOrdersByUser from "../../hooks/useOrdersByUser";
 import OrderView from "./OrderView";
 import "../Cart/Cart.css";

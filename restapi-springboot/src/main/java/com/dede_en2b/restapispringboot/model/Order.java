@@ -24,6 +24,7 @@ public class Order {
     private double totalPrice;
     private String status;
 
+
     @OneToMany (mappedBy = "order",
             cascade = CascadeType.REMOVE,
             fetch=FetchType.EAGER)
@@ -81,7 +82,6 @@ public class Order {
     public void setOrderProducts(Set<OrderProduct> orderProducts) {
         this.orderProducts = orderProducts;
     }
-
     public void setUser(String user) { this.user = user; }
 
     public String getStatus() { return status; }

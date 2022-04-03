@@ -1,5 +1,5 @@
 import {CartContext} from "../CartContext";
-import React, {useContext, useState} from "react";
+import React, {useContext} from "react";
 import CartItemCheckout from "./CartItemCheckout";
 import Divider from '@mui/material/Divider';
 import {calculateTotal} from "../../helper/calculateCartTotal";

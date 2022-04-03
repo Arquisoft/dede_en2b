@@ -1,19 +1,15 @@
 import React, { useContext, useState } from 'react'
 import styled from "styled-components";
-import { Search, ShoppingCartOutlined } from "@mui/icons-material";
+import { ShoppingCartOutlined } from "@mui/icons-material";
 import Badge from "@mui/material/Badge";
 import { CartContext } from "./CartContext";
 import { getTotalItemsNumber } from "../helper/calculateCartTotal";
 import { Link } from "react-router-dom";
-import { SessionProvider, LoginButton, useSession} from "@inrupt/solid-ui-react";
+import { SessionProvider, useSession} from "@inrupt/solid-ui-react";
 import LoginButtonContainer from "./LoginButtonContainer";
 import UserInfoContainer from "./UserInfoContainer";
 import Stack from "@mui/material/Stack";
 import "./Navbar.css";
-
-const Input = styled.input`
-    border: none;
-`;
 
 const Logo = styled.h1`
     font-weight: bold;

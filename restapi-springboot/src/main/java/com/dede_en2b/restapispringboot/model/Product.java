@@ -23,6 +23,11 @@ public class Product {
         this.image = image;
     }
 
+    public Product(String json){
+
+
+    }
+
     public Product() { }
 
     public long getId() {
