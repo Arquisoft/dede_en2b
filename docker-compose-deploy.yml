@@ -36,6 +36,4 @@ services:
         depends_on:
             - restapi
     
-    networks:
-    dede-network:
-        driver: bridge
+    
