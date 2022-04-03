@@ -27,9 +27,7 @@ test('homepage shop button redirects', () => {
 
     fireEvent.click(shopButton);
 
-    const item = screen.getAllByAltText("Salmon");
-
-    expect(item).toBeInTheDocument();
+    expect(global.window.location.pathname).toEqual('/products');
 
 });
 
