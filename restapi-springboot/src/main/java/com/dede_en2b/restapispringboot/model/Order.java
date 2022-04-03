@@ -24,7 +24,6 @@ public class Order {
     private double totalPrice;
     private String status;
 
-    private String status;
 
     @OneToMany (mappedBy = "order",
             cascade = CascadeType.REMOVE,
