@@ -1,41 +1,48 @@
-version: "3.5"
+version: '3.5'
 services:
-    mysqldb:
-        image: mysql/mysql-server
-        environment:
-        - MYSQL_ROOT_PASSWORD=root 
-        - MYSQL_DATABASE=dede
-        - MYSQL_USER=user
-        - MYSQL_PASSWORD=pass
-        - MYSQL_ROOT_HOST=%
-        networks:
-        - dede-network
-        ports:
-        - "3306:3306"
-        healthcheck:
-            test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"]
-            timeout: 20s
-            retries: 10
-
-    restapi:
-        image: ghcr.io/arquisoft/dede_en2b/restapi:latest
-        ports:
-            - "5000:5000"
-        networks:
-            - dede-network
-        depends_on:
-            mysqldb:
-                condition: service_healthy
-
-    webapp:
-        image: ghcr.io/arquisoft/dede_en2b/webapp:latest
-        ports:
-            - "3000:3000"
-        networks:
-            - dede-network
-        depends_on:
-            - restapi
+  mysqldb:
+    image: mysql/mysql-server
+    environment:
+      - MYSQL_ROOT_PASSWORD=root 
+      - MYSQL_DATABASE=dede
+      - MYSQL_USER=user
+      - MYSQL_PASSWORD=pass
+      - MYSQL_ROOT_HOST=%
+    networks:
+      - dede-network
+    ports:
+      - "3306:3306"
+    healthcheck:
+      test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"]
+      timeout: 20s
+      retries: 10
     
+
+  restapi:
+    build: ./restapi-springboot
+    networks:
+      - dede-network
+    environment:
+      - MYSQL_HOST=dede_en2b-mysqldb-1 
+      - MYSQL_USER=user 
+      - MYSQL_PASSWORD=pass 
+      - MYSQL_PORT=3306
+    ports:
+      - "5000:5000"
+    depends_on:
+      mysqldb:
+        condition: service_healthy
+  webapp:
+    image: ghcr.io/arquisoft/dede_en2b/webapp:latest
+    ports:
+        - "3000:3000"
     networks:
         - dede-network
-            
+    depends_on:
+        - restapi  
+    
+    
+
+networks:
+  dede-network:
+    driver: bridge
