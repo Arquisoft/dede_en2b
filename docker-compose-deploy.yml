@@ -3,16 +3,20 @@ services:
     database:
         image: mysql/mysql-server
         ports:
-        - "3306:3306"
+            - "3306:3306"
+        networks:
+            - dede-network
         healthcheck:
             test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"]
             timeout: 20s
             retries: 10
-            
+
     restapi:
         image: ghcr.io/arquisoft/dede_en2b/restapi:latest
         ports:
             - "5000:5000"
+        networks:
+            - dede-network
         depends_on:
             database:
                 condition: service_healthy
@@ -21,5 +25,11 @@ services:
         image: ghcr.io/arquisoft/dede_en2b/webapp:latest
         ports:
             - "3000:3000"
+        networks:
+            - dede-network
         depends_on:
             - restapi
+    
+    networks:
+    dede-network:
+        driver: bridge
