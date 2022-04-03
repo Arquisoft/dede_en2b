@@ -9,7 +9,7 @@ services:
         - MYSQL_PASSWORD=pass
         - MYSQL_ROOT_HOST=%
         networks:
-        - dede-network
+        - ubuntu-default
         ports:
         - "3306:3306"
         healthcheck:
@@ -22,17 +22,18 @@ services:
         ports:
             - "5000:5000"
         networks:
-            - dede-network
+            - ubuntu-default
         depends_on:
             mysqldb:
                 condition: service_healthy
+
 
     webapp:
         image: ghcr.io/arquisoft/dede_en2b/webapp:latest
         ports:
             - "3000:3000"
         networks:
-            - dede-network
+            - ubuntu-default
         depends_on:
             - restapi
     
