@@ -19,7 +19,6 @@ function App(): JSX.Element {
         <Stack direction="row">
             <Stack direction="column" sx={{ width: "100%" }}>
                 <BrowserRouter>
-                    <Sidebar />
                     <CartProvider>
                         <Navbar />
                         <Routes>
