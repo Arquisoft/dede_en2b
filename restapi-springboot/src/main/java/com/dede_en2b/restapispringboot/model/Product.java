@@ -1,12 +1,10 @@
 package com.dede_en2b.restapispringboot.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.sound.midi.MidiMessage;
 
 @Entity
+@Table(name="products")
 public class Product {
 
     @Id
@@ -25,11 +23,12 @@ public class Product {
         this.image = image;
     }
 
-    public Product(){
-        this.name = "test";
-        this.category = "test";
-        this.price = 0.0;
+    public Product(String json){
+
+
     }
+
+    public Product() { }
 
     public long getId() {
         return id;

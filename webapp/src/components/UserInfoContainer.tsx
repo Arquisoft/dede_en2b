@@ -1,5 +1,5 @@
-import {useSession, CombinedDataProvider, Image, LogoutButton, Text, ThingProvider, DatasetProvider} from "@inrupt/solid-ui-react";
-import {CardContent, Container, Typography} from "@material-ui/core";
+import {useSession, CombinedDataProvider, LogoutButton, Text} from "@inrupt/solid-ui-react";
+import {CardContent, Container} from "@material-ui/core";
 import {VCARD} from "@inrupt/lit-generated-vocab-common";
 import {Box} from '@mui/system';
 import "./Login.css";

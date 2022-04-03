@@ -1,38 +1,50 @@
 version: '3.5'
-volumes:
-    prometheus_data: {}
-    grafana_data: {}
 services:
+  mysqldb:
+    image: mysql/mysql-server
+    environment:
+      - MYSQL_ROOT_PASSWORD=root 
+      - MYSQL_DATABASE=dede
+      - MYSQL_USER=user
+      - MYSQL_PASSWORD=pass
+      - MYSQL_ROOT_HOST=%
+    networks:
+      - dede-network
+    ports:
+      - "3306:3306"
+    healthcheck:
+      test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"]
+      timeout: 20s
+      retries: 10
+    
+
   restapi:
-    build: ./restapi
+    build: ./restapi-springboot
+    networks:
+      - dede-network
+    environment:
+      - MYSQL_HOST=dede_en2b-mysqldb-1 
+      - MYSQL_USER=user
+      - MYSQL_PASSWORD=pass
+      - MYSQL_PORT=3306
     ports:
       - "5000:5000"
+    depends_on:
+      mysqldb:
+        condition: service_healthy
+      
+    
+
   webapp:
     build: ./webapp
+    networks:
+      - dede-network
     ports:
       - "3000:3000"
     depends_on: 
       - restapi
-  prometheus:
-    image: prom/prometheus
-    volumes:
-      - ./restapi/monitoring/prometheus:/etc/prometheus
-      - prometheus_data:/prometheus
-    ports:
-      - "9090:9090"
-    depends_on: 
-      - restapi
-  grafana:
-    image: grafana/grafana
-    volumes:
-      - grafana_data:/var/lib/grafana
-      - ./restapi/monitoring/grafana/provisioning:/etc/grafana/provisioning
-    environment:
-      - GF_SERVER_HTTP_PORT=9091
-      - GF_AUTH_DISABLE_LOGIN_FORM=true
-      - GF_AUTH_ANONYMOUS_ENABLED=true
-      - GF_AUTH_ANONYMOUS_ORG_ROLE=Admin
-    ports:
-      - "9091:9091"
-    depends_on: 
-      - restapi
+    
+
+networks:
+  dede-network:
+    driver: bridge
