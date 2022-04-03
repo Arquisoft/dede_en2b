@@ -1,9 +1,15 @@
 version: "3.5"
 services:
+    database:
+        image: mysql/mysql-server
+        ports:
+        - "3306:3306"
     restapi:
         image: ghcr.io/arquisoft/dede_en2b/restapi:latest
         ports:
             - "5000:5000"
+        depends_on:
+            -database
     webapp:
         image: ghcr.io/arquisoft/dede_en2b/webapp:latest
         ports:
