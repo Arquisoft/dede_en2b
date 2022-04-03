@@ -1,18 +1,13 @@
 import * as React from "react";
 import {addOrderForUser} from "../../api/api";
-import {OrderProduct, OrderType, ProductType} from "../../shared/shareddtypes";
-import {useContext, useReducer} from "react";
+import {OrderProduct, OrderType} from "../../shared/shareddtypes";
+import {useContext} from "react";
 import {calculateTotal} from "../../helper/calculateCartTotal";
 import {CartContext} from "../CartContext";
 import {useSession} from "@inrupt/solid-ui-react";
 import {stringToHexadecimal} from "../../helper/stringToHexadecimal";
 import {Link} from "react-router-dom";
 import './CompleteOrder.css';
-
-const initialState = {
-    cartItemsToReduce: [],
-    dispatch: () => {}
-}
 
 const CompleteOrder = () => {
 
