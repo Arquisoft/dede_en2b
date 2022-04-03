@@ -1,11 +1,17 @@
 version: "3.5"
 services:
-    database:
+    mysqldb:
         image: mysql/mysql-server
-        ports:
-            - "3306:3306"
+        environment:
+        - MYSQL_ROOT_PASSWORD=root 
+        - MYSQL_DATABASE=dede
+        - MYSQL_USER=user
+        - MYSQL_PASSWORD=pass
+        - MYSQL_ROOT_HOST=%
         networks:
-            - dede-network
+        - dede-network
+        ports:
+        - "3306:3306"
         healthcheck:
             test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"]
             timeout: 20s
@@ -18,7 +24,7 @@ services:
         networks:
             - dede-network
         depends_on:
-            database:
+            mysqldb:
                 condition: service_healthy
 
     webapp:
