@@ -27,6 +27,14 @@ const CompleteOrder = () => {
     const webId = stringToHexadecimal(session.info.webId!);
     const date = new Date();
 
+    let day = "";
+
+    if(date.getDate() < 10){
+        day = "0" + date.getDate().toString();
+    } else{
+        day = date.getDate().toString();
+    }
+
     let month = "";
     if(date.getMonth() < 10){
         month = "0" + date.getMonth().toString();
@@ -36,7 +44,7 @@ const CompleteOrder = () => {
 
     productsType = {
         id: 0,
-        date: date.getDate() + "/" + month + "/" + date.getFullYear(),
+        date: day + "/" + month + "/" + date.getFullYear(),
         user: webId,
         totalPrice: subTotal,
         status: "PENDING",
