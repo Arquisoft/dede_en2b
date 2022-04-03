@@ -12,6 +12,7 @@ import CelebrationIcon from '@mui/icons-material/Celebration';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import "./Checkout.css";
 import Order from "../Order/Order";
+import CompleteOrder from "./CompleteOrder";
 import PaypalButton from './PaypalCheckoutButton';
 
 const ColorlibConnector = styled(StepConnector)(({theme}) => ({
@@ -84,11 +85,11 @@ export default function Checkout() {
     const steps = ["Order information", "Payment", "Order completed"];
 
     const moveToNextStep = () => {
-        setStep((previousStep) => previousStep + 1);
+        setStep(step + 1);
     };
 
     const moveToPreviousStep = () => {
-        setStep((prevActiveStep) => prevActiveStep - 1);
+        setStep(step - 1);
     };
 
 
@@ -99,7 +100,7 @@ export default function Checkout() {
             case 1:
                 return (<PaypalButton/>);
             case 2:
-                return (<h1>The order has been completed!</h1>);
+                return (<CompleteOrder/>);
         }
     };
 
@@ -119,18 +120,17 @@ export default function Checkout() {
 
                     <div className="checkoutButtons">
                         <Button
-                            disabled={step === 0}
-                            hidden={step === steps.length}
+                            disabled={step===0 || step===steps.length-1}
                             onClick={moveToPreviousStep}
                             variant="outlined"
                             > Back
                         </Button>
 
                         <Button
-                            hidden={step === steps.length-1}
+                            disabled={step === steps.length-1}
                             variant="contained"
                             onClick={moveToNextStep}
-                            > {step === steps.length - 1 ? "Finish" : "Next"}
+                            > {step === steps.length - 1 ? "Finished" : "Next"}
                         </Button>
                     </div>
                 </Stack>

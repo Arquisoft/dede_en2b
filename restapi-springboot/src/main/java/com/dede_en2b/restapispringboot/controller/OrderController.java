@@ -1,27 +1,38 @@
 package com.dede_en2b.restapispringboot.controller;
 
 import com.dede_en2b.restapispringboot.model.Order;
+import com.dede_en2b.restapispringboot.model.OrderProduct;
 import com.dede_en2b.restapispringboot.model.Product;
+import com.dede_en2b.restapispringboot.service.OrderProductService;
 import com.dede_en2b.restapispringboot.service.OrderService;
 import com.dede_en2b.restapispringboot.service.ProductService;
 import org.aspectj.weaver.ast.Or;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Set;
 
 
 @RestController
-@RequestMapping("order/")
+@RequestMapping("/order")
 @CrossOrigin("http://localhost:3000/")
 public class OrderController {
 
     @Autowired
     private OrderService orderService;
 
-    @PostMapping("add")
+
+    @Autowired
+    private OrderProductService orderProductService;
+
+    @RequestMapping( value ="add", method = RequestMethod.POST)
+    @ResponseBody
     public String addProduct(@RequestBody Order order){
+        Set<OrderProduct> products = order.getOrderProducts();
         orderService.saveOrder(order);
+        products.forEach( p -> orderProductService.saveOrderProduct(p));
         return "New Order is added";
     }
 
@@ -35,5 +46,8 @@ public class OrderController {
         return orderService.getUserOrders(webId);
     }
 
-
+    @GetMapping("{orderId}")
+    public Order getOrderById(@PathVariable Long orderId) {
+        return  orderService.getOrderById(orderId);
+    }
 }
