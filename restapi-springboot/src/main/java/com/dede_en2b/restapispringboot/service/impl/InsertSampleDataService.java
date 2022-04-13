@@ -62,35 +62,36 @@ public class InsertSampleDataService {
         productService.saveProduct(ham = new Product("Ham", "Meat", 2.85, "https://images.unsplash.com/photo-1609518317991-10acee259279?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1025&q=80"));
         productService.saveProduct(apple = new Product("Apple", "Fruit", 1.99, "https://images.unsplash.com/photo-1560806887-1e4cd0b6cbd6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80"));
 
+        /*
+            Order order1;
+            order1 = new Order("00680074007400700073003a002f002f0070006f0064007000610063006c006100730065002e0069006e0072007500700074002e006e00650074002f00700072006f00660069006c0065002f00630061007200640023006d0065", 23.2);
+            OrderProduct orderProduct1 = new OrderProduct(2, 2.0, apple, order1);
+            OrderProduct orderProduct2 = new OrderProduct(10, 0.87, potatoes, order1);
+            OrderProduct orderProduct3 = new OrderProduct(3, 3.50, watermelon, order1);
+            Set<OrderProduct> products = new HashSet<>();
+            products.add(orderProduct1);
+            products.add(orderProduct2);
+            products.add(orderProduct3);
+            order1.setOrderProducts(products);
+            order1.setStatus("SHIPPED");
+            orderService.saveOrder(order1);
+            orderProductService.saveOrderProduct(orderProduct1);
+            orderProductService.saveOrderProduct(orderProduct2);
+            orderProductService.saveOrderProduct(orderProduct3);
 
-        Order order1;
-        order1 = new Order("00680074007400700073003a002f002f0070006f0064007000610063006c006100730065002e0069006e0072007500700074002e006e00650074002f00700072006f00660069006c0065002f00630061007200640023006d0065", 23.2);
-        OrderProduct orderProduct1 = new OrderProduct(2, 2.0, apple, order1);
-        OrderProduct orderProduct2 = new OrderProduct(10, 0.87, potatoes, order1);
-        OrderProduct orderProduct3 = new OrderProduct(3, 3.50, watermelon, order1);
-        Set<OrderProduct> products = new HashSet<>();
-        products.add(orderProduct1);
-        products.add(orderProduct2);
-        products.add(orderProduct3);
-        order1.setOrderProducts(products);
-        order1.setStatus("SHIPPED");
-        orderService.saveOrder(order1);
-        orderProductService.saveOrderProduct(orderProduct1);
-        orderProductService.saveOrderProduct(orderProduct2);
-        orderProductService.saveOrderProduct(orderProduct3);
-
-        Order order2;
-        order2 = new Order("00680074007400700073003a002f002f0070006f0064007000610063006c006100730065002e0069006e0072007500700074002e006e00650074002f00700072006f00660069006c0065002f00630061007200640023006d0065", 2.08);
-        OrderProduct orderProduct4 = new OrderProduct(1, 1.08, banana, order2);
-        OrderProduct orderProduct5 = new OrderProduct(1, 1.00, spinach, order2);
-        Set<OrderProduct> products2 = new HashSet<>();
-        products2.add(orderProduct4);
-        products2.add(orderProduct5);
-        order2.setOrderProducts(products2);
-        order2.setStatus("PROCESSING");
-        orderService.saveOrder(order2);
-        orderProductService.saveOrderProduct(orderProduct4);
-        orderProductService.saveOrderProduct(orderProduct5);
+            Order order2;
+            order2 = new Order("00680074007400700073003a002f002f0070006f0064007000610063006c006100730065002e0069006e0072007500700074002e006e00650074002f00700072006f00660069006c0065002f00630061007200640023006d0065", 2.08);
+            OrderProduct orderProduct4 = new OrderProduct(1, 1.08, banana, order2);
+            OrderProduct orderProduct5 = new OrderProduct(1, 1.00, spinach, order2);
+            Set<OrderProduct> products2 = new HashSet<>();
+            products2.add(orderProduct4);
+            products2.add(orderProduct5);
+            order2.setOrderProducts(products2);
+            order2.setStatus("PROCESSING");
+            orderService.saveOrder(order2);
+            orderProductService.saveOrderProduct(orderProduct4);
+            orderProductService.saveOrderProduct(orderProduct5);
+        */
 
     }
 }
