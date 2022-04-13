@@ -83,6 +83,7 @@ export default function Checkout() {
 
     const [step, setStep] = React.useState(0);
     const steps = ["Order information", "Payment", "Order completed"];
+    const paymentStep = 1;
 
     const moveToNextStep = () => {
         setStep(step + 1);
@@ -92,13 +93,20 @@ export default function Checkout() {
         setStep(step - 1);
     };
 
-
+    // when payed, it automaticly moves to next Step. It is called here because button is disabled if in step 1
+    const handlePayed = () => {
+        moveToNextStep();
+    }
+    
     const getStepContainer = (currentStep: number) => {
         switch (currentStep) {
             case 0:
                 return (<Order/>);
-            case 1:
-                return (<PaypalButton/>);
+            case paymentStep:
+                return (
+                    <PaypalButton 
+                        payed={handlePayed}
+                    />);
             case 2:
                 return (<CompleteOrder/>);
         }
@@ -127,7 +135,8 @@ export default function Checkout() {
                         </Button>
 
                         <Button
-                            disabled={step === steps.length-1}
+                            //if in last step or in paymentStep, next button is disabled 
+                            disabled={step === steps.length-1 || step === paymentStep}
                             variant="contained"
                             onClick={moveToNextStep}
                             > {step === steps.length - 1 ? "Finished" : "Next"}
