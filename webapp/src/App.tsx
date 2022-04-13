@@ -24,6 +24,10 @@ function App(): JSX.Element {
                         <Routes>
                             <Route path="/" element={<HomePage />} />
                             <Route
+                                path="/products?filter=:filter"
+                                element={<ListProducts />}
+                            />
+                            <Route
                                 path="/products"
                                 element={<ListProducts />}
                             />

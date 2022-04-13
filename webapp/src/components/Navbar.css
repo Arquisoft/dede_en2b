@@ -2,8 +2,12 @@
     box-shadow: 0 0 20px rgba(100,100,100,.2);
 }
 
+.searchContainer{
+    align-self: center;
+}
+
 .searchContainer:hover {
-    box-shadow: 0 0 30px rgba(100,100,100,.2);
+    box-shadow: 0 0 15px rgba(100,100,100,.2);
 }
 
 .logoContainer {
