@@ -18,7 +18,7 @@ const CompleteOrder = () => {
     let productsType:OrderType;
 
     cartItems.map( item => orderProductsToPut.push(orderP = {
-        id: 5, order: productsType, quantity: item.amount , price: item.price,
+        id: 0, order: productsType, quantity: item.amount , price: item.price,
         product: {id: item.id, name: item.name, category: "Order", price: item.price, image: item.image}
     }));
 
