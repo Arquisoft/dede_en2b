@@ -22,6 +22,7 @@ public class ProductController {
         return "New Product is added";
     }
 
+    @CrossOrigin(origins = "*", allowedHeaders = "*")
     @GetMapping("list")
     public List<Product>getList() {
         return productService.getAllProducts();
