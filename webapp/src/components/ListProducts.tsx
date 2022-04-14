@@ -8,8 +8,6 @@ import { ProductType } from "../shared/shareddtypes";
 
 import Grid from "@mui/material/Grid";
 
-import { useNavigate } from "react-router-dom";
-
 const ListProducts = () => {
   const { dispatch } = useContext(CartContext);
 
@@ -17,8 +15,6 @@ const ListProducts = () => {
 
   const search = window.location.search;
   const params = new URLSearchParams(search);
-
-
 
   let filter = params.get('filter')!;
 

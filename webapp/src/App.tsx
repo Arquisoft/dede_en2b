@@ -22,13 +22,12 @@ function App(): JSX.Element {
                     <CartProvider>
                         <Navbar />
                         <Routes>
-                            <Route path="/" element={<HomePage />} />
                             <Route
-                                path="/products?filter=:filter"
+                                path="/products"
                                 element={<ListProducts />}
                             />
                             <Route
-                                path="/products"
+                                path="/products?filter=:filter"
                                 element={<ListProducts />}
                             />
                             <Route path="/cart" element={<Cart />} />
@@ -37,6 +36,7 @@ function App(): JSX.Element {
                                 element={<ListOrders />}
                             ></Route>
                             <Route path="/checkout" element={<Checkout />} />
+                            <Route path="/" element={<HomePage />} />
                         </Routes>
                     </CartProvider>
                 </BrowserRouter>
