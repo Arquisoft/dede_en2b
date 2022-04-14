@@ -17,7 +17,7 @@ import java.util.Set;
 
 @RestController
 @RequestMapping("/order")
-@CrossOrigin(origins = {"http://localhost:3000/", "http://54.234.146.174/"})
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 public class OrderController {
 
     @Autowired
