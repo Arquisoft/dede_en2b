@@ -1,6 +1,5 @@
 import React, { useContext, useState } from 'react'
 import styled from "styled-components";
-import { ShoppingCartOutlined } from "@mui/icons-material";
 import Badge from "@mui/material/Badge";
 import { CartContext } from "./CartContext";
 import { getTotalItemsNumber } from "../helper/calculateCartTotal";
@@ -10,6 +9,9 @@ import LoginButtonContainer from "./LoginButtonContainer";
 import UserInfoContainer from "./UserInfoContainer";
 import Stack from "@mui/material/Stack";
 import "./Navbar.css";
+import { Search, ShoppingCartOutlined } from "@mui/icons-material";
+import "./SearchBar";
+import SearchBar from "./SearchBar";
 
 const Logo = styled.h1`
     font-weight: bold;
@@ -21,8 +23,6 @@ const MenuItem = styled.div`
     cursor: pointer;
     
 `;
-
-
 
 const Navbar = () => {
 
@@ -48,6 +48,10 @@ const Navbar = () => {
 
     return (
         <Stack justifyContent="space-around" direction="row">
+            <div className={"searchContainer"}>
+                <SearchBar />
+            </div>
+
             <Stack justifyContent="center" alignItems="center">
                 <div className={"logoContainer"}>
                     <Link to="/" style={{ color: "black", textDecoration: 'none' }}>
