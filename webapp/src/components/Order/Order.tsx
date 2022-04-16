@@ -8,7 +8,7 @@ import "./Order.css";
 import Box from "@mui/material/Box";
 import logo from '../../img/shippingicon.jpg';
 import logoReceipt from '../../img/receipticon.png';
-import {calculateDeliveryCost, GetPostalCode, GetAddress, GetDeliveryCost} from "../../helper/calculateDeliveryCost";
+import {GetPostalCode, GetAddress, GetDeliveryCost} from "../../helper/calculateDeliveryCost";
 
 
 export default function Order() {
