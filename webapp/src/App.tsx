@@ -19,22 +19,29 @@ function App(): JSX.Element {
         <Stack direction="row">
             <Stack direction="column" sx={{ width: "100%" }}>
                 <BrowserRouter>
-                    <CartProvider>
-                        <Navbar />
-                        <Routes>
-                            <Route path="/" element={<HomePage />} />
-                            <Route
-                                path="/products"
-                                element={<ListProducts />}
-                            />
-                            <Route path="/cart" element={<Cart />} />
-                            <Route
-                                path="/orders"
-                                element={<ListOrders />}
-                            ></Route>
-                            <Route path="/checkout" element={<Checkout />} />
-                        </Routes>
-                    </CartProvider>
+                        <Sidebar />
+                        <div className={"NonSidebar"}>
+                            <CartProvider>
+                                <Navbar />
+                                <Routes>
+                                  <Route
+                                        path="/products"
+                                        element={<ListProducts />}
+                                    />
+                                    <Route
+                                        path="/products?filter=:filter"
+                                        element={<ListProducts />}
+                                    />
+                                    <Route path="/cart" element={<Cart />} />
+                                    <Route
+                                        path="/orders"
+                                        element={<ListOrders />}
+                                    ></Route>
+                                    <Route path="/checkout" element={<Checkout />} />
+                                    <Route path="/" element={<HomePage />} />
+                                </Routes>
+                            </CartProvider>
+                        </div>
                 </BrowserRouter>
             </Stack>
         </Stack>

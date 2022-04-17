@@ -19,7 +19,7 @@ const sidebarData = [
 ];
 
 function Sidebar() {
-    const drawerWidth = 60;
+    const drawerWidth = 70;
 
     return (
         <Drawer
@@ -34,18 +34,20 @@ function Sidebar() {
             variant="permanent"
             anchor="left"
         >
-            <Stack direction="column">
-                {sidebarData.map((e) => (
-                    <Button
-                        component={Link}
-                        to={e.link}
-                        startIcon={e.icon}
-                        key={e.title}
-                        variant="text"
-                        sx={{ color: "text.primary" }}
-                    />
-                ))}
-            </Stack>
+                <Stack direction="column">
+                    {sidebarData.map((e) => (
+
+                        <Button
+                            component={Link}
+                            to={e.link}
+                            startIcon={e.icon}
+                            key={e.title}
+                            variant="text"
+                            sx={{ color: "text.primary" }}
+                        />
+
+                    ))}
+                </Stack>
         </Drawer>
     );
 }

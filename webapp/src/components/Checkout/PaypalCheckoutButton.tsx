@@ -7,8 +7,11 @@ import paypal from "@paypal/paypal-js";
 //
 const sandboxId = 'AZl80cnJ3GAjahCeDby4Hw7amZs3fr-C1gUfC5pkIu6z_i3GinKI8KhCcg1BcRsDVn1ms0WwaVD7uHDY';
 
+type PaypalButtonProps = {
+    payed: () => void;
+}
 
-export default function PaypalButton() : JSX.Element {
+export default function PaypalButton(props: PaypalButtonProps) : JSX.Element {
     const {cartItems} = useContext(CartContext);
     const subTotal = calculateTotal(cartItems).toFixed(2); // ADD SHIPPING COST
     const totalString =  subTotal.toString();
@@ -35,6 +38,7 @@ export default function PaypalButton() : JSX.Element {
 
                 onApprove={async (data, actions: any) => {
                     await actions.order.capture();
+                    props.payed();
                 }}
 
                 onCancel = {(data, actions) => {

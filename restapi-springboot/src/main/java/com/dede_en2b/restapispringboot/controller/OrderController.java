@@ -32,7 +32,11 @@ public class OrderController {
     public String addProduct(@RequestBody Order order){
         Set<OrderProduct> products = order.getOrderProducts();
         orderService.saveOrder(order);
-        products.forEach( p -> orderProductService.saveOrderProduct(p));
+
+        for(OrderProduct product: products){
+            orderProductService.saveOrderProduct(product);
+        }
+
         return "New Order is added";
     }
 

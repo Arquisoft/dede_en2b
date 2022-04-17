@@ -14,12 +14,15 @@ const OrderView = ({order}: Props) => {
     return (
         <Card sx={{ maxWidth: 600 }}>
             <CardActionArea>
-                <CardMedia
-                    component="img"
-                    height="140"
-                    image={order.orderProducts[0].product.image}
-                    alt={"Product contained in the order"}
-                />
+
+                { (order.orderProducts[0] === undefined) ? <p> The image could not be loaded </p>:
+                    <CardMedia
+                        component="img"
+                        height="140"
+                        image={order.orderProducts[0].product.image}
+                        alt={"Product contained in the order"}
+                    />
+                }
                 <CardContent>
                     <Typography gutterBottom variant="h6" component="div">
                         {order.status}

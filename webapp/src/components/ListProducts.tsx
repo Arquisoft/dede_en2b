@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, {useContext, useEffect} from "react";
 import useFetch from "../hooks/useFetch";
 
 import Product from "./Product";
@@ -13,6 +13,21 @@ const ListProducts = () => {
 
   const products = useFetch();
 
+  const search = window.location.search;
+  const params = new URLSearchParams(search);
+
+  let filter = params.get('filter')!;
+
+  if(filter !== null){
+    filter = filter.toLowerCase();
+  }
+
+  let isFiltered = true;
+
+  if(filter == "" || filter === null){
+    isFiltered = false;
+  }
+
   const handleAddToCart = (product: ProductType) => {
     dispatch({
       payload: product,
@@ -20,9 +35,27 @@ const ListProducts = () => {
     });
   };
 
+  if(isFiltered){
+
+    return (
+        <Grid container spacing={2} sx={{ px: 2 }}>
+          { products.filter( product => product.name.toLowerCase().includes(filter)).map((product) => (
+              <Grid item xs={6} md={4} lg={3}>
+                <Product
+                    key={product.id}
+                    product={product}
+                    handleAddToCart={handleAddToCart}
+                />
+              </Grid>
+          )) }
+        </Grid>
+    );
+
+  }
+
   return (
       <Grid container spacing={2} sx={{ px: 2 }}>
-        {products.map((product) => (
+        { products.map((product) => (
           <Grid item xs={6} md={4} lg={3}>
             <Product
               key={product.id}
