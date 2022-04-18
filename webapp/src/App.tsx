@@ -32,6 +32,10 @@ function App(): JSX.Element {
                                         path="/products?filter=:filter"
                                         element={<ListProducts />}
                                     />
+                                    <Route
+                                        path="/products/:id"
+                                        element={<ProductDetail />}
+                                    />
                                     <Route path="/cart" element={<Cart />} />
                                     <Route
                                         path="/orders"
