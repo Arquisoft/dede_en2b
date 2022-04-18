@@ -7,21 +7,23 @@ import {
     onSessionRestore
 } from "@inrupt/solid-client-authn-browser";
 
+const authOptions = {
+    clientName: "DeDe 3B",
+};
 
 const LoginButtonContainer = () => {
     const [idp, setIdp] = useState("https://inrupt.net");
-    const { session } = useSession();
+    //const { session } = useSession();
 
-    useEffect(() => {
-        handleIncomingRedirect({
-            restorePreviousSession: true
-        }).then(() => {
-            if (session.info.isLoggedIn) {
-                console.log("User successfully logged");
-            }
-        })
-    }, []);
-
+    // useEffect(() => {
+    //     handleIncomingRedirect({
+    //         restorePreviousSession: true
+    //     }).then(() => {
+    //         if (session.info.isLoggedIn) {
+    //             console.log("User successfully logged");
+    //         }
+    //     })
+    // }, []);
 
     return (
         <Container fixed>
@@ -35,7 +37,7 @@ const LoginButtonContainer = () => {
                     InputProps={{
                         endAdornment: (
                             <div className="loginButton">
-                                <LoginButton oidcIssuer={idp} redirectUrl={window.location.href}>
+                                <LoginButton oidcIssuer={idp} redirectUrl={window.location.href} authOptions={authOptions}>
                                         Login
                                 </LoginButton>
                             </div>
