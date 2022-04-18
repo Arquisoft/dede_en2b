@@ -1,24 +1,27 @@
 import { useState, useEffect } from "react";
-import { LoginButton } from "@inrupt/solid-ui-react";
+import { LoginButton, useSession } from "@inrupt/solid-ui-react";
 import { TextField, FormGroup, Container } from "@material-ui/core";
 import "./Login.css";
+import {
+    handleIncomingRedirect,
+    onSessionRestore
+} from "@inrupt/solid-client-authn-browser";
 
 
 const LoginButtonContainer = () => {
     const [idp, setIdp] = useState("https://inrupt.net");
-    //const [currentUrl, setCurrentUrl] = useState("");
+    const { session } = useSession();
 
-     // "http://54.234.146.174:3000/"
-    //    || "http://localhost:3000/"
+    useEffect(() => {
+        handleIncomingRedirect({
+            restorePreviousSession: true
+        }).then(() => {
+            if (session.info.isLoggedIn) {
+                console.log("User successfully logged");
+            }
+        })
+    }, []);
 
-    //useEffect(() => {
-
-    //    if(window.location.href.toString().includes("localhost")){
-    //        setCurrentUrl("http://localhost:3000/");
-    //    } else {
-    //        setCurrentUrl("http://54.234.146.174:3000/"); // window.location.href
-    //    }
-    //}, [setCurrentUrl]);
 
     return (
         <Container fixed>
