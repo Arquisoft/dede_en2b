@@ -6,11 +6,18 @@ import "./Login.css";
 
 const LoginButtonContainer = () => {
     const [idp, setIdp] = useState("https://inrupt.net");
-     const [currentUrl, setCurrentUrl] = useState("http://54.234.146.174:3000/"
-   || "http://localhost:3000/");
+     const [currentUrl, setCurrentUrl] = useState("");
+
+     // "http://54.234.146.174:3000/"
+    //    || "http://localhost:3000/"
 
     useEffect(() => {
-        setCurrentUrl(window.location.href);
+
+        if(window.location.href.toString().includes("localhost")){
+            setCurrentUrl("http://localhost:3000/");
+        } else {
+            setCurrentUrl("http://54.234.146.174:3000/"); // window.location.href
+        }
     }, [setCurrentUrl]);
 
     return (
