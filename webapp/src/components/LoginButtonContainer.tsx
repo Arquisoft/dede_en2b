@@ -6,7 +6,7 @@ import "./Login.css";
 
 const LoginButtonContainer = () => {
     const [idp, setIdp] = useState("https://inrupt.net");
-     const [currentUrl, setCurrentUrl] = useState(process.env.REACT_APP_API_URI
+     const [currentUrl, setCurrentUrl] = useState("http://54.234.146.174:3000/"
    || "http://localhost:3000/");
 
     useEffect(() => {
