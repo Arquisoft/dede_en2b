@@ -7,8 +7,13 @@ import {sliderItems} from "../../helper/sliderData";
 import styled from "styled-components";
 
 
+
 interface Prop {
     index:number;
+}
+
+interface PropColor {
+    bgColor:string;
 }
 
 const Wrapper = styled.div<Prop> `
@@ -17,6 +22,15 @@ const Wrapper = styled.div<Prop> `
     transition: all 1.5s ease;
     transform: translateX(${props=>props.index * -100}vw);
 `;
+
+const Slide = styled.div<PropColor>`
+    width: 100vw;
+    height: 55vh;
+    display: flex;
+    align-items: center;
+    background-color: #${props=>props.bgColor};
+`;
+
 
 const Slider = () => {
 
@@ -36,7 +50,7 @@ const Slider = () => {
             </div>
             <Wrapper index={slideIndex}>
                 {sliderItems.map(item =>(
-                    <div className="Slide">
+                    <Slide bgColor={item.bgColor}>
                         <div className="ImageContainer">
                             <div className="Image">
                                 <img src={item.img}/>
@@ -49,7 +63,7 @@ const Slider = () => {
                                 <button className="Button">SHOP NOW</button>
                             </Link>
                         </div>
-                    </div>
+                    </Slide>
                 ))}
             </Wrapper>
             <div className="Arrow" onClick={() => handleClick("right")}>
