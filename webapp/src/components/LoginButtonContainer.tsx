@@ -6,19 +6,19 @@ import "./Login.css";
 
 const LoginButtonContainer = () => {
     const [idp, setIdp] = useState("https://inrupt.net");
-     const [currentUrl, setCurrentUrl] = useState("");
+    //const [currentUrl, setCurrentUrl] = useState("");
 
      // "http://54.234.146.174:3000/"
     //    || "http://localhost:3000/"
 
-    useEffect(() => {
+    //useEffect(() => {
 
-        if(window.location.href.toString().includes("localhost")){
-            setCurrentUrl("http://localhost:3000/");
-        } else {
-            setCurrentUrl("http://54.234.146.174:3000/"); // window.location.href
-        }
-    }, [setCurrentUrl]);
+    //    if(window.location.href.toString().includes("localhost")){
+    //        setCurrentUrl("http://localhost:3000/");
+    //    } else {
+    //        setCurrentUrl("http://54.234.146.174:3000/"); // window.location.href
+    //    }
+    //}, [setCurrentUrl]);
 
     return (
         <Container fixed>
@@ -32,7 +32,7 @@ const LoginButtonContainer = () => {
                     InputProps={{
                         endAdornment: (
                             <div className="loginButton">
-                                <LoginButton oidcIssuer={idp} redirectUrl={currentUrl}>
+                                <LoginButton oidcIssuer={idp} redirectUrl={window.location.href}>
                                         Login
                                 </LoginButton>
                             </div>
