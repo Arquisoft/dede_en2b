@@ -15,6 +15,7 @@ import Stack from "@mui/material/Stack";
 import ListOrders from "./components/PastOrders/ListOrders";
 
 function App(): JSX.Element {
+    window.getComputedStyle(document.body)
     return (
         <Stack direction="row">
             <Stack direction="column" sx={{ width: "100%" }}>
