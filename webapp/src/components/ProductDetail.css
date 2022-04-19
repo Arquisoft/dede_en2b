@@ -1,0 +1,12 @@
+.productDetail{
+
+    width: 50%;
+    margin: 5em auto auto;
+}
+
+.buttonAddCartPDetail{
+
+    background-color: #4CAF50;
+    height: 100%;
+    width: 100%;
+}

@@ -1,11 +1,8 @@
 import React, {useContext, useEffect} from "react";
 import useFetch from "../hooks/useFetch";
-
 import Product from "./Product";
 import { CartContext } from "./CartContext";
-
 import { ProductType } from "../shared/shareddtypes";
-
 import Grid from "@mui/material/Grid";
 
 const ListProducts = () => {
@@ -15,6 +12,7 @@ const ListProducts = () => {
 
   const search = window.location.search;
   const params = new URLSearchParams(search);
+
 
   let filter = params.get('filter')!;
 
