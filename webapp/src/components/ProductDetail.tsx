@@ -2,7 +2,7 @@ import React, {useContext, useState, useEffect} from "react";
 import {useParams} from "react-router-dom";
 import {getProductById} from "../api/api";
 import {ProductType} from "../shared/shareddtypes";
-import {Button, CardActionArea, CardActions, Grid} from "@mui/material";
+import {CardActions, Grid} from "@mui/material";
 import CardMedia from "@mui/material/CardMedia";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
@@ -25,9 +25,9 @@ const ProductDetails = () => {
         getProduct();
     }, []);
 
-    const handleAddToCart = (product: ProductType) => {
+    const handleAddToCart = (productItem: ProductType) => {
         dispatch({
-            payload: product,
+            payload: productItem,
             type: "ADD",
         });
     };
