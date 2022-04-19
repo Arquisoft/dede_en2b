@@ -46,6 +46,7 @@
 .InfoContainer {
     flex: 1;
     padding: 50px;
+    margin-bottom: 40px;
 }
 
 .Title {
@@ -53,7 +54,8 @@
 }
 
 .Description {
-    margin: 50px 0px;
+    margin: -40px 0px 50px 0px;
+    --margin: 50px 0px;
     font-size: 20px;
     font-weight: 500;
     letter-spacing: 2px;
