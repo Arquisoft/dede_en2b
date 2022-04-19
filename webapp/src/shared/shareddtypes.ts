@@ -11,6 +11,7 @@ export type ProductType = {
     category:string;
     price:number;
     image:string;
+    description:string;
 }
 
 export type CartItem = {

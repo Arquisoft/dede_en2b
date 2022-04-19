@@ -1,7 +1,10 @@
 .productDetail{
 
     width: 100%;
-    margin: 5em auto auto;
+    margin-top: 5em;
+    padding-left: 1em;
+    min-width: 50%;
+    max-width: 90%;
 
 }
 

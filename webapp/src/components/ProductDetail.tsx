@@ -35,7 +35,7 @@ const ProductDetails = () => {
     if (product) {
         return (
             <div className={"productDetail"}>
-                <Grid container direction="row"  alignItems="center" justifyContent="center" spacing={0} >
+                <Grid container direction="row" spacing={0} >
                     <Grid item>
                         <Card>
                             <CardMedia className={"imageProductDetails"}
@@ -45,14 +45,14 @@ const ProductDetails = () => {
                             />
                         </Card>
                     </Grid>
-                        <Box sx={{display: 'flex', flexDirection: 'column', alignSelf: 'baseline'}}>
+                        <Box className="borderDetailsBox" sx={{display: 'flex', flexDirection: 'column', alignSelf: 'baseline', minWidth:'40%', maxWidth:'65%', maxHeight:'50%', overflow:'auto'}}>
                             <CardContent>
                                 <Typography gutterBottom variant="h4" component="div">
                                     {product.name + " - " + product.price + "€"}
                                 </Typography>
 
-                                <Typography gutterBottom variant="h6" component="div">
-                                    {"Description"}
+                                <Typography gutterBottom variant="h6" component="div" sx={{wordWrap:'break-word'}}>
+                                    {product.description}
                                 </Typography>
                             </CardContent>
 
