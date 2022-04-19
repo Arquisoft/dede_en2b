@@ -35,39 +35,33 @@ const ProductDetails = () => {
     if (product) {
         return (
             <div className={"productDetail"}>
-                <Grid container direction="row">
+                <Grid container direction="row"  alignItems="center" justifyContent="center" spacing={0} >
                     <Grid item>
                         <Card>
-                            <CardMedia
+                            <CardMedia className={"imageProductDetails"}
                                 component="img"
-                                height="200"
                                 image={product.image}
                                 alt={product.name}
                             />
                         </Card>
                     </Grid>
-                    <Grid item>
-                        <Box sx={{display: 'flex', flexDirection: 'column'}}>
-                            <CardActionArea>
+                        <Box sx={{display: 'flex', flexDirection: 'column', alignSelf: 'baseline'}}>
+                            <CardContent>
+                                <Typography gutterBottom variant="h4" component="div">
+                                    {product.name + " - " + product.price + "€"}
+                                </Typography>
 
-                                <CardContent>
-                                    <Typography gutterBottom variant="h5" component="div">
-                                        {product.name + " - " + product.price + "€"}
-                                    </Typography>
+                                <Typography gutterBottom variant="h6" component="div">
+                                    {"Description"}
+                                </Typography>
+                            </CardContent>
 
-                                    <Typography gutterBottom variant="h6" component="div">
-                                        {"Aquí iría la descripción"}
-                                    </Typography>
-                                </CardContent>
-
-                            </CardActionArea>
-                            <CardActions sx={{display: 'flex', flexDirection: 'column', marginTop: 'auto'}}>
+                            <CardActions>
                                 <button className={"buttonAddCartPDetail"} onClick={() => handleAddToCart(product)}>
                                     Add to cart
                                 </button>
                             </CardActions>
                         </Box>
-                    </Grid>
                 </Grid>
             </div>
         );
