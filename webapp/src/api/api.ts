@@ -5,6 +5,7 @@ const apiEndPoint =
     process.env.REACT_APP_API_URI
    || "http://localhost:5000";
 const PRODUCT_LIST_API = apiEndPoint + "/product/list";
+const PRODUCT_GETBYID_API = apiEndPoint + "/product/";
 const ORDER_LIST_API = apiEndPoint + "/order/listByUser";
 const ORDER_ID_API = apiEndPoint + "/order/";
 const ADD_ORDER_API = apiEndPoint +"/order/add";
@@ -17,6 +18,11 @@ export async function getProductCatalog(): Promise<ProductType[]> {
 
 export async function getOrdersForUser(webId: string): Promise<OrderType[]> {
     let response = await fetch(ORDER_LIST_API + "/" + webId);
+    return response.json();
+}
+
+export async function getProductById(id: string): Promise<ProductType> {
+    let response = await fetch(PRODUCT_GETBYID_API + id);
     return response.json();
 }
 

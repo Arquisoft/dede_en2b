@@ -19,7 +19,7 @@ const CompleteOrder = () => {
 
     cartItems.map( item => orderProductsToPut.push(orderP = {
         id: 0, order: productsType, quantity: item.amount , price: item.price,
-        product: {id: item.id, name: item.name, category: "Order", price: item.price, image: item.image}
+        product: {id: item.id, name: item.name, category: "Order", price: item.price, image: item.image, description: "Ordered item"}
     }));
 
     const subTotal = calculateTotal(cartItems);

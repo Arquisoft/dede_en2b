@@ -10,6 +10,7 @@ import { CartProvider } from "./components/CartContext";
 import Cart from "./components/Cart/Cart";
 import Checkout from "./components/Checkout/Checkout";
 import Sidebar from "./components/Sidebar/Sidebar";
+import ProductDetail from "./components/ProductDetail";
 
 import Stack from "@mui/material/Stack";
 import ListOrders from "./components/PastOrders/ListOrders";
@@ -32,6 +33,10 @@ function App(): JSX.Element {
                                     <Route
                                         path="/products?filter=:filter"
                                         element={<ListProducts />}
+                                    />
+                                    <Route
+                                        path="/products/:id"
+                                        element={<ProductDetail />}
                                     />
                                     <Route path="/cart" element={<Cart />} />
                                     <Route

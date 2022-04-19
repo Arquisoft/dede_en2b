@@ -27,4 +27,9 @@ public class ProductServiceImpl implements ProductService {
         productRepository.findAll().forEach(products::add);
         return products;
     }
+
+    @Override
+    public Product getProductById(Long id) {
+        return productRepository.findById(id).get();
+    }
 }

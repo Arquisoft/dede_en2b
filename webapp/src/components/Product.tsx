@@ -5,6 +5,7 @@ import Typography from '@mui/material/Typography';
 import {Button, CardActionArea, CardActions} from '@mui/material';
 
 import {ProductType} from '../shared/shareddtypes';
+import { useNavigate } from "react-router-dom";
 
 type Props = {
     product: ProductType;
@@ -12,9 +13,12 @@ type Props = {
 }
 
 const Product  = ({product, handleAddToCart}: Props) => {
+
+    const navigate = useNavigate();
+
     return (
         <Card>
-            <CardActionArea>
+            <CardActionArea onClick={()=>navigate("/products/"+product.id)}>
                 <CardMedia
                     component="img"
                     height="140"
