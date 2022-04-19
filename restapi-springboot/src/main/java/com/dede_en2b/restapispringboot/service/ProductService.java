@@ -9,4 +9,5 @@ import java.util.List;
 public interface ProductService {
     public Product saveProduct(Product product);
     public List<Product> getAllProducts();
+    Product getProductById(Long id);
 }

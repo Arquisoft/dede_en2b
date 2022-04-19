@@ -15,12 +15,14 @@ public class Product {
     private String category;
     private double price;
     private String image;
+    private String description;
 
-    public Product( String name, String category, double price, String image){
+    public Product( String name, String category, double price, String image, String description){
         this.name = name;
         this.category = category;
         this.price = price;
         this.image = image;
+        this.description = description;
     }
 
     public Product(String json){
@@ -65,4 +67,12 @@ public class Product {
     public String getImage() { return image; }
 
     public void setImage(String image) { this.image = image; }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
 }
