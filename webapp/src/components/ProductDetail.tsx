@@ -19,7 +19,7 @@ const ProductDetails = () => {
     const [product, setProduct] = useState<ProductType>();
     const {dispatch} = useContext(CartContext);
     const [ratings, setRatings] = useState<RatingType[]>();
-    const [commentList, setCommentList] = useState<JSX.Element[]>([]);
+    let [commentList, setCommentList] = useState<JSX.Element[]>([]);
 
     let ratingValue = 2.5;
 
@@ -29,22 +29,21 @@ const ProductDetails = () => {
         }
     }
 
-    const getProduct = async () => {
-        await setProduct(await getProductById(id!));
-    };
-
-    const getRatings = async () => {
-        await setRatings(await getRatingsForProduct(id!));
-    };
-
-    function updateComments() {
-        ratings?.forEach(r => {setCommentList([<h1> {r.comment} </h1>])});
-    };
+    const getProduct = async () => {setProduct(await getProductById(id!));};
+    const getRatings = async () => {setRatings(await getRatingsForProduct(id!));};
+    let updateComments = () => {ratings?.forEach(r => {commentList.push(<h1> {r.comment} </h1>)})};
 
     useEffect(() => {
         getProduct();
-        getRatings().then(updateComments).then();
+        getRatings();
+
     }, []);
+
+    updateComments();
+
+    //function updateComments() {
+    //    ratings?.forEach(r => {commentList.push(<h1> {r.comment} </h1>)});
+    //};
 
     const handleAddToCart = (productItem: ProductType) => {
         dispatch({
@@ -96,6 +95,9 @@ const ProductDetails = () => {
                         <button className={"reviewButton"} title={"setMessage"} type = "button">Send</button>
                     </div>
                     <div className="reviews">
+                        {
+
+                        }
                         {commentList}
                     </div>
                 </div>
