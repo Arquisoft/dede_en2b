@@ -39,10 +39,6 @@ jobs:
                 cache: 'maven'
             - name: Build with Maven
               run: mvn -B package --file pom.xml 
-                -DMYSQL_HOST=${{ secrets.MYSQL_HOST }} 
-                -DMYSQL_USER=${{ secrets.MYSQL_USER }} 
-                -DMYSQL_PASSWORD=${{ secrets.MYSQL_PASSWORD }}
-                -DMYSQL_DATABASE_NAME=${{ secrets.MYSQL_DATABASE_NAME}}
             - name: test with maven
               run: mvn -B test --file pom.xml
     e2e-tests:
