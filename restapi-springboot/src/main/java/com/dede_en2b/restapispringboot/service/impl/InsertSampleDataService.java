@@ -99,6 +99,7 @@ public class InsertSampleDataService {
 
 
         ratingsService.saveRating(new Rating("admin", "nice salmon", 5.0, "", salmon));
+        ratingsService.saveRating(new Rating("admin", "second review", 5.0, "", salmon));
 
     }
 }
