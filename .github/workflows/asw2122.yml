@@ -33,7 +33,7 @@ jobs:
             - uses: actions/setup-java@v2
             - uses: docker-practice/actions-setup-docker@1.0.9
               with:
-                    distribution: zulu
+                    distribution: 'zulu'
                     java-version: '11'
                     cache: 'maven'
             - name: Set up mysql database
