@@ -33,13 +33,23 @@ const ProductDetails = () => {
 
     // LOAD RATINGS
     const getProduct = async () => {setProduct(await getProductById(id!));};
-    const getRatings = async () => {setRatings(await getRatingsForProduct(id!));};
-    let updateComments = () => {ratings?.forEach(r => {ratingList.push(<h1> {r.comment} </h1>)})};
+    const getRatings = async () => {setRatings(await getRatingsForProduct(id!));}; // 4 elementos, profilepic, name, comment, rating
+    let updateComments = () => {ratings?.forEach(r => {ratingList.push(
+        <CardContent className={"ratingBox"}>
+            <Rating value={r.rating} precision={0.5} readOnly size={"medium"}/>
+            <Typography variant="h5" component="div">
+                {r.user}
+            </Typography>
+
+            <Typography variant="h6" component="div">
+                {r.comment}
+            </Typography>
+        </CardContent>
+    )})};
 
     useEffect(() => {
         getProduct();
         getRatings();
-        console.log("I fire once");
     }, []);
 
     updateComments();
@@ -67,9 +77,16 @@ const ProductDetails = () => {
 
         document.getElementById("reviews")!.innerHTML = "";
 
-        setRatingList(ratingList.concat([<h1> {newRating.comment} </h1>]));
+        setRatingList(ratingList.concat([<CardContent id={"ratingBox"}>
+            <Rating value={newRating.rating} precision={0.5} readOnly size={"medium"}/>
+            <Typography variant="h5" component="div">
+                {newRating.user}
+            </Typography>
 
-
+            <Typography variant="h6" component="div">
+                {newRating.comment}
+            </Typography>
+        </CardContent>]));
     }
     // ADD RATING
 
@@ -83,7 +100,7 @@ const ProductDetails = () => {
     if (product) {
         return (
             <div className={"productDetail"}>
-                <Grid container direction="row" spacing={0} >
+                <Grid className={"upperDetail"} container direction="row" spacing={0} >
                     <Grid item>
                         <Card>
                             <CardMedia className={"imageProductDetails"}
@@ -95,7 +112,7 @@ const ProductDetails = () => {
                     </Grid>
                         <Box className="borderDetailsBox" sx={{display: 'flex', flexDirection: 'column', alignSelf: 'baseline', minWidth:'40%', maxWidth:'65%', maxHeight:'50%', overflow:'auto'}}>
                             <CardContent>
-                                <Typography gutterBottom variant="h4" component="div">
+                                <Typography fontFamily={"Trebuchet MS"} className={"detailsName"} gutterBottom variant="h4" component="div">
                                     {product.name + " - " + product.price + "€"}
                                 </Typography>
 
@@ -117,7 +134,9 @@ const ProductDetails = () => {
                 </Grid>
 
                 <div className="reviewBlock">
-                    <div> Add a review </div>
+                    <Typography fontFamily={"Trebuchet MS"} gutterBottom variant="h4" component="div">
+                        Add a review
+                    </Typography>
                     <div className={"addReview"}>
                         <div className={"reviewText"}>
                             <input className={"reviewInput"} id={"reviewInput"} type={"text"}></input>
