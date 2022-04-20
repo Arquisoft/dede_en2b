@@ -59,7 +59,7 @@ jobs:
                 java-version: '11'
                 cache: 'maven'
             - name: Build with Maven
-              run: mvn -B package --file pom.xml
+              run: mvn -B package --file pom.xml -DMYSQL_HOST=${{ env.MYSQL_HOST }} -DMYSQL_USER=${{ env.MYSQL_USER }} -DMYSQL_PASSWORD=${{ env.MYSQL_PASSWORD }}
             - name: test with maven
               run: mvn -B test --file pom.xml
     e2e-tests:
