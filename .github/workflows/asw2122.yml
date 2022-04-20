@@ -1,11 +1,6 @@
 name: CI for ASW2122
 
-env:
-  MYSQL_DATABASE: dede
-  MYSQL_USER: test_user
-  MYSQL_PASSWORD: password
-  MYSQL_HOST: mysql-master
-  NODE_ENV: test
+
 
 on:
     release:
@@ -35,22 +30,6 @@ jobs:
         defaults:
             run:
                 working-directory: restapi-springboot
-        services:
-            mysql-master:
-                image: mysql:5.7
-                ports:
-                - 3306/tcp
-                env:
-                    MYSQL_DATABASE: ${{ env.MYSQL_DATABASE }}
-                    MYSQL_USER: ${{ env.MYSQL_USER }}
-                    MYSQL_PASSWORD: ${{ env.MYSQL_PASSWORD }}
-                    MYSQL_ROOT_PASSWORD: ${{ env.MYSQL_PASSWORD }}
-                options: >-
-                    --name=mysql-master
-                    --health-cmd="mysqladmin ping"
-                    --health-interval=10s
-                    --health-timeout=10s
-                    --health-retries=5
         steps:
             - uses: actions/checkout@v2
             - uses: actions/setup-java@v2
@@ -59,7 +38,11 @@ jobs:
                 java-version: '11'
                 cache: 'maven'
             - name: Build with Maven
-              run: mvn -B package --file pom.xml -DMYSQL_HOST=${{ env.MYSQL_HOST }} -DMYSQL_USER=${{ env.MYSQL_USER }} -DMYSQL_PASSWORD=${{ env.MYSQL_PASSWORD }}
+              run: mvn -B package --file pom.xml 
+                -DMYSQL_HOST=${{ secrets.MYSQL_HOST }} 
+                -DMYSQL_USER=${{ secrets.MYSQL_USER }} 
+                -DMYSQL_PASSWORD=${{ secrets.MYSQL_PASSWORD }}
+                -DMYSQL_DATABASE_NAME=${{ secrets.MYSQL_DATABASE_NAME}}
             - name: test with maven
               run: mvn -B test --file pom.xml
     e2e-tests:
