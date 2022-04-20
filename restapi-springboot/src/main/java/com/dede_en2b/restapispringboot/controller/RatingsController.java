@@ -2,35 +2,31 @@ package com.dede_en2b.restapispringboot.controller;
 
 
 import com.dede_en2b.restapispringboot.model.Product;
+import com.dede_en2b.restapispringboot.model.Rating;
 import com.dede_en2b.restapispringboot.service.ProductService;
+import com.dede_en2b.restapispringboot.service.RatingsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("product/")
+@RequestMapping("rating/")
 @CrossOrigin("http://localhost:3000/")
-public class ProductController {
+public class RatingsController {
 
     @Autowired
-    private ProductService productService;
+    private RatingsService ratingsService; //  ratingsservice
 
     @PostMapping("add")
-    public String addProduct(@RequestBody Product product){
-        productService.saveProduct(product);
-        return "New Product is added";
-    }
-
-    @GetMapping("list")
-    public List<Product>getList() {
-        return productService.getAllProducts();
-
+    public String addRating(@RequestBody Rating rating){
+        ratingsService.saveRating(rating);
+        return "New rating has been added added";
     }
 
     @GetMapping("{id}")
-    public Product getProductById(@PathVariable Long id) {
-        return productService.getProductById(id);
+    public List<Rating> getRatingsByProductId(@PathVariable Long id) {
+        return ratingsService.getRatingsByProductId(id);
 
     }
 

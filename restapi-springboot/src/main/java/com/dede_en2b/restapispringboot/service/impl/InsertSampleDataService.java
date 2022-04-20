@@ -3,12 +3,14 @@ package com.dede_en2b.restapispringboot.service.impl;
 import com.dede_en2b.restapispringboot.model.Order;
 import com.dede_en2b.restapispringboot.model.OrderProduct;
 import com.dede_en2b.restapispringboot.model.Product;
+import com.dede_en2b.restapispringboot.model.Rating;
 import com.dede_en2b.restapispringboot.repository.OrderProductRepository;
 import com.dede_en2b.restapispringboot.repository.OrderRepository;
 import com.dede_en2b.restapispringboot.repository.ProductRepository;
 import com.dede_en2b.restapispringboot.service.OrderProductService;
 import com.dede_en2b.restapispringboot.service.OrderService;
 import com.dede_en2b.restapispringboot.service.ProductService;
+import com.dede_en2b.restapispringboot.service.RatingsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -27,6 +29,9 @@ public class InsertSampleDataService {
 
     @Autowired
     private OrderProductService orderProductService;
+
+    @Autowired
+    private RatingsService ratingsService;
 
     @PostConstruct
     public void init(){
@@ -92,6 +97,8 @@ public class InsertSampleDataService {
         orderProductService.saveOrderProduct(orderProduct4);
         orderProductService.saveOrderProduct(orderProduct5);
 
+
+        ratingsService.saveRating(new Rating("admin", "nice salmon", 5.0, "", salmon));
 
     }
 }
