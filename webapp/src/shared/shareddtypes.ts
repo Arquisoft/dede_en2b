@@ -45,6 +45,7 @@ export type RatingType = {
     comment: string
     rating: number
     profileImage: string
+    product: ProductType
 }
 
 export type CartActionReducer = {

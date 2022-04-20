@@ -28,6 +28,19 @@ export async function GetAddress(): Promise<string> {
     return address;
 }
 
+export async function GetName(): Promise<string> {
+    const {session} = useSession();
+    let webId = session.info.webId as string;
+    let profileDocumentURI = webId.split("#")[0];
+    let dataSet = await getSolidDataset(profileDocumentURI);
+    let profile = getThing(dataSet, webId) as Thing;
+    let urlName = getUrl(profile, VCARD.hasAddress) as string;
+    let nameProfile = await getThing(dataSet, urlName);
+    let name = getStringNoLocale(nameProfile as Thing, VCARD.fn) as string;
+
+    return name;
+}
+
 export async function GetDeliveryCost(): Promise<number> {
 
     let shippingCost = 0;

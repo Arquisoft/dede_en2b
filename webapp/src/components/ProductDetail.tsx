@@ -1,6 +1,6 @@
 import React, {useContext, useState, useEffect} from "react";
 import {useParams} from "react-router-dom";
-import {getProductById, getRatingsForProduct} from "../api/api";
+import {getProductById, getRatingsForProduct, addRatingForProduct} from "../api/api";
 import {ProductType, RatingType} from "../shared/shareddtypes";
 import {CardActions, Grid} from "@mui/material";
 import CardMedia from "@mui/material/CardMedia";
@@ -12,6 +12,7 @@ import {CartContext} from "./CartContext";
 import "./ProductDetail.css";
 
 import {Rating} from "@mui/material";
+import {useSession} from "@inrupt/solid-ui-react";
 
 const ProductDetails = () => {
 
@@ -19,7 +20,8 @@ const ProductDetails = () => {
     const [product, setProduct] = useState<ProductType>();
     const {dispatch} = useContext(CartContext);
     const [ratings, setRatings] = useState<RatingType[]>();
-    let [commentList, setCommentList] = useState<JSX.Element[]>([]);
+    let [ratingList, setRatingList] = useState<JSX.Element[]>([]);
+    const {session} = useSession();
 
     let ratingValue = 2.5;
 
@@ -29,21 +31,47 @@ const ProductDetails = () => {
         }
     }
 
+    // LOAD RATINGS
     const getProduct = async () => {setProduct(await getProductById(id!));};
     const getRatings = async () => {setRatings(await getRatingsForProduct(id!));};
-    let updateComments = () => {ratings?.forEach(r => {commentList.push(<h1> {r.comment} </h1>)})};
+    let updateComments = () => {ratings?.forEach(r => {ratingList.push(<h1> {r.comment} </h1>)})};
 
     useEffect(() => {
         getProduct();
         getRatings();
-
+        console.log("I fire once");
     }, []);
 
     updateComments();
+    // LOAD RATINGS
 
-    //function updateComments() {
-    //    ratings?.forEach(r => {commentList.push(<h1> {r.comment} </h1>)});
-    //};
+    // ADD RATING
+    let userName = "Guest";
+
+    if(session.info.isLoggedIn) {
+        userName = document.getElementById("userData")!.textContent!;
+    }
+
+    function addRating(message: string, rating: number){
+
+        const newRating : RatingType = {
+
+            user: userName,
+            comment: message,
+            rating: rating,
+            profileImage: "",
+            product: product!
+        };
+
+        const addRating = addRatingForProduct(newRating);
+
+        document.getElementById("reviews")!.innerHTML = "";
+
+        setRatingList(ratingList.concat([<h1> {newRating.comment} </h1>]));
+
+
+    }
+    // ADD RATING
 
     const handleAddToCart = (productItem: ProductType) => {
         dispatch({
@@ -91,14 +119,18 @@ const ProductDetails = () => {
                 <div className="reviewBlock">
                     <div> Add a review </div>
                     <div className={"addReview"}>
-                        <div className={"reviewText"}> <input className={"reviewInput"} type={"text"}></input> </div>
-                        <button className={"reviewButton"} title={"setMessage"} type = "button">Send</button>
-                    </div>
-                    <div className="reviews">
-                        {
+                        <div className={"reviewText"}>
+                            <input className={"reviewInput"} id={"reviewInput"} type={"text"}></input>
+                        </div>
 
+                        <button className={"reviewButton"} title={"setMessage"} type = "button" onClick={() => addRating(
+                            (document.getElementById("reviewInput") as HTMLInputElement).value,
+                            ratingValue)}>Send</button>
+                    </div>
+                    <div id="reviews" className="reviews">
+                        {
+                            ratingList
                         }
-                        {commentList}
                     </div>
                 </div>
 
