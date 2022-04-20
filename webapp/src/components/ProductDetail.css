@@ -8,6 +8,33 @@
 
 }
 
+.reviewBlock{
+    padding-top: 3%;
+    min-width: 100%;
+}
+
+.addReview{
+
+    display: flex;
+    margin: 0 0 0;
+    flexDirection: row;
+    min-width: 100%;
+
+}
+
+.reviewText{
+    flex-grow: 2;
+    display:flex;
+}
+
+.reviewInput{
+    flex:fit-content;
+}
+
+.reviewButton{
+    flex-grow: 1;
+}
+
 /* CSS */
 .buttonAddCartPDetail {
     background-color: #36A9AE;

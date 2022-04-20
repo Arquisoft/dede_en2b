@@ -39,6 +39,14 @@ export type OrderProduct = {
     order: OrderType
 }
 
+export type RatingType = {
+
+    user: string
+    comment: string
+    rating: number
+    profileImage: string
+}
+
 export type CartActionReducer = {
     payload: any;
     type: 'ADD' | 'REMOVE' | 'REMOVE-ALL' | 'CLEAR';

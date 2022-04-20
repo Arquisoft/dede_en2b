@@ -1,7 +1,7 @@
 import React, {useContext, useState, useEffect} from "react";
 import {useParams} from "react-router-dom";
-import {getProductById} from "../api/api";
-import {ProductType} from "../shared/shareddtypes";
+import {getProductById, getRatingsForProduct} from "../api/api";
+import {ProductType, RatingType} from "../shared/shareddtypes";
 import {CardActions, Grid} from "@mui/material";
 import CardMedia from "@mui/material/CardMedia";
 import CardContent from "@mui/material/CardContent";
@@ -11,18 +11,39 @@ import Box from '@mui/material/Box';
 import {CartContext} from "./CartContext";
 import "./ProductDetail.css";
 
+import {Rating} from "@mui/material";
+
 const ProductDetails = () => {
 
     const {id} = useParams();
     const [product, setProduct] = useState<ProductType>();
     const {dispatch} = useContext(CartContext);
+    const [ratings, setRatings] = useState<RatingType[]>();
+    const [commentList, setCommentList] = useState<JSX.Element[]>([]);
+
+    let ratingValue = 2.5;
+
+    function setValue(newRating : number | null) {
+        if(newRating != null){
+            ratingValue = newRating;
+        }
+    }
 
     const getProduct = async () => {
         await setProduct(await getProductById(id!));
     };
 
+    const getRatings = async () => {
+        await setRatings(await getRatingsForProduct(id!));
+    };
+
+    function updateComments() {
+        ratings?.forEach(r => {setCommentList([<h1> {r.comment} </h1>])});
+    };
+
     useEffect(() => {
         getProduct();
+        getRatings().then(updateComments).then();
     }, []);
 
     const handleAddToCart = (productItem: ProductType) => {
@@ -54,6 +75,10 @@ const ProductDetails = () => {
                                 <Typography gutterBottom variant="h6" component="div" sx={{wordWrap:'break-word'}}>
                                     {product.description}
                                 </Typography>
+
+                                <Rating name="half-rating" defaultValue={2.5} precision={0.5} size="large"
+                                        onChange={(event, newValue) => {
+                                            setValue(newValue);}}/>
                             </CardContent>
 
                             <CardActions>
@@ -63,6 +88,18 @@ const ProductDetails = () => {
                             </CardActions>
                         </Box>
                 </Grid>
+
+                <div className="reviewBlock">
+                    <div> Add a review </div>
+                    <div className={"addReview"}>
+                        <div className={"reviewText"}> <input className={"reviewInput"} type={"text"}></input> </div>
+                        <button className={"reviewButton"} title={"setMessage"} type = "button">Send</button>
+                    </div>
+                    <div className="reviews">
+                        {commentList}
+                    </div>
+                </div>
+
             </div>
         );
     } else {
