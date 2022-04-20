@@ -35,9 +35,13 @@ jobs:
                 distribution: 'zulu'
                 java-version: '11'
                 cache: 'maven'
-            - uses: docker-practice/actions-setup-docker@1.0.9
-            - name: Set up mysql database
-              run: docker run -p 3306:3306 --name mysqldb -e MYSQL_ALLOW_EMPTY_PASSWORD=yes -e MYSQL_DATABASE=dede mysql
+           
+            - uses: shogo82148/actions-setup-mysql@v1
+              with:
+                mysql-version: '8.0'
+            - run: mysql -uroot -h127.0.0.1 -e 'SELECT version()'
+
+
             - name: Build with Maven
               run: mvn -B package --file pom.xml
             - name: test with maven
