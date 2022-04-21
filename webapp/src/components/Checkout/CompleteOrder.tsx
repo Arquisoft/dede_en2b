@@ -11,12 +11,13 @@ import './CompleteOrder.css';
 import {GetAddress, GetDeliveryCost, GetPostalCode} from "../../helper/calculateDeliveryCost";
 
 type Props = {
-    address: string
+    address: string,
+    postalCode: number
 }
 
 const CompleteOrder = (props:Props) => {
 
-    const {address} = props;
+    const {address, postalCode} = props;
 
     const {cartItems} = useContext(CartContext);
 
@@ -57,7 +58,8 @@ const CompleteOrder = (props:Props) => {
         totalPrice: subTotal,
         status: "PENDING",
         orderProducts: orderProductsToPut,
-        address: address
+        address: address,
+        postalCode: postalCode
     }
 
     const addOrder = addOrderForUser(productsType);

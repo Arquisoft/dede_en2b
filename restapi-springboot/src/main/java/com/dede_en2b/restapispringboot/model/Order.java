@@ -24,7 +24,7 @@ public class Order {
     private double totalPrice;
     private String status;
     private String address;
-
+    private int postalCode;
 
     @OneToMany (mappedBy = "order",
             cascade = CascadeType.REMOVE,
@@ -93,5 +93,8 @@ public class Order {
 
     public void setAddress(String address) { this.address = address; }
 
+    public int getPostalCode() { return postalCode; }
+
+    public void setPostalCode(int postalCode) { this.postalCode = postalCode; }
 
 }

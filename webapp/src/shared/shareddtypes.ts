@@ -30,6 +30,7 @@ export type OrderType = {
     date: string;
     status: string;
     address: string;
+    postalCode: number;
 }
 
 export type OrderProduct = {
