@@ -23,6 +23,7 @@ public class Order {
     private String user;
     private double totalPrice;
     private String status;
+    private String address;
 
 
     @OneToMany (mappedBy = "order",
@@ -87,5 +88,10 @@ public class Order {
     public String getStatus() { return status; }
 
     public void setStatus(String status) { this.status = status; }
+
+    public String getAddress() { return address; }
+
+    public void setAddress(String address) { this.address = address; }
+
 
 }

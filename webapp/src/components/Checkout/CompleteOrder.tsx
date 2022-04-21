@@ -8,14 +8,22 @@ import {useSession} from "@inrupt/solid-ui-react";
 import {stringToHexadecimal} from "../../helper/stringToHexadecimal";
 import {Link} from "react-router-dom";
 import './CompleteOrder.css';
+import {GetAddress, GetDeliveryCost, GetPostalCode} from "../../helper/calculateDeliveryCost";
 
-const CompleteOrder = () => {
+type Props = {
+    address: string
+}
+
+const CompleteOrder = (props:Props) => {
+
+    const {address} = props;
 
     const {cartItems} = useContext(CartContext);
 
     const orderProductsToPut: OrderProduct[] = [];
     let orderP: OrderProduct;
     let productsType:OrderType;
+
 
     cartItems.map( item => orderProductsToPut.push(orderP = {
         id: 0, order: productsType, quantity: item.amount , price: item.price,
@@ -48,7 +56,8 @@ const CompleteOrder = () => {
         user: webId,
         totalPrice: subTotal,
         status: "PENDING",
-        orderProducts: orderProductsToPut
+        orderProducts: orderProductsToPut,
+        address: address
     }
 
     const addOrder = addOrderForUser(productsType);

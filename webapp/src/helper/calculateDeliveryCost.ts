@@ -25,11 +25,23 @@ export async function GetAddress(): Promise<string> {
     let addressProfile = await getThing(dataSet, urlAddress);
     let address = getStringNoLocale(addressProfile as Thing, VCARD.street_address) as string;
 
+    let locality = getStringNoLocale(addressProfile as Thing, VCARD.locality) as string;
+    if (locality !== null && locality !== "") {
+        address += ", " + locality;
+    }
+    let region = getStringNoLocale(addressProfile as Thing, VCARD.region) as string;
+    if (region !== null && region !== "") {
+        address += ", " + region;
+    }
+    let country_name = getStringNoLocale(addressProfile as Thing, VCARD.country_name) as string;
+    if (country_name !== null && country_name !== "") {
+        address += ", " + country_name;
+    }
+
     return address;
 }
 
 export async function GetDeliveryCost(): Promise<number> {
-
     let shippingCost = 0;
 
     let code = await GetPostalCode();

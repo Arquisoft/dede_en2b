@@ -14,6 +14,7 @@ import "./Checkout.css";
 import Order from "../Order/Order";
 import CompleteOrder from "./CompleteOrder";
 import PaypalButton from './PaypalCheckoutButton';
+import {GetAddress} from "../../helper/calculateDeliveryCost";
 
 const ColorlibConnector = styled(StepConnector)(({theme}) => ({
     [`&.${stepConnectorClasses.alternativeLabel}`]: {
@@ -81,6 +82,10 @@ function ColorlibStepIcon(props: StepIconProps) {
 
 export default function Checkout() {
 
+    const [address, setAddress] = React.useState("");
+    const getPodAddress = async () => setAddress(await GetAddress());
+    getPodAddress();
+
     const [step, setStep] = React.useState(0);
     const steps = ["Order information", "Payment", "Order completed"];
     const paymentStep = 1;
@@ -108,7 +113,8 @@ export default function Checkout() {
                         payed={handlePayed}
                     />);
             case 2:
-                return (<CompleteOrder/>);
+                return (<CompleteOrder
+                    address={address}/>);
         }
     };
 
