@@ -77,7 +77,7 @@ const ProductDetails = () => {
 
         document.getElementById("reviews")!.innerHTML = "";
 
-        setRatingList(ratingList.concat([<CardContent id={"ratingBox"}>
+        setRatingList(ratingList.concat([<CardContent id={"ratingBox"} className={"ratingBox"}>
             <Rating value={newRating.rating} precision={0.5} readOnly size={"medium"}/>
             <Typography variant="h5" component="div">
                 {newRating.user}
