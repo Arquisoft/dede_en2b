@@ -22,6 +22,7 @@ import Drawer from "@mui/material/Drawer";
 import HomeIcon from "@mui/icons-material/Home";
 import FoodBankIcon from "@mui/icons-material/FoodBank";
 import {Button} from "@mui/material";
+import Typography from "@mui/material/Typography";
 
 const drawerWidth = 240;
 
@@ -82,18 +83,29 @@ const Navbar = () => {
 
     return (
         <Stack justifyContent="space-around" direction="row">
-
             <Toolbar>
                 <IconButton
                     color="inherit"
                     aria-label="open drawer"
                     onClick={handleDrawerOpen}
                     edge="start"
-                    sx={{ mr: 2, ...(open && { display: 'none' }) }}
+                    sx={{ ...(open && { display: 'none' }) }}
                 >
                     <MenuIcon />
                 </IconButton>
             </Toolbar>
+
+            <div className={"searchContainer"}>
+                <SearchBar />
+            </div>
+
+            <Stack justifyContent="center" alignItems="center">
+                <div className={"logoContainer"}>
+                    <Link to="/" style={{ color: "black", textDecoration: 'none', fontWeight: 'bold', textAlign: 'center' }}>
+                        <h1>DeDe</h1>
+                    </Link>
+                </div>
+            </Stack>
 
             <Drawer
                 sx={{
@@ -109,6 +121,9 @@ const Navbar = () => {
                 open={open}
             >
                 <DrawerHeader>
+                    <Typography fontFamily={"Trebuchet MS"} variant="h5" component="p" sx={{marginLeft: 'auto', marginRight: 'auto'}}>
+                        Explore
+                    </Typography>
                     <IconButton onClick={handleDrawerClose}>
                         {theme.direction === 'ltr' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
                     </IconButton>
@@ -130,18 +145,6 @@ const Navbar = () => {
                     ))}
                 </Stack>
             </Drawer>
-
-            <div className={"searchContainer"}>
-                <SearchBar />
-            </div>
-
-            <Stack justifyContent="center" alignItems="center">
-                <div className={"logoContainer"}>
-                    <Link to="/" style={{ color: "black", textDecoration: 'none', fontWeight: 'bold', textAlign: 'center' }}>
-                        <h1>DeDe</h1>
-                    </Link>
-                </div>
-            </Stack>
 
             <Stack justifyContent="space-even" direction="row" alignItems="center">
                 <SessionProvider sessionId="some-id">
