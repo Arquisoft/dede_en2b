@@ -8,7 +8,6 @@ import {useSession} from "@inrupt/solid-ui-react";
 import {stringToHexadecimal} from "../../helper/stringToHexadecimal";
 import {Link} from "react-router-dom";
 import './CompleteOrder.css';
-import {GetAddress, GetDeliveryCost, GetPostalCode} from "../../helper/calculateDeliveryCost";
 
 type Props = {
     address: string,
@@ -56,7 +55,7 @@ const CompleteOrder = (props:Props) => {
         date: day + "/" + month + "/" + date.getFullYear(),
         user: webId,
         totalPrice: subTotal,
-        status: "PENDING",
+        status: "PROCESSING",
         orderProducts: orderProductsToPut,
         address: address,
         postalCode: postalCode
