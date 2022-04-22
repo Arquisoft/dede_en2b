@@ -1,45 +1,44 @@
 import React from "react";
 import styled from 'styled-components';
+import logo from '../../img/reactLogo.png';
+import "./Footer.css";
 
 const Box = styled.div`
-  padding-top: 1%;
+  padding-top: 1.5%;
+  padding-bottom:1%;
   background: black;
-  position: absolute;
-  bottom: 0;
+  position: relative;
   width: 100%;
-  
-   
-  @media (max-width: 1000px) {
-    padding: 70px 30px;
-  }
+  margin-top: 2%;
+  margin-left:auto;
+  margin-right:auto;
+ 
 `;
 
 const Container = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
-    max-width: 1000px;
-    margin: 0 auto;
+    
+    
+    
     /* background: red; */
 `
 
 const Column = styled.div`
   display: flex;
   flex-direction: column;
-  text-align: left;
-  margin-left: 60px;
+  text-align: center;
 `;
 
 const Row = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fill, 
-                         minmax(185px, 1fr));
+  grid-template-columns: auto auto auto auto auto;
+  margin-left:auto;
+  margin-right:auto;
+  
+  width:75%;
   grid-gap: 20px;
-   
-  @media (max-width: 1000px) {
-    grid-template-columns: repeat(auto-fill, 
-                           minmax(200px, 1fr));
-  }
 `;
 
 const FooterLink = styled.a`
@@ -54,26 +53,24 @@ const FooterLink = styled.a`
   }
 `;
 
-const Heading = styled.p`
-  font-size: 24px;
-  color: #fff;
-  margin-bottom: 40px;
-  font-weight: bold;
-`;
-
 const Footer = () => {
-
-    return ( <Box>
+    return ( <Box id={"footer"}>
             <Container>
                 <Row>
                     <Column>
-                        <FooterLink href="#">About Us</FooterLink>
+                        <FooterLink href="https://github.com/Arquisoft/dede_en2b">Code</FooterLink>
                     </Column>
                     <Column>
-                        <FooterLink href="#">About Us</FooterLink>
+                        <FooterLink href="https://arquisoft.github.io/dede_en2b/">Documentation</FooterLink>
                     </Column>
                     <Column>
-                        <FooterLink href="#">About Us</FooterLink>
+                        <img className={"reactLogo"} id={"reactLogo"} src={logo} alt="React Logo" />
+                    </Column>
+                    <Column>
+                        <FooterLink href="/about">About Us</FooterLink>
+                    </Column>
+                    <Column>
+                        <FooterLink href="https://solidproject.org/">SOLID</FooterLink>
                     </Column>
                 </Row>
             </Container>
