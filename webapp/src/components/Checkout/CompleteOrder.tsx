@@ -9,13 +9,21 @@ import {stringToHexadecimal} from "../../helper/stringToHexadecimal";
 import {Link} from "react-router-dom";
 import './CompleteOrder.css';
 
-const CompleteOrder = () => {
+type Props = {
+    address: string,
+    postalCode: number
+}
+
+const CompleteOrder = (props:Props) => {
+
+    const {address, postalCode} = props;
 
     const {cartItems} = useContext(CartContext);
 
     const orderProductsToPut: OrderProduct[] = [];
     let orderP: OrderProduct;
     let productsType:OrderType;
+
 
     cartItems.map( item => orderProductsToPut.push(orderP = {
         id: 0, order: productsType, quantity: item.amount , price: item.price,
@@ -47,8 +55,10 @@ const CompleteOrder = () => {
         date: day + "/" + month + "/" + date.getFullYear(),
         user: webId,
         totalPrice: subTotal,
-        status: "PENDING",
-        orderProducts: orderProductsToPut
+        status: "PROCESSING",
+        orderProducts: orderProductsToPut,
+        address: address,
+        postalCode: postalCode
     }
 
     const addOrder = addOrderForUser(productsType);

@@ -1,0 +1,12 @@
+.orderDetailContainer {
+    padding-top: 2em;
+    margin-left: 30%;
+}
+
+.orderDetailContent{
+    border: solid 0.05em lightgrey;
+    border-radius: 0.5em;
+    padding: 1em;
+    width:50%;
+}
+
