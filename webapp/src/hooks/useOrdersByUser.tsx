@@ -10,13 +10,13 @@ const useOrdersByUser = () => {
 
     let webId:string = stringToHexadecimal(session.info.webId!);
 
-    const getOrders = async () => {
-        setOrders(await getOrdersForUser(webId));
-    }
+   
 
     useEffect(() => {
-        getOrders()
-    });
+        const getOrders = async () => {
+            setOrders(await getOrdersForUser(webId));
+        }
+    }, []);
 
     return orders;
 }
