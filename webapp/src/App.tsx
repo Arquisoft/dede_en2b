@@ -13,6 +13,7 @@ import ProductDetail from "./components/ProductDetail";
 
 import Stack from "@mui/material/Stack";
 import ListOrders from "./components/PastOrders/ListOrders";
+import OrderDetail from "./components/PastOrders/OrderDetail";
 
 function App(): JSX.Element {
     window.getComputedStyle(document.body)
@@ -24,23 +25,12 @@ function App(): JSX.Element {
                             <CartProvider>
                                 <Navbar />
                                 <Routes>
-                                  <Route
-                                        path="/products"
-                                        element={<ListProducts />}
-                                    />
-                                    <Route
-                                        path="/products?filter=:filter"
-                                        element={<ListProducts />}
-                                    />
-                                    <Route
-                                        path="/products/:id"
-                                        element={<ProductDetail />}
-                                    />
+                                    <Route path="/products" element={<ListProducts />} />
+                                    <Route path="/products?filter=:filter" element={<ListProducts />} />
+                                    <Route path="/products/:id" element={<ProductDetail />} />
                                     <Route path="/cart" element={<Cart />} />
-                                    <Route
-                                        path="/orders"
-                                        element={<ListOrders />}
-                                    ></Route>
+                                    <Route path="/orders" element={<ListOrders/>} />
+                                    <Route path="/orders/:orderId" element={<OrderDetail/>}/>
                                     <Route path="/checkout" element={<Checkout />} />
                                     <Route path="/" element={<HomePage />} />
                                 </Routes>
