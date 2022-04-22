@@ -9,7 +9,6 @@ import ListProducts from "./components/ListProducts";
 import { CartProvider } from "./components/CartContext";
 import Cart from "./components/Cart/Cart";
 import Checkout from "./components/Checkout/Checkout";
-import Sidebar from "./components/Sidebar/Sidebar";
 import ProductDetail from "./components/ProductDetail";
 
 import Stack from "@mui/material/Stack";
@@ -21,7 +20,6 @@ function App(): JSX.Element {
         <Stack direction="row">
             <Stack direction="column" sx={{ width: "100%" }}>
                 <BrowserRouter>
-                        <Sidebar />
                         <div className={"NonSidebar"}>
                             <CartProvider>
                                 <Navbar />
