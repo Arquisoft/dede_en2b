@@ -33,7 +33,7 @@ const ProductDetails = () => {
 
     // LOAD RATINGS
     const getProduct = async () => {setProduct(await getProductById(id!));};
-    const getRatings = async () => {setRatings(await getRatingsForProduct(id!));}; // 4 elementos, profilepic, name, comment, rating
+    const getRatings = async () => {setRatings(await getRatingsForProduct(id!));};
     let updateComments = () => {ratings?.forEach(r => {ratingList.push(
         <CardContent className={"ratingBox"}>
             <Rating value={r.rating} precision={0.5} readOnly size={"medium"}/>
