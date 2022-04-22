@@ -13,6 +13,7 @@ import ProductDetail from "./components/ProductDetail";
 
 import Stack from "@mui/material/Stack";
 import ListOrders from "./components/PastOrders/ListOrders";
+import Footer from "./components/Footer/Footer";
 
 function App(): JSX.Element {
     window.getComputedStyle(document.body)
@@ -44,6 +45,7 @@ function App(): JSX.Element {
                                     <Route path="/checkout" element={<Checkout />} />
                                     <Route path="/" element={<HomePage />} />
                                 </Routes>
+                                <Footer/>
                             </CartProvider>
                         </div>
                 </BrowserRouter>
