@@ -1,8 +1,6 @@
 import { OrderProduct} from "../../shared/shareddtypes";
-import React, {useContext} from "react";
-import {CartContext} from "../CartContext";
-import {useTheme} from "@mui/material/styles";
-import {Button, Card, CardMedia} from "@mui/material";
+import React from "react";
+import {Card, CardMedia} from "@mui/material";
 import Box from "@mui/material/Box";
 import Divider from "@mui/material/Divider";
 

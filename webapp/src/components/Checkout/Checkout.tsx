@@ -14,7 +14,7 @@ import "./Checkout.css";
 import Order from "../Order/Order";
 import CompleteOrder from "./CompleteOrder";
 import PaypalButton from './PaypalCheckoutButton';
-import {GetAddress, GetDeliveryCost, GetPostalCode} from "../../helper/calculateDeliveryCost";
+import {GetAddress, GetPostalCode} from "../../helper/calculateDeliveryCost";
 
 const ColorlibConnector = styled(StepConnector)(({theme}) => ({
     [`&.${stepConnectorClasses.alternativeLabel}`]: {
