@@ -18,7 +18,7 @@ const Item = ({item}:Props) => {
     
     const {dispatch} = useContext(CartContext);
 
-    const theme = useTheme();
+    useTheme();
     return (
         <div className="cartProductContainer">
             <Card variant="outlined" sx= {{display:'flex', maxWidth:950}}>

@@ -1,11 +1,11 @@
-import { useState, useEffect } from "react";
-import { LoginButton, useSession } from "@inrupt/solid-ui-react";
+import { useState } from "react";
+import { LoginButton } from "@inrupt/solid-ui-react";
 import { TextField, FormGroup, Container } from "@material-ui/core";
 import "./Login.css";
-import {
-    handleIncomingRedirect,
-    onSessionRestore
-} from "@inrupt/solid-client-authn-browser";
+//import {
+//    handleIncomingRedirect,
+//    onSessionRestore
+//} from "@inrupt/solid-client-authn-browser";
 
 const authOptions = {
     clientName: "DeDe 3B",

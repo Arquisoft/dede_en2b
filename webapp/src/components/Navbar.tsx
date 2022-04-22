@@ -9,7 +9,7 @@ import LoginButtonContainer from "./LoginButtonContainer";
 import UserInfoContainer from "./UserInfoContainer";
 import Stack from "@mui/material/Stack";
 import "./Navbar.css";
-import { Search, ShoppingCartOutlined } from "@mui/icons-material";
+import { ShoppingCartOutlined } from "@mui/icons-material";
 import "./SearchBar";
 import SearchBar from "./SearchBar";
 

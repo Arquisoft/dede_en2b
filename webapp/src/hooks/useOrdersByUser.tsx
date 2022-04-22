@@ -16,7 +16,7 @@ const useOrdersByUser = () => {
 
     useEffect(() => {
         getOrders()
-    }, []);
+    });
 
     return orders;
 }

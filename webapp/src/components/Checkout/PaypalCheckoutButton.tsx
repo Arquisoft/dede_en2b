@@ -2,7 +2,7 @@ import {PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
 import { calculateTotal } from '../../helper/calculateCartTotal';
 import { useContext } from "react";
 import {CartContext} from "../CartContext";
-import paypal from "@paypal/paypal-js";
+
 
 //
 const sandboxId = 'AZl80cnJ3GAjahCeDby4Hw7amZs3fr-C1gUfC5pkIu6z_i3GinKI8KhCcg1BcRsDVn1ms0WwaVD7uHDY';

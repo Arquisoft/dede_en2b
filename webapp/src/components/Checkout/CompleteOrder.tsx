@@ -14,10 +14,10 @@ const CompleteOrder = () => {
     const {cartItems} = useContext(CartContext);
 
     const orderProductsToPut: OrderProduct[] = [];
-    let orderP: OrderProduct;
+    
     let productsType:OrderType;
 
-    cartItems.map( item => orderProductsToPut.push(orderP = {
+    cartItems.map( item => orderProductsToPut.push( {
         id: 0, order: productsType, quantity: item.amount , price: item.price,
         product: {id: item.id, name: item.name, category: "Order", price: item.price, image: item.image}
     }));
@@ -51,7 +51,7 @@ const CompleteOrder = () => {
         orderProducts: orderProductsToPut
     }
 
-    const addOrder = addOrderForUser(productsType);
+    addOrderForUser(productsType);
 
     const {dispatch} = useContext(CartContext);
 
