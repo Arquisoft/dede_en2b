@@ -67,6 +67,20 @@
     border-bottom-color: rgba(0, 0, 0, 0.6);
 }
 
+.aboutUsTitle{
+    border: 4px solid;
+    padding: 1%;
+    border-image: linear-gradient(to left, #6b6060, black) 1 0;
+}
+
+.developers{
+    border: 4px solid;
+    border-style: double;
+    border-radius: 2px;
+    padding: 1%;
+    width: fit-content;
+}
+
 
 @keyframes gradient {
     0% {

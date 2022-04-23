@@ -3,7 +3,6 @@ import Paper from '@mui/material/Paper';
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import "./AboutUs.css";
-import logo from "../../img/modelo.jpg"
 
 
 export default function AboutUs(): JSX.Element {
@@ -28,13 +27,13 @@ export default function AboutUs(): JSX.Element {
             marginBottom: '2%'
         }}>
 
-            <Typography fontFamily={"Trebuchet MS"} variant={"h2"} sx={{marginLeft:"2%", marginTop:'2%'}}>About us</Typography>
+            <Typography className="aboutUsTitle" fontFamily={"Trebuchet MS"} variant={"h2"} sx={{marginLeft:"2%", marginTop:'2%'}}>About us</Typography>
             <Typography fontFamily={"Helvetica"} variant={"h5"} sx={{padding: '4%'}}>
                 Thank you for visiting our DeDe webpage. We are a group of Computer Science students that are enrolled in the Software Architecture course,
                 and is currently developing an application that simulates a shop and a retail system, which makes use of <a id="solidLink" className="solidLink" href={"https://solidproject.org/"}>Solid</a> in order to guarantee the privacy of the customers when retrieving the necessary data (such as the shipping address)
             </Typography>
 
-            <Typography fontFamily={"Trebuchet MS"} variant={"h4"} sx={{marginLeft:"2%", marginTop:'1%'}}>Developers</Typography>
+            <Typography className="developers" fontFamily={"Trebuchet MS"} variant={"h4"} sx={{marginLeft:"2%", marginTop:'1%'}}>Developer team</Typography>
             <Box sx={{display: 'flex', marginRight:'auto', marginLeft:'auto', paddingTop:'1%', paddingBottom:'2%'}}>
 
                 <div id={"dev1"}>
