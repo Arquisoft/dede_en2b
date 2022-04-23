@@ -1,0 +1,81 @@
+.aboutUs{
+    width: 80%;
+    height: 80%;
+
+    background: linear-gradient(-45deg, rgba(238, 119, 82, 0.5), rgba(255, 221, 131, 0.5), rgba(229, 246, 148, 0.5), rgba(176, 234, 218, 0.5));
+}
+
+.devName{
+    margin-right:auto;
+    margin-left:auto;
+}
+
+.shape-outer {
+    display: flex;
+    flex-shrink: 0;
+    height: calc(150px + 4vw);
+    width: calc(150px + 4vw);
+    margin: 25px;
+    background-image: linear-gradient(to bottom right, #ffafaf, #e00000, #ffafaf);
+}
+
+.shape-outerMiddle {
+    display: flex;
+    flex-shrink: 0;
+    height: calc(150px + 4vw);
+    width: calc(150px + 4vw);
+    margin: 25px;
+    background-image: linear-gradient(to bottom right, #ffffff, #fff151, #ffffff);
+}
+
+.shape-innerLeft {
+    height: calc(130px + 4vw);
+    width: calc(130px + 4vw);
+    background: url('../../img/photoDiego.jpg') no-repeat center;
+    background-size: cover;
+    margin: auto;
+}
+
+.shape-innerMiddle {
+    height: calc(130px + 4vw);
+    width: calc(130px + 4vw);
+    background: url('../../img/photoLaura.jpg') no-repeat center;
+    background-size: cover;
+    margin: auto;
+}
+
+.shape-innerRight {
+    height: calc(130px + 4vw);
+    width: calc(130px + 4vw);
+    background: url('../../img/photoAdrian.jpg') no-repeat center;
+    background-size: cover;
+    margin: auto;
+}
+
+.circle {
+    -webkit-clip-path: circle(50% at 50% 50%);
+    clip-path: circle(50% at 50% 50%);
+}
+
+.solidLink {
+    color: inherit;
+    text-decoration: none;
+    border-bottom: 3px solid rgba(105, 105, 105, 0.7);
+}
+
+.solidLink:hover {
+    border-bottom-color: rgba(0, 0, 0, 0.6);
+}
+
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
