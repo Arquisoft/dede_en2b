@@ -11,20 +11,6 @@ on:
 
 
 jobs:
-    
-    unit-test-webapp:
-        runs-on: ubuntu-latest
-        defaults:
-            run:
-                working-directory: webapp
-        steps:
-            - uses: actions/checkout@v2
-            - uses: actions/setup-node@v2
-              with:
-                  node-version: 16
-            - run: npm ci
-            - run: npm test
-            - uses: codecov/codecov-action@v2
     unit-test-restapi:
         runs-on: ubuntu-latest
         defaults:
@@ -47,6 +33,19 @@ jobs:
                 -DMYSQL_HOST=uw63uehcq4yfuo2h:ezPqJY9awdqrr5H7y4uJ@bdc5rfw8rgtu1kxrwjln-mysql.services.clever-cloud.com
                 -DMYSQL_USER=bdc5rfw8rgtu1kxrwjln
                 -DMYSQL_DATABASE_NAME=bdc5rfw8rgtu1kxrwjln
+    unit-test-webapp:
+        runs-on: ubuntu-latest
+        defaults:
+            run:
+                working-directory: webapp
+        steps:
+            - uses: actions/checkout@v2
+            - uses: actions/setup-node@v2
+              with:
+                  node-version: 16
+            - run: npm ci
+            - run: npm test
+            - uses: codecov/codecov-action@v2
     e2e-tests:
         needs: [unit-test-webapp, unit-test-restapi]
         runs-on: ubuntu-latest
