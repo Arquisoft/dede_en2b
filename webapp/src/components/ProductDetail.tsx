@@ -120,9 +120,7 @@ const ProductDetails = () => {
                                     {product.description}
                                 </Typography>
 
-                                <Rating name="half-rating" defaultValue={2.5} precision={0.5} size="large"
-                                        onChange={(event, newValue) => {
-                                            setValue(newValue);}}/>
+
                             </CardContent>
 
                             <CardActions>
@@ -137,6 +135,9 @@ const ProductDetails = () => {
                     <Typography fontFamily={"Trebuchet MS"} gutterBottom variant="h4" component="div">
                         Add a review
                     </Typography>
+                    <Rating name="half-rating" defaultValue={2.5} precision={0.5} size="large"
+                            onChange={(event, newValue) => {
+                                setValue(newValue);}}/>
                     <div className={"addReview"}>
                         <div className={"reviewText"}>
                             <input className={"reviewInput"} id={"reviewInput"} type={"text"}></input>
