@@ -1,7 +1,10 @@
 package com.dede_en2b.restapispringboot.model;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.*;
 import javax.sound.midi.MidiMessage;
+import java.util.Set;
 import java.util.Objects;
 
 @Entity
@@ -17,6 +20,12 @@ public class Product {
     private double price;
     private String image;
     private String description;
+
+    @OneToMany (mappedBy = "product",
+            cascade = CascadeType.REMOVE,
+            fetch=FetchType.EAGER)
+    @JsonManagedReference
+    private Set<Rating> ratings;
 
     public Product( String name, String category, double price, String image, String description){
         this.name = name;
@@ -77,6 +86,12 @@ public class Product {
         this.description = description;
     }
 
+    public Set<Rating> getRatings() {
+        return ratings;
+    }
+
+    public void setRatings(Set<Rating> ratings) {
+        this.ratings = ratings;
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
