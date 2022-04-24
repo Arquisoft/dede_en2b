@@ -14,6 +14,7 @@ import ProductDetail from "./components/ProductDetail";
 import Stack from "@mui/material/Stack";
 import ListOrders from "./components/PastOrders/ListOrders";
 import OrderDetail from "./components/PastOrders/OrderDetail";
+import About from "./components/About/AboutUs";
 
 function App(): JSX.Element {
     window.getComputedStyle(document.body)
@@ -32,6 +33,7 @@ function App(): JSX.Element {
                                     <Route path="/orders" element={<ListOrders/>} />
                                     <Route path="/orders/:orderId" element={<OrderDetail/>}/>
                                     <Route path="/checkout" element={<Checkout />} />
+                                    <Route path="/about" element={<About />} />
                                     <Route path="/" element={<HomePage />} />
                                 </Routes>
                             </CartProvider>
