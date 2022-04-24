@@ -29,6 +29,8 @@ export type OrderType = {
     totalPrice: number;
     date: string;
     status: string;
+    address: string;
+    postalCode: number;
 }
 
 export type OrderProduct = {

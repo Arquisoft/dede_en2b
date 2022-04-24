@@ -13,7 +13,7 @@ type Props = {
 const OrderView = ({order}: Props) => {
     return (
         <Card sx={{ maxWidth: 600 }}>
-            <CardActionArea>
+            <CardActionArea component={Link} to={"/orders/" + order.id}>
 
                 { (order.orderProducts[0] === undefined) ? <p> The image could not be loaded </p>:
                     <CardMedia
@@ -30,7 +30,6 @@ const OrderView = ({order}: Props) => {
                     <div>
                         {order.date} <br/>
                         Total: {order.totalPrice}€ <br/>
-                        Number of products: {order.orderProducts.length}
                     </div>
                 </CardContent>
             </CardActionArea>

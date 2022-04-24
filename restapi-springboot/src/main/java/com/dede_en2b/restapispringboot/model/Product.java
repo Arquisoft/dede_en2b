@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
 import javax.persistence.*;
 import javax.sound.midi.MidiMessage;
 import java.util.Set;
+import java.util.Objects;
 
 @Entity
 @Table(name="products")
@@ -91,5 +92,16 @@ public class Product {
 
     public void setRatings(Set<Rating> ratings) {
         this.ratings = ratings;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Product product = (Product) o;
+        return Double.compare(product.price, price) == 0 && name.equals(product.name) && category.equals(product.category);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, category, price);
     }
 }

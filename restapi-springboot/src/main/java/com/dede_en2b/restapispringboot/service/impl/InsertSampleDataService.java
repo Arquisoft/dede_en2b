@@ -79,6 +79,7 @@ public class InsertSampleDataService {
         products.add(orderProduct3);
         order1.setOrderProducts(products);
         order1.setStatus("SHIPPED");
+        order1.setAddress("C/Marqués Pérez, 9 1A, 33010");
         orderService.saveOrder(order1);
         orderProductService.saveOrderProduct(orderProduct1);
         orderProductService.saveOrderProduct(orderProduct2);
