@@ -1,0 +1,36 @@
+h2 {
+    margin-left: 1em;
+    font-size: 1.775em;
+}
+
+p {
+    font-weight: 500;
+    letter-spacing: 2px;
+}
+
+.content ul {
+    display: flex;
+    list-style: none;
+    overflow: hidden;
+    justify-content: center;
+}
+
+.content ul li {
+    float: left;
+    text-align: center;
+    max-width: 20%;
+}
+
+.content img {
+    width: 67%;
+}
+
+.content img:hover {
+    width: 67%;
+    background-color: rgba(190, 225, 157, 0.29);
+    border-radius: 10em;
+    cursor: pointer;
+}
+
+
+
