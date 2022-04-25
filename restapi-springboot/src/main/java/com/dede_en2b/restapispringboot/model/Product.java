@@ -92,6 +92,8 @@ public class Product {
 
     public void setRatings(Set<Rating> ratings) {
         this.ratings = ratings;
+    }
+    
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
