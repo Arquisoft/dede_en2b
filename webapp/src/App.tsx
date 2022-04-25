@@ -13,6 +13,7 @@ import ProductDetail from "./components/ProductDetail";
 
 import Stack from "@mui/material/Stack";
 import ListOrders from "./components/PastOrders/ListOrders";
+import Footer from "./components/Footer/Footer";
 import OrderDetail from "./components/PastOrders/OrderDetail";
 import About from "./components/About/AboutUs";
 
@@ -36,6 +37,7 @@ function App(): JSX.Element {
                                     <Route path="/about" element={<About />} />
                                     <Route path="/" element={<HomePage />} />
                                 </Routes>
+                                <Footer/>
                             </CartProvider>
                         </div>
                 </BrowserRouter>
