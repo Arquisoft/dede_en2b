@@ -8,8 +8,6 @@ import Grid from "@mui/material/Grid";
 const ListProducts = () => {
   const { dispatch } = useContext(CartContext);
 
-  const products = useFetch();
-
   const search = window.location.search;
   const params = new URLSearchParams(search);
 
@@ -25,6 +23,16 @@ const ListProducts = () => {
   if(filter == "" || filter === null){
     isFiltered = false;
   }
+
+  let category = params.get('category')!;
+  let hasCategory:boolean = false;
+
+  if (category !== null && category.trim().length > 0 && typeof category != undefined ) {
+    category = category.toLowerCase();
+    hasCategory = true;
+  }
+
+  const products = useFetch(category);
 
   const handleAddToCart = (product: ProductType) => {
     dispatch({

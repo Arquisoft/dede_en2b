@@ -3,11 +3,16 @@ import './HomePage.css';
 
 import Slider from "./Homepage/Slider";
 
+import Categories from "./Homepage/Categories";
+
 export default function HomePage(): JSX.Element {
 
 
     return (
-        <Slider/>
+        <div>
+            <Slider/>
+            <Categories/>
+        </div>
     );
 
 }

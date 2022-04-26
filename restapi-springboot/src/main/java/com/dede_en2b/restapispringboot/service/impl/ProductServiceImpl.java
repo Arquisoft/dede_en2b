@@ -32,4 +32,9 @@ public class ProductServiceImpl implements ProductService {
     public Product getProductById(Long id) {
         return productRepository.findById(id).get();
     }
+
+    @Override
+    public List<Product> getAllProductsByCategory(String category) {
+        return productRepository.findAllByCategory(category);
+    }
 }
