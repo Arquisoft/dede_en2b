@@ -14,20 +14,28 @@ const Categories = () => {
             <div className="content">
                 <ul>
                     <li className="category">
-                        <img src={fruit}/>
-                        <p>FRUIT</p>
+                        <a href="/products?category=fruit">
+                            <img src={fruit}/>
+                            <p>FRUIT</p>
+                        </a>
                     </li>
                     <li className="category">
-                        <img src={meat}/>
-                        <p>MEAT</p>
+                        <a href="/products?category=meat">
+                            <img src={meat}/>
+                            <p>MEAT</p>
+                        </a>
                     </li>
                     <li className="category">
-                        <img src={fish}/>
-                        <p>FISH</p>
+                        <a href="/products?category=fish">
+                            <img src={fish}/>
+                            <p>FISH</p>
+                        </a>
                     </li>
                     <li className="category">
-                        <img src={vegetable}/>
-                        <p>VEGETABLES</p>
+                        <a href="/products?category=vegetable">
+                            <img src={vegetable}/>
+                            <p>VEGETABLES</p>
+                        </a>
                     </li>
                 </ul>
             </div>
