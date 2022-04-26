@@ -35,7 +35,7 @@ services:
     webapp:
         image: ghcr.io/arquisoft/dede_en2b/webapp:latest
         ports:
-            - "3000:3000"
+            - "443:443"
         networks:
             - dede-network
         depends_on:
