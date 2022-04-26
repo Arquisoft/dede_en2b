@@ -13,8 +13,12 @@ const GET_RATINGS_API = apiEndPoint + "/rating/";
 const ADD_RATING_API = apiEndPoint +"/rating/add";
 
 export async function getProductCatalog(): Promise<ProductType[]> {
-
     let response = await fetch(PRODUCT_LIST_API);
+    return response.json();
+}
+
+export async function getProductsByCategory(category:string): Promise<ProductType[]> {
+    let response = await fetch(PRODUCT_LIST_API + "/" + category);
     return response.json();
 }
 
