@@ -54,7 +54,7 @@ const SearchBar = () => {
     return (
         <SearchContainer>
             <Input id="searchInput" onChange={handleChange} />
-            <Link to= {"/products?filter=" + searchInput} id="searchButton">
+            <Link to= {"/products?filter=" + searchInput} id="searchButton"  onClick={refreshPage}>
                 <Search style={{ color: "gray", fontSize: 20 }}/>
             </Link>
         </SearchContainer>
