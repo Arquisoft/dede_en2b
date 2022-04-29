@@ -51,16 +51,10 @@ const SearchBar = () => {
         window.location.reload();
     }
 
-    const refreshPageBtn = () => {
-
-        //navigate("/products?filter=" + searchInput);
-        //window.location.reload();
-    }
-
     return (
         <SearchContainer>
             <Input id="searchInput" onChange={handleChange} />
-            <Link to= {"/products?filter=" + searchInput} id="searchButton" onClick={refreshPageBtn}>
+            <Link to= {"/products?filter=" + searchInput} id="searchButton">
                 <Search style={{ color: "gray", fontSize: 20 }}/>
             </Link>
         </SearchContainer>
