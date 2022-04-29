@@ -1,0 +1,26 @@
+.footer{
+    max-width: 100%;
+}
+
+.reactLogo{
+    max-width: 50px;
+    max-height: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top:0;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .reactLogo {
+        animation: reactLogo-spin infinite 25s linear;
+    }
+}
+
+@keyframes reactLogo-spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}

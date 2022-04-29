@@ -7,6 +7,7 @@ import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
 
 @Entity
@@ -23,7 +24,8 @@ public class Order {
     private String user;
     private double totalPrice;
     private String status;
-
+    private String address;
+    private int postalCode;
 
     @OneToMany (mappedBy = "order",
             cascade = CascadeType.REMOVE,
@@ -88,4 +90,24 @@ public class Order {
 
     public void setStatus(String status) { this.status = status; }
 
+    public String getAddress() { return address; }
+
+    public void setAddress(String address) { this.address = address; }
+
+    public int getPostalCode() { return postalCode; }
+
+    public void setPostalCode(int postalCode) { this.postalCode = postalCode; }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Order order = (Order) o;
+        return Double.compare(order.totalPrice, totalPrice) == 0 && Objects.equals(date, order.date) && Objects.equals(user, order.user) && Objects.equals(address, order.address);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(date, user, totalPrice, address);
+    }
 }

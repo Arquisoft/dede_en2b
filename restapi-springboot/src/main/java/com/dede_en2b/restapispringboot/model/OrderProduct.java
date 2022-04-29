@@ -3,6 +3,8 @@ package com.dede_en2b.restapispringboot.model;
 import javax.persistence.*;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 
+import java.util.Objects;
+
 @Entity
 public class OrderProduct {
 

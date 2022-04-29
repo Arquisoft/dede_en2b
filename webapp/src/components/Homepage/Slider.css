@@ -1,0 +1,76 @@
+.SliderContainer {
+    width: 100%;
+    height: 55vh;
+    display: flex;
+    position: relative;
+    overflow: hidden;
+}
+
+.Arrow {
+    width: 50px;
+    height: 50px;
+    background-color: #ffffff;
+    border-radius: 50%;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    cursor: pointer;
+    opacity: 0.5;
+    z-index: 2;
+}
+
+.Arrow:first-child {
+    left: 10px
+}
+
+.Arrow:last-child {
+    right: 10px
+}
+
+.Slide {
+    width: 100vw;
+    height: 50vh;
+    display: flex;
+    align-items: center;
+}
+
+.ImageContainer {
+    height: 100%;
+    flex: 1;
+}
+
+.InfoContainer {
+    flex: 1;
+    padding: 50px;
+    margin-bottom: 40px;
+}
+
+.Title {
+    font-size: 4.375em;
+}
+
+.Description {
+    margin: -40px 0px 50px 0px;
+    --margin: 50px 0px;
+    font-size: 20px;
+    font-weight: 500;
+    letter-spacing: 2px;
+}
+
+.Button {
+    padding: 10px;
+    font-size: 20px;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+
+
+.Image {
+    max-width: 100%;
+    height: auto;
+}

@@ -1,7 +1,11 @@
 package com.dede_en2b.restapispringboot.model;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.*;
 import javax.sound.midi.MidiMessage;
+import java.util.Set;
+import java.util.Objects;
 
 @Entity
 @Table(name="products")
@@ -15,12 +19,20 @@ public class Product {
     private String category;
     private double price;
     private String image;
+    private String description;
 
-    public Product( String name, String category, double price, String image){
+    @OneToMany (mappedBy = "product",
+            cascade = CascadeType.REMOVE,
+            fetch=FetchType.EAGER)
+    @JsonManagedReference
+    private Set<Rating> ratings;
+
+    public Product( String name, String category, double price, String image, String description){
         this.name = name;
         this.category = category;
         this.price = price;
         this.image = image;
+        this.description = description;
     }
 
     public Product(String json){
@@ -65,4 +77,33 @@ public class Product {
     public String getImage() { return image; }
 
     public void setImage(String image) { this.image = image; }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public Set<Rating> getRatings() {
+        return ratings;
+    }
+
+    public void setRatings(Set<Rating> ratings) {
+        this.ratings = ratings;
+    }
+    
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Product product = (Product) o;
+        return Double.compare(product.price, price) == 0 && name.equals(product.name) && category.equals(product.category);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, category, price);
+    }
 }

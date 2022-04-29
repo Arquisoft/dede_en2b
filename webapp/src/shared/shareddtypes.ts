@@ -11,6 +11,7 @@ export type ProductType = {
     category:string;
     price:number;
     image:string;
+    description:string;
 }
 
 export type CartItem = {
@@ -28,6 +29,8 @@ export type OrderType = {
     totalPrice: number;
     date: string;
     status: string;
+    address: string;
+    postalCode: number;
 }
 
 export type OrderProduct = {
@@ -36,6 +39,15 @@ export type OrderProduct = {
     price:number
     product: ProductType
     order: OrderType
+}
+
+export type RatingType = {
+
+    user: string
+    comment: string
+    rating: number
+    profileImage: string
+    product: ProductType
 }
 
 export type CartActionReducer = {

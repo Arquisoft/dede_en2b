@@ -20,7 +20,7 @@ const UserInfoContainer = () => {
                         datasetUrl={session.info.webId}
                         thingUrl={session.info.webId}>
                             <CardContent>
-                                <div className={"userData"}>
+                                <div className={"userData"} id={"userData"}>
                                     <Text property={VCARD.fn.iri.value}/>
                                 </div>
                             </CardContent>
