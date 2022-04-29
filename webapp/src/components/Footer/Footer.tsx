@@ -2,6 +2,7 @@ import React from "react";
 import styled from 'styled-components';
 import logo from '../../img/reactLogo.png';
 import "./Footer.css";
+import {Link} from "react-router-dom";
 
 const Box = styled.div`
   padding-top: 1.5%;
@@ -67,7 +68,9 @@ const Footer = () => {
                         <img className={"reactLogo"} id={"reactLogo"} src={logo} alt="React Logo" />
                     </Column>
                     <Column>
-                        <FooterLink href="/about">About Us</FooterLink>
+                        <Link to="/about">
+                        <FooterLink>About Us</FooterLink>
+                        </Link>
                     </Column>
                     <Column>
                         <FooterLink href="https://solidproject.org/">SOLID</FooterLink>
