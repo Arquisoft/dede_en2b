@@ -5,6 +5,7 @@ import {useState} from "react";
 import ListProducts from "./ListProducts";
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
+import {Button} from "@mui/material";
 
 const SearchContainer = styled.div`
     border: 1px solid lightgray;
@@ -42,21 +43,28 @@ const SearchBar = () => {
         if (event.keyCode === 13) {
             event.preventDefault();
             document.getElementById("searchButton")?.click();
-            refreshPage();
+            onSearch();
         }
     });
 
-    const refreshPage = ()=>{
+    const formSearch = () => {
+        document.getElementById("searchButton")?.click();
+        onSearch();
+    }
 
-        window.location.reload();
+    const onSearch = ()=>{
+
+        window.location.href = "/products?filter=" + searchInput;
     }
 
     return (
         <SearchContainer>
             <Input id="searchInput" onChange={handleChange} />
-            <Link to= {"/products?filter=" + searchInput} id="searchButton"  onClick={refreshPage}>
-                <Search style={{ color: "gray", fontSize: 20 }}/>
-            </Link>
+                <Button id="submitBtn"  type="submit" onClick={formSearch}>
+                    <Link to= {"/products?filter=" + searchInput} id="searchButton">
+                            <Search style={{ color: "gray", fontSize: 20 }}/>
+                    </Link>
+                </Button>
         </SearchContainer>
     );
 
