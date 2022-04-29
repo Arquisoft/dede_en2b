@@ -1,15 +1,13 @@
-docker run -p 3306:3306 --name mysqldb -e MYSQL_ROOT_PASSWORD=root -e MYSQL_DATABASE=dede mysql
-docker rm restapi-springboot
-docker network connect spring-net mysqldb
-docker build -t restapi-springboot .
-docker run -p 5000:5000 --name restapi-springboot -e MYSQL_HOST=mysqldb -e MYSQL_USER=root -e MYSQL_PASSWORD=root -e MYSQL_PORT=3306 restapi-springboot
+To execute the restapi you need this command and a database on por 3306 as default with name dede (for more information check src > main > resources > application.properties):
 
-//--------------------------------------
-docker rm mysqldb  
-docker run -p 3306:3306 --name mysqldb --net spring-net -e MYSQL_ROOT_PASSWORD=root -e MYSQL_DATABASE=dede mysql
+```
+java -jar restapi-springboot-0.0.1-SNAPSHOT.jar
+```
 
-docker build -t restapi-springboot:latest .
-docker rm restapi-springboot
-docker run -p 5000:5000 -d --name ubuntu_restapi_1 --net ubuntu_dede-network -e MYSQL_HOST=mysqldb -e MYSQL_USER=root -e MYSQL_PASSWORD=root -e MYSQL_PORT=3306 ghcr.io/arquisoft/dede_en2b/restapi
-
-docker run -p 3000:3000 -d --name ubuntu_webapp_1 --net ubuntu_dede-network ghcr.io/arquisoft/dede_en2b/webapp
+This are the flags that can be added to the command to set a different database from default:
+```
+--MYSQL_HOST=localhost
+--MYSQL_USER=root
+--MYSQL_DATABASE_NAME=dede
+--MYSQL_PASSWORD= 
+```
