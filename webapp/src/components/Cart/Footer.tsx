@@ -14,12 +14,13 @@ const Footer = () => {
                 <p> Total: {calculateTotal(cartItems).toFixed(2)}€ </p>
             </div>
             {!session.info.isLoggedIn ?
-            <div className="notLoggedIn">
-                <p>Log in to proceed<br/> with checkout</p>
-            </div> :
-            <Link to="/checkout" >
-                <button> Checkout </button>
-            </Link>}
+                <div className="notLoggedIn">
+                    <p>Log in to proceed<br/> with checkout</p>
+                </div> :
+                <Link to="/checkout" >
+                    <button> Checkout </button>
+                </Link>
+            }
         </div>
     )
 }
