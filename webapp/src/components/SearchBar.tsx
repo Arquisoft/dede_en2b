@@ -61,9 +61,7 @@ const SearchBar = () => {
         <SearchContainer>
             <Input id="searchInput" onChange={handleChange} />
                 <Button id="submitBtn"  type="submit" onClick={formSearch}>
-                    <Link to= {"/products?filter=" + searchInput} id="searchButton">
-                            <Search style={{ color: "gray", fontSize: 20 }}/>
-                    </Link>
+                    <Search style={{ color: "gray", fontSize: 20 }}/>
                 </Button>
         </SearchContainer>
     );
