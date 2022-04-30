@@ -1,0 +1,30 @@
+.addProd {
+
+    display: grid;
+    align-self: center;
+    margin-left: auto;
+    margin-right: auto;
+    width:65%;
+    height: 70%;
+    margin-top: 3%;
+    padding: 3%;
+    border: black 5px solid;
+    border-radius: 10px;
+
+}
+
+.productForm{
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 5%;
+}
+
+.productFormComponent{
+
+    display: flex;
+
+    gap:2%;
+    flex-direction: row;
+}

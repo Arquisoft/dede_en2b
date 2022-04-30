@@ -1,16 +1,29 @@
 import { useState, useEffect } from "react";
-import { LoginButton } from "@inrupt/solid-ui-react";
+import { LoginButton, useSession } from "@inrupt/solid-ui-react";
 import { TextField, FormGroup, Container } from "@material-ui/core";
 import "./Login.css";
+import {
+    handleIncomingRedirect,
+    onSessionRestore
+} from "@inrupt/solid-client-authn-browser";
 
+const authOptions = {
+    clientName: "DeDe 3B",
+};
 
 const LoginButtonContainer = () => {
     const [idp, setIdp] = useState("https://inrupt.net");
-    const [currentUrl, setCurrentUrl] = useState("https://localhost:3000");
+    //const { session } = useSession();
 
-    useEffect(() => {
-        setCurrentUrl(window.location.href);
-    }, [setCurrentUrl]);
+    // useEffect(() => {
+    //     handleIncomingRedirect({
+    //         restorePreviousSession: true
+    //     }).then(() => {
+    //         if (session.info.isLoggedIn) {
+    //             console.log("User successfully logged");
+    //         }
+    //     })
+    // }, []);
 
     return (
         <Container fixed>
@@ -24,7 +37,7 @@ const LoginButtonContainer = () => {
                     InputProps={{
                         endAdornment: (
                             <div className="loginButton">
-                                <LoginButton oidcIssuer={idp} redirectUrl={currentUrl}>
+                                <LoginButton oidcIssuer={idp} redirectUrl={window.location.href} authOptions={authOptions}>
                                         Login
                                 </LoginButton>
                             </div>

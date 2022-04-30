@@ -34,7 +34,7 @@ when your infrastructure is more complex.
 * When your (hardware) stakeholders prefer other kinds of diagrams rather than the deployment diagram, let them use any kind that is able to show nodes and channels of the infrastructure.
 ****
 
-=== Infrastructure Level 1
+
 
 [role="arc42help"]
 ****
@@ -47,40 +47,45 @@ Describe (usually in a combination of diagrams, tables, and text):
 
 For multiple environments or alternative deployments please copy that section of arc42 for all relevant environments.
 ****
-
-_**<Overview Diagram>**_
-
+ 
+ 
+image:07_deployment_infraestructure.png["Infraestructure diagram"]
+ 
 Motivation::
-
-_<explanation in text form>_
-
-Quality and/or Performance Features::
-
-_<explanation in text form>_
-
-Mapping of Building Blocks to Infrastructure::
-_<description of the mapping>_
-
-
-=== Infrastructure Level 2
-
-[role="arc42help"]
-****
-Here you can include the internal structure of (some) infrastructure elements from level 1.
-
-Please copy the structure from level 1 for each selected element.
-****
-
-==== _<Infrastructure Element 1>_
-
-_<diagram + explanation>_
-
-==== _<Infrastructure Element 2>_
-
-_<diagram + explanation>_
-
-...
-
-==== _<Infrastructure Element n>_
-
-_<diagram + explanation>_
+ 
+The motivation of this project is to have a functional webapp deployed. 
+ 
+For this purpose we will use Amazon Web Services.
+The application is deployed by using GitHub actions over ssh and docker, since there is a container for each of the elements that are inside the VM:
+*   WebApp: with React
+*   Restapi: in SpringBoot
+*   Database: using MySQL
+ 
+Github Actions and SSH::
+ 
+Github actions is a series of scripts executed inside a virtual machine on github, you can even set up docker containers or databases (although they are short lived). An example could be to set up a database before running the test that the restapi has.
+ 
+We are using GitHub actions for automating the process described above. We connect to the VM instance using SSH and deploy the application inside it with Docker.
+ 
+Github actions provides us with the hability to execute the deployment each time a new release is made, we can also change this for making it when a commit is added or a pull request is issued.
+ 
+The code for this workflow is inside .github/workflows in asw2122.yml. Moreover, since the default implementation was supposed for Nodejs and, because we are using SpringBoot, we had to add new actions.
+ 
+ 
+ 
+ 
+Docker::
+Each of the containers has its own DockerFile with the instructions needed for creating the images. There are only two, for the webapp and the restapi, because we are using a mysql image from the marketplace. 
+The ports for each image are the following (refering to the internal and external ports, they have the same value to avoid complications):
+* WebApp -> 3000:3000
+* RestApi -> 5000:5000
+* DataBase -> 3306:3306
+ 
+  
+ 
+AWS::
+Amazon Web Services is the provider for this project, we are using an EC2 VM instance. Other alternatives are Azure, Google Cloud, etc. Nowadays all of them offer pretty much the same service and the hability to change between different providers with ease.
+ 
+ 
+  
+ 

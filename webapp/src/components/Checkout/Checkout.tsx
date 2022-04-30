@@ -15,9 +15,6 @@ import Order from "../Order/Order";
 import CompleteOrder from "./CompleteOrder";
 import PaypalButton from './PaypalCheckoutButton';
 import {GetAddress, GetPostalCode} from "../../helper/calculateDeliveryCost";
-import {Address} from "../../shared/shareddtypes";
-import {useSession} from "@inrupt/solid-ui-react";
-import {retrieveAddressesForUser} from "../../helper/addressHelper";
 
 const ColorlibConnector = styled(StepConnector)(({theme}) => ({
     [`&.${stepConnectorClasses.alternativeLabel}`]: {
@@ -85,24 +82,6 @@ function ColorlibStepIcon(props: StepIconProps) {
 
 export default function Checkout() {
 
-    const { session } = useSession();
-
-    // DATA FROM THINGS
-    retrieveAddressesForUser(session);
-
-    let adds: Address[] = [];
-
-    let addresses = sessionStorage.getItem("addresses");
-
-    let addressesJSON = JSON.parse(addresses as string) as JSON;
-
-    if (addresses != null) {
-        for (let address of addressesJSON as unknown as Array<Address>) {
-            adds.push(address);
-        }
-    }
-    // DATA FROM THINGS
-
     const [address, setAddress] = React.useState("");
     const [postalCode, setPostalCode] = React.useState(0);
 
@@ -140,8 +119,8 @@ export default function Checkout() {
                     />);
             case 2:
                 return (<CompleteOrder
-                    address={address !== "" ? address : adds.at(0)?.street!}
-                    postalCode={(!isNaN(postalCode) && postalCode != 0) ? postalCode : parseInt(adds.at(0)?.postalCode!)}/>);
+                    address={address}
+                    postalCode={postalCode}/>);
         }
     };
 

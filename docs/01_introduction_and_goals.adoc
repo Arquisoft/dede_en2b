@@ -36,11 +36,18 @@ Keep these excerpts as short as possible. Balance readability of this document w
 
 .These are the main requirements of the application:
  * Emulation of an online shopping system where the user can select and order products.
+** Like any other web app but in a reduced way.
  * Calculation of the delivery cost based on the address of the user in their Pod.
+ ** The cost is based on an external API.
  * Simulation of the process of buying a product.
+ ** The user can buy a product and add it to the shopping cart.
+ ** There is a list of products for the user to buy.
  * Allowing the user to access the orders previously done.
+ ** Like checking the search history in your browser.
  * Implementation using React and Typescript.
- * The aplication should be accessible and deployed using a continuous integration system. That means having a hosting service in which we can access the service
+ ** This will be for the front-end, for the back-end we will use other frameworks such as SpringBoot.
+ * The aplication should be accessible and deployed using a continuous integration system. 
+ ** That means having a hosting service in which we can access the service.
 
 
 === Quality Goals

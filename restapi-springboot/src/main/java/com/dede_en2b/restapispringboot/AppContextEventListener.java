@@ -19,6 +19,7 @@ public class AppContextEventListener {
     @Value("${spring.datasource.url}")
     private String urlConnection;
 
+
     @EventListener
     public void handleContextRefreshed(ContextRefreshedEvent event) {
         printActiveProperties();
@@ -29,6 +30,7 @@ public class AppContextEventListener {
         System.out.println("************************* ACTIVE APP PROPERTIES ******************************");
 
         System.out.println("spring.datasource.url=" + urlConnection);
+
 
         System.out.println("******************************************************************************");
     }
