@@ -30,9 +30,9 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "CI=false && react-scripts build",
     "test": "react-scripts test --coverage",
-    "test:e2e": "start-server-and-test 'npm --prefix ../restapi start' http://localhost:5000/api/users/list prod 3000 'cd e2e && jest'",
+    "test:e2e": "start-server-and-test 'java -jar ../restapi-springboot/target/restapi-springboot-0.0.1-SNAPSHOT.jar --MYSQL_HOST=uw63uehcq4yfuo2h:ezPqJY9awdqrr5H7y4uJ@bdc5rfw8rgtu1kxrwjln-mysql.services.clever-cloud.com --MYSQL_USER=bdc5rfw8rgtu1kxrwjln --MYSQL_DATABASE_NAME=bdc5rfw8rgtu1kxrwjln' http://localhost:5000/api/users/list prod 3000 'cd e2e && jest'",
     "eject": "react-scripts eject",
     "prod": "ts-node-dev ./server.ts"
   },

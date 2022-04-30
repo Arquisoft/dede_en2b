@@ -41,7 +41,6 @@ Technical constraints are those that are fixed technical constraints decisions. 
 | _TypeScript_ | TypeScript is a strongly typed programming language that builds on JavaScript. 
 | _SOLID principles_|Solid is a specification that lets people store their data securely in decentralized data stores called Pods. When data is stored in someone's Pod, they control its access.
 | _Continuous integration system_|The application has to be accessible and deployed using a continuous integration system.
-| _Keep track of orders done_|The system has to allow users to visualize the orders done, so it has to keep track of them.
 | _GitHub_|The code has to be deployed in GitHub, a public repository.
 |===
 
@@ -66,4 +65,5 @@ The business constraints are those decisions affecting the software architecture
 | _Schedule_ | The system has to be finished by the 13th week of the laboratory, with deliveries by the 4th, the 7th and the 10th weeks.
 | _Team_| The team is composed by five people.
 | _Students_| All of us are students with more subjects and projects, so we can not dedicate full time to the project.
+| _Keep track of orders done_|The system has to allow users to visualize the orders done, so it has to keep track of them.
 |===

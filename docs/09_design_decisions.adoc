@@ -24,3 +24,16 @@ Various options:
 * more detailed in form of separate sections per decision
 * ADR (architecture decision record) for every important decision
 ****
+
+Design decisions sort by relevance.
+[options="header"]
+|===
+| Design decision   | Context   | Decision   | Consequences
+| Backend language  | We need a backend language and framework to implement all the data storage related functionality. | Java with Spring Boot framework | We don't need to spend time learning how to use it because we already have experience. Every deploy-related configuration file given to us ended up being made for Node.js, so we have to spend time learning how to adapt it to Java.
+| Application architecture | Architectural pattern used to structure the application | MVC | We have previous experience using this pattern along with Spring Boot and it's easy to understand and implement.
+| Database | We need a database to store products and orders | MySQL | We practically only have experience with relational databases, so by using MySQL we don't need to investigate how to use a non relational one. As a downside, since the only a few tables are needed maybe it would have been simpler to use a document based db.
+| User login | We need a way to identify users in order to show order history | Use pod login (@inrupt/solid-ui-react and @inrupt/lit-generated-vocab-common libraries) and don't store accounts | We don't have to deal with password encryption or with account information. We integrate pod login in our application front-end so the pod provider is the one in charge of all the information. Orders are linked to the pod webId. We depend on an external service that sometimes does not provide the best service.
+| Shopping cart architecture | We have to decide whether to store the shopping cart in client side or server side | Shopping cart stored in the client side | The number of calls from the front end to the backend is minimized, so performance improves. The shopping cart content is only sent to the backend during checkout.
+| Payment | We need a way to allow clients to pay for their orders | Paypal API | We integrate Paypal API into our application so we don't need to spend much time dealing with more complex infrastructures.
+| Product images | We need to show product images | Links to external website | No need to deal with image storage and transfer from back end to front end. We depend on an external website that may be down or delete any image.
+|===

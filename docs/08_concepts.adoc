@@ -52,16 +52,40 @@ image:08-Crosscutting-Concepts-Structure-EN.png["Possible topics for crosscuttin
 
 === Domain model
 
-image:UmlDiagram.png["Example UML Diagram"]
+image:08.1-domainModel.png["Domain model"]
 
+=== _Domain concepts_
 
+[options="header",cols="1,2"]
+|===
+|Concept|Description
+| _POD_ | Stores the user information following Solid specification.
+| _User_| Represents the client logged in. Its information will be accessed through its POD.
+| _Order_| List of CartItems that has been ordered once or that is in the Cart at the moment with the total price.
+| _Cart_| Contains the Order to be ordered in the current session.
+| _CartItem_| Units of a specific Item that is in the order with the total price.
+| _Item_| Food product available to buy.
+|===
 
-=== _<Concept 2>_
+=== _User experience_
 
-_<explanation>_
+Our intention is to make the user interface as intuitive as possible, following the usual standars of the e-commerce webs. 
+To achieve it, cart is at the upper-right corner, login at the left of the cart, page-navigation at the left, logo at upper-left, etc. 
 
-...
+The entire web is in English.
 
-=== _<Concept n>_
+=== _Security_
 
-_<explanation>_
+We are not storing information about the user. Instead, we access it through the POD the user provides us, so we only have the necessary information at the right time.
+
+=== _Additional libraries_
+
+[options="header",cols="1,2"]
+|===
+|Libraries|Description
+| _React and React-dom_ | Necessary for codding with React, a constraint for the webapp.
+| _Typescript_| Necessary for coding in Typescript, a constraint for the webapp.
+| _Web-vitals_| Modular library for measuring all the Web Vitals metrics on real users.
+|===
+
+_<To do: keep adding as libraries are added>_

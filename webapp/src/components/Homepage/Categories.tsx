@@ -4,6 +4,7 @@ import fruit from "../../img/fruit.png"
 import meat from "../../img/meat.png"
 import fish from "../../img/fish.png"
 import vegetable from "../../img/vegetable.png"
+import {Link} from "react-router-dom";
 
 
 const Categories = () => {
@@ -14,28 +15,36 @@ const Categories = () => {
             <div className="content">
                 <ul>
                     <li className="category">
-                        <a href="/products?category=fruit">
+                        <Link to="/products?category=fruit">
+                        <a>
                             <img src={fruit}/>
                             <p>FRUIT</p>
                         </a>
+                        </Link>
                     </li>
                     <li className="category">
-                        <a href="/products?category=meat">
+                        <Link to="/products?category=meat">
+                        <a>
                             <img src={meat}/>
                             <p>MEAT</p>
                         </a>
+                        </Link>
                     </li>
                     <li className="category">
-                        <a href="/products?category=fish">
+                        <Link to="/products?category=fish">
+                        <a>
                             <img src={fish}/>
                             <p>FISH</p>
                         </a>
+                        </Link>
                     </li>
                     <li className="category">
-                        <a href="/products?category=vegetable">
+                        <Link to="/products?category=vegetable">
+                        <a>
                             <img src={vegetable}/>
                             <p>VEGETABLES</p>
                         </a>
+                        </Link>
                     </li>
                 </ul>
             </div>
