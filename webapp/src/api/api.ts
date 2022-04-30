@@ -9,6 +9,7 @@ const PRODUCT_GETBYID_API = apiEndPoint + "/product/";
 const ORDER_LIST_API = apiEndPoint + "/order/listByUser";
 const ORDER_ID_API = apiEndPoint + "/order/";
 const ADD_ORDER_API = apiEndPoint +"/order/add";
+const ADD_PRODUCT_API = apiEndPoint +"/product/add";
 const GET_RATINGS_API = apiEndPoint + "/rating/";
 const ADD_RATING_API = apiEndPoint +"/rating/add";
 
@@ -44,6 +45,19 @@ export async function addOrderForUser(order:OrderType){
     const fetchApi = await fetch(ADD_ORDER_API,{
         method: 'POST',
         body: JSON.stringify(order),
+        headers:{
+            'Content-type': 'application/json'
+        }
+    })
+
+    return fetchApi;
+}
+
+export async function addProduct(product:ProductType){
+
+    const fetchApi = await fetch(ADD_PRODUCT_API,{
+        method: 'POST',
+        body: JSON.stringify(product),
         headers:{
             'Content-type': 'application/json'
         }
