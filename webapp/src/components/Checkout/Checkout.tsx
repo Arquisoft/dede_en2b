@@ -16,9 +16,6 @@ import CompleteOrder from "./CompleteOrder";
 import PaypalButton from './PaypalCheckoutButton';
 import {GetAddress, GetPostalCode} from "../../helper/calculateDeliveryCost";
 import {Address} from "../../shared/shareddtypes";
-import {getSolidDataset, getStringNoLocale, getThing, getUrlAll, Thing} from "@inrupt/solid-client";
-import {VCARD} from "@inrupt/vocab-common-rdf";
-import {Session} from "@inrupt/solid-client-authn-browser";
 import {useSession} from "@inrupt/solid-ui-react";
 import {retrieveAddressesForUser} from "../../helper/addressHelper";
 
