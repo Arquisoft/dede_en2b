@@ -4,6 +4,7 @@ import { Stack, Button, Drawer } from "@mui/material";
 
 import HomeIcon from "@mui/icons-material/Home";
 import FoodBankIcon from "@mui/icons-material/FoodBank";
+import LocalShippingIcon from '@mui/icons-material/LocalShipping';
 
 const sidebarData = [
     {
@@ -15,6 +16,11 @@ const sidebarData = [
         title: "Products",
         icon: <FoodBankIcon fontSize="large" />,
         link: "/products",
+    },
+    {
+        title: "Info",
+        icon: <LocalShippingIcon fontSize="large" />,
+        link: "/data",
     },
 ];
 
