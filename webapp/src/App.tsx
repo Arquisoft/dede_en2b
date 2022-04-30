@@ -16,7 +16,6 @@ import ListOrders from "./components/PastOrders/ListOrders";
 import Footer from "./components/Footer/Footer";
 import OrderDetail from "./components/PastOrders/OrderDetail";
 import About from "./components/About/AboutUs";
-import ChangeData from "./components/POD/ChangeData";
 
 function App(): JSX.Element {
     window.getComputedStyle(document.body)
@@ -36,7 +35,6 @@ function App(): JSX.Element {
                                     <Route path="/orders/:orderId" element={<OrderDetail/>}/>
                                     <Route path="/checkout" element={<Checkout />} />
                                     <Route path="/about" element={<About />} />
-                                    <Route path="/data" element={<ChangeData />} />
                                     <Route path="/" element={<HomePage />} />
                                 </Routes>
                                 <Footer/>

@@ -23,7 +23,6 @@ import HomeIcon from "@mui/icons-material/Home";
 import FoodBankIcon from "@mui/icons-material/FoodBank";
 import {Button} from "@mui/material";
 import Typography from "@mui/material/Typography";
-import LocalShippingIcon from "@mui/icons-material/LocalShipping";
 
 const drawerWidth = 240;
 
@@ -46,11 +45,6 @@ const sidebarData = [
         title: "Products",
         icon: <FoodBankIcon fontSize="large" />,
         link: "/products",
-    },
-    {
-        title: "Delivery info",
-        icon: <LocalShippingIcon fontSize="large" />,
-        link: "/data",
     },
 ];
 

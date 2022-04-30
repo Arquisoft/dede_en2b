@@ -9,32 +9,11 @@ import Box from "@mui/material/Box";
 import logo from '../../img/shippingicon.jpg';
 import logoReceipt from '../../img/receipticon.png';
 import {GetPostalCode, GetAddress, GetDeliveryCost} from "../../helper/calculateDeliveryCost";
-import {Address} from "../../shared/shareddtypes";
-import {useSession} from "@inrupt/solid-ui-react";
-import {retrieveAddressesForUser} from "../../helper/addressHelper";
+
 
 export default function Order() {
 
     const {cartItems} = useContext(CartContext);
-    const { session } = useSession();
-
-    // DATA FROM THINGS
-    retrieveAddressesForUser(session);
-
-    let adds: Address[] = [];
-
-    let addresses = sessionStorage.getItem("addresses");
-
-    let addressesJSON = JSON.parse(addresses as string) as JSON;
-
-    if (addresses != null) {
-        for (let address of addressesJSON as unknown as Array<Address>) {
-            adds.push(address);
-        }
-    }
-    // DATA FROM THINGS
-
-    // DATA FROM POD
     const [address, setAddress] = React.useState("");
     const [postalCode, setPostalCode] = React.useState(0);
     const [deliveryCost, setDeliveryCost] = React.useState(0);
@@ -46,9 +25,6 @@ export default function Order() {
     getPodAddress();
     getPodPostalCode();
     getDeliveryCost();
-    // DATA FROM POD
-
-
 
     const subTotal = (+calculateTotal(cartItems).toFixed(2) + +deliveryCost).toFixed(2);
 
@@ -72,7 +48,7 @@ export default function Order() {
                         <div className="item-detail">
                             <div className="detail-info">
                                 <div className="item-name">
-                                    Address: {address !== "" ? address : adds.at(0)?.street} | Postal Code: {(!isNaN(postalCode) && postalCode != 0) ? postalCode : adds.at(0)?.postalCode}
+                                    Address: {address} | Postal Code: {postalCode}
                                 </div>
                             </div>
                         </div>
