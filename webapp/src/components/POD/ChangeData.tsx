@@ -62,7 +62,6 @@ const ChangeData = () => {
             </div>
         )
     } else {
-        // Not logged in
         return <Typography variant='h3' sx={{padding:"10%", textAlign:"center"}}>In order to access this page you have to be logged in</Typography>
     }
 }
