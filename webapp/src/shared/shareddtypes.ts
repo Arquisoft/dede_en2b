@@ -50,14 +50,6 @@ export type RatingType = {
     product: ProductType
 }
 
-export type Address = {
-    street: string | null
-    city: string | null
-    state: string | null
-    postalCode: string | null
-    country: string | null
-}
-
 export type CartActionReducer = {
     payload: any;
     type: 'ADD' | 'REMOVE' | 'REMOVE-ALL' | 'CLEAR';
