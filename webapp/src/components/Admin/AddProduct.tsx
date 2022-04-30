@@ -4,8 +4,17 @@ import {Link} from "react-router-dom";
 import Autocomplete from '@mui/material/Autocomplete';
 import {ProductType} from "../../shared/shareddtypes";
 import {addProduct} from "../../api/api";
+import {useSession} from "@inrupt/solid-ui-react";
+import "./AddProduct.css";
+import DriveFileRenameOutlineIcon from '@mui/icons-material/DriveFileRenameOutline';
+import CategoryIcon from '@mui/icons-material/Category';
+import PaidIcon from '@mui/icons-material/Paid';
+import ImageIcon from '@mui/icons-material/Image';
+import DescriptionIcon from '@mui/icons-material/Description';
 
 const AddProduct = () => {
+
+    const { session } = useSession();
 
     const categories = [
         { label: 'Fruit'},
@@ -19,7 +28,7 @@ const AddProduct = () => {
 
         let nameProduct = (document.getElementById("productName") as HTMLInputElement).value;
         let categoryProduct = (document.getElementById("productCategory") as HTMLInputElement).value;
-        let priceProduct = parseInt((document.getElementById("productPrice") as HTMLInputElement).value);
+        let priceProduct = parseFloat((document.getElementById("productPrice") as HTMLInputElement).value);
         let imageProduct = (document.getElementById("productImage") as HTMLInputElement).value;
         let descriptionProduct = (document.getElementById("productDescription") as HTMLInputElement).value;
 
@@ -31,45 +40,56 @@ const AddProduct = () => {
         addProduct(product).then();
     }
 
-    return (
-        <div>
-            <Typography id="addressTitle" variant='h3'>Add a product to the catalog</Typography>
+    if(session.info.webId === "https://dd2badm.inrupt.net/profile/card#me") {
+        return (
+            <div className={"addProd"}>
+                <Typography variant='h3'>Add a product</Typography>
+                <form id="productForm" className={"productForm"}>
+                    <div className={"productFormComponent"}>
+                        <TextField sx={{width: '75%'}} label="Name" id="productName" className={"productName"} required={true}/>
+                        <DriveFileRenameOutlineIcon fontSize={"large"} />
+                    </div>
 
-            <form id="productForm" className={"productForm"}>
+                    <div className={"productFormComponent"}>
+                        <Autocomplete
+                            disablePortal
+                            id="productCategory"
+                            options={categories}
+                            sx={{width: '75%'}}
+                            renderInput={(params) => <TextField {...params} label="Category"/>}
+                        />
+                        <CategoryIcon fontSize={"large"} />
+                    </div>
 
-                <TextField sx={{width: '75%'}} label="Name" id="productName" className={"productName"}
-                           aria-describedby="productNameExample" required={true}/>
-                <FormHelperText sx={{paddingBottom: '2%'}} id="productNameExample">For example: Salmon</FormHelperText>
+                    <div className={"productFormComponent"}>
+                        <TextField inputProps={{inputMode: 'numeric'}} sx={{width: '75%'}} label="Price"
+                               id="productPrice" className={"productPrice"} required={true}/>
+                        <PaidIcon fontSize={"large"} />
+                    </div>
 
-                <Autocomplete
-                    disablePortal
-                    id="productCategory"
-                    options={categories}
-                    sx={{ width: 300 }}
-                    renderInput={(params) => <TextField {...params} label="Category" />}
-                />
+                    <div className={"productFormComponent"}>
+                        <TextField sx={{width: '75%'}} label="Image" id="productImage" className={"productImage"} required={true}/>
+                        <ImageIcon fontSize={"large"} />
+                    </div>
 
-                <TextField inputProps={{ inputMode: 'numeric', pattern: '[0-9]*' }} sx={{width: '75%'}} label="Price" id="productPrice" className={"productPrice"}
-                           aria-describedby="productPriceExample" required={true}/>
-                <FormHelperText sx={{paddingBottom: '2%'}} id="productPriceExample">For example: 9.50</FormHelperText>
+                    <div className={"productFormComponent"}>
+                        <TextField sx={{width: '75%'}} label="Description" id="productDescription"
+                                   className={"productDescription"} required={true}/>
+                        <DescriptionIcon fontSize={"large"} />
+                    </div>
 
-                <TextField sx={{width: '75%'}} label="Image" id="productImage" className={"productImage"}
-                           aria-describedby="productImageExample" required={true}/>
-                <FormHelperText sx={{paddingBottom: '2%'}} id="productImageExample">For example: https://images.unsplash.com/photo-1560806887-1e4cd0b6cbd6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80</FormHelperText>
+                    <Link to="/products">
 
-                <TextField sx={{width: '75%'}} label="Description" id="productDescription" className={"productDescription"}
-                           aria-describedby="productDescriptionExample" required={true}/>
-                <FormHelperText sx={{paddingBottom: '2%'}} id="productDescriptionExample">For example: Good for your health</FormHelperText>
+                        <Button type="button" onClick={addProductFunc} id="updateAddress" className={"updateAddress"}
+                                variant="outlined">Add product</Button>
+                    </Link>
 
-                <Link to="/cart">
-
-                    <Button type="button" onClick={addProductFunc} id="updateAddress" className={"updateAddress"}
-                            variant="outlined">Add product</Button>
-                </Link>
-
-            </form>
-        </div>
-    )
+                </form>
+            </div>
+        )
+    } else {
+        return <Typography variant='h3' sx={{padding:"10%", textAlign:"center"}}>In order to access this page you have to be an admin</Typography>;
+    }
 }
 
 export default AddProduct;
