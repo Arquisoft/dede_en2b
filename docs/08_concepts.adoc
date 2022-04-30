@@ -59,33 +59,26 @@ image:08.1-domainModel.png["Domain model"]
 [options="header",cols="1,2"]
 |===
 |Concept|Description
-| _POD_ | Stores the user information following Solid specification.
-| _User_| Represents the client logged in. Its information will be accessed through its POD.
-| _Order_| List of CartItems that has been ordered once or that is in the Cart at the moment with the total price.
-| _Cart_| Contains the Order to be ordered in the current session.
-| _CartItem_| Units of a specific Item that is in the order with the total price.
-| _Item_| Food product available to buy.
+|_user (Order)_|The attribute user in the Order entity refers to the webId of the user. Regarding users, we only store their webId in hexadecimal form tied to the order.
+|_image (Product)_|We store the image as a link to an external site where it is stored.
+|_Rating_|Users can leave a review consisting of a comment and a numerical rating in every existing product through the product detail view.
+|_user (Rating)_|Ratings can be anonymous, in that situation, "user" value is "Guest". In case the user is logged in, "user" contains the name stored in the POD.
+|_status (Order)_|Makes reference to the shipping status. It has three possible values: "PROCESSING", "SHIPPED" and "RECEIVED".
 |===
 
 === _User experience_
 
-Our intention is to make the user interface as intuitive as possible, following the usual standars of the e-commerce webs. 
-To achieve it, cart is at the upper-right corner, login at the left of the cart, page-navigation at the left, logo at upper-left, etc. 
+.Our intention is to make the user interface as intuitive as possible. To achieve it, we follow the usual standars of e-commerce websites:
+* The shopping cart is at the upper-right corner, represented with the typical cart icon.
+* Login is at the left of the cart.
+* DeDe logo takes to the home page.
+* Order detail view has a status progress bar to make it easy to see in which state the order is and what is left to be received.
+* Checkout process follows the usual steps: order overview, payment and order completed message.
+* Side bar button in the upper-left corner and contains direct links to the homepage and products accesible from anywhere.
+* Footer at the bottom with About us page and links to resources relevant to the project.
 
-The entire web is in English.
+The entire web is in English, but to make it accesible to more users, the idea would be to internationalize it in the future, specially in Spanish.
 
 === _Security_
 
-We are not storing information about the user. Instead, we access it through the POD the user provides us, so we only have the necessary information at the right time.
-
-=== _Additional libraries_
-
-[options="header",cols="1,2"]
-|===
-|Libraries|Description
-| _React and React-dom_ | Necessary for codding with React, a constraint for the webapp.
-| _Typescript_| Necessary for coding in Typescript, a constraint for the webapp.
-| _Web-vitals_| Modular library for measuring all the Web Vitals metrics on real users.
-|===
-
-_<To do: keep adding as libraries are added>_
+Users do not create an account in DeDe website, they have all their information stored in their own POD. We only store the address and postal code when an order is made to guarantee delivery of the purchased products. Besides, such information is tied to the order and never used for any other purpose. WebId is also saved with the order to allow users to check their order history and current order status. In case there is no address in the POD, a direct way to add one is provided through the website, but always with the permission of the user and storing only the information they provide for that purpose.
