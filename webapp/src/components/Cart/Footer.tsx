@@ -43,7 +43,7 @@ const Footer = () => {
             {!session.info.isLoggedIn ?
                 <div className="notLoggedIn">
                     <p>Log in to proceed<br/> with checkout</p>
-                    </div> : (adds.length > 0) ?
+                    </div> : (adds.length > 0 || (address !== "" && (!isNaN(postalCode) && postalCode != 0))) ?
                             <Link to="/checkout" >
                             <button> Checkout </button>
                             </Link>  :
