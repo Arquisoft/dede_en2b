@@ -42,19 +42,17 @@ const SearchBar = () => {
     input?.addEventListener("keyup", function(event: any) {
         if (event.keyCode === 13) {
             event.preventDefault();
-            document.getElementById("searchButton")?.click();
             onSearch();
         }
     });
 
     const formSearch = () => {
-        document.getElementById("searchButton")?.click();
         onSearch();
     }
 
     const onSearch = ()=>{
 
-        window.location.href = "/products?filter=" + searchInput;
+        navigate("/products?filter=" + searchInput);
     }
 
     return (
