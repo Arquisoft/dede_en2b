@@ -50,6 +50,11 @@ let sidebarData = [
         icon: <FoodBankIcon fontSize="large" />,
         link: "/products",
     },
+    {
+        title: "Delivery info",
+        icon: <LocalShippingIcon fontSize="large" />,
+        link: "/data",
+    },
 ];
 
 const loadAddProduct = (session:any) => {
