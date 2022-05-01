@@ -54,9 +54,7 @@ const SearchBar = () => {
 
         navigate("/products?filter=" + searchInput);
 
-        if(window.location.href.toString().includes("products")){ // In order to refresh
-            navigate(0);
-        }
+        navigate(0);
     }
 
     return (
