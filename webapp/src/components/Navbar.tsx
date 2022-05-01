@@ -23,8 +23,12 @@ import HomeIcon from "@mui/icons-material/Home";
 import FoodBankIcon from "@mui/icons-material/FoodBank";
 import {Button} from "@mui/material";
 import Typography from "@mui/material/Typography";
+import LocalShippingIcon from "@mui/icons-material/LocalShipping";
+import AddBoxIcon from '@mui/icons-material/AddBox';
 
 const drawerWidth = 240;
+let adminOptions = false;
+let temporalWebId = "";
 
 const DrawerHeader = styled('div')(({ theme }) => ({
     display: 'flex',
@@ -35,7 +39,7 @@ const DrawerHeader = styled('div')(({ theme }) => ({
     justifyContent: 'flex-end',
 }));
 
-const sidebarData = [
+let sidebarData = [
     {
         title: "Home",
         icon: <HomeIcon fontSize="large" />,
@@ -46,7 +50,34 @@ const sidebarData = [
         icon: <FoodBankIcon fontSize="large" />,
         link: "/products",
     },
+    {
+        title: "Delivery info",
+        icon: <LocalShippingIcon fontSize="large" />,
+        link: "/data",
+    },
 ];
+
+const loadAddProduct = (session:any) => {
+
+    if(temporalWebId === "https://dd2badm.inrupt.net/profile/card#me"){
+        if(!adminOptions) {
+            sidebarData.push({
+                title: "Add product",
+                icon: <AddBoxIcon fontSize="large"/>,
+                link: "/admin/addProduct",
+            });
+            adminOptions = true;
+        }
+    } else {
+
+        if(adminOptions){
+            sidebarData.pop();
+        }
+
+        adminOptions = false;
+    }
+}
+
 
 const Navbar = () => {
 
@@ -70,13 +101,19 @@ const Navbar = () => {
     //With this we can control the login status for solid
     const { session } = useSession();
 
+    console.log(session.info.webId);
+
+    loadAddProduct(session);
+
     //We have logged in
     session.onLogin(()=>{
+        temporalWebId = session.info.webId as string;
         setIsLoggedIn(true)
     })
 
     //We have logged out
     session.onLogout(()=>{
+        temporalWebId = "";
         setIsLoggedIn(false)
     })
     // LOGIN

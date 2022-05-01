@@ -14,6 +14,14 @@ export type ProductType = {
     description:string;
 }
 
+export type Address = {
+    street: string | null
+    city: string | null
+    state: string | null
+    postalCode: string | null
+    country: string | null
+}
+
 export type CartItem = {
     id: number;
     name: string;
