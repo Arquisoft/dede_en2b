@@ -42,30 +42,33 @@ const SearchBar = () => {
     input?.addEventListener("keyup", function(event: any) {
         if (event.keyCode === 13) {
             event.preventDefault();
-            onSearch();
+            formSearch();
         }
     });
 
     const formSearch = () => {
-        onSearch();
+        //refreshPage();
+        //onSearch();
+        navigate("/products?filter=" + searchInput);
+        navigate(0);
     }
 
     const onSearch = ()=>{
 
         navigate("/products?filter=" + searchInput);
-        refreshPage();
+
     }
 
     const refreshPage = () => {
-        navigate(0);
+        navigate("/products");
     }
 
     return (
         <SearchContainer>
             <Input id="searchInput" onChange={handleChange} />
-                <Button id="submitBtn"  type="submit" onClick={formSearch}>
-                    <Search style={{ color: "gray", fontSize: 20 }}/>
-                </Button>
+                    <Button id="submitBtn"  type="submit" onClick={formSearch}>
+                        <Search style={{ color: "gray", fontSize: 20 }}/>
+                    </Button>
         </SearchContainer>
     );
 
