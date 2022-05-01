@@ -53,7 +53,11 @@ const SearchBar = () => {
     const onSearch = ()=>{
 
         navigate("/products?filter=" + searchInput);
-        window.location.reload();
+        refreshPage();
+    }
+
+    const refreshPage = () => {
+        navigate(0);
     }
 
     return (
