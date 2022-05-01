@@ -53,7 +53,6 @@ const SearchBar = () => {
     const onSearch = ()=>{
 
         navigate("/products?filter=" + searchInput);
-
         navigate(0);
     }
 
