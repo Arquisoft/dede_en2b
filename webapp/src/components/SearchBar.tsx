@@ -53,6 +53,10 @@ const SearchBar = () => {
     const onSearch = ()=>{
 
         navigate("/products?filter=" + searchInput);
+
+        if(window.location.href.toString().includes("/products")){ // In order to refresh
+            navigate(0);
+        }
     }
 
     return (
