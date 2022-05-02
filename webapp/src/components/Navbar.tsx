@@ -121,7 +121,7 @@ const Navbar = () => {
     return (
         <Stack justifyContent="space-around" direction="row">
             <Toolbar>
-                <IconButton
+                <IconButton data-testid="sidebar"
                     color="inherit"
                     aria-label="open drawer"
                     onClick={handleDrawerOpen}
