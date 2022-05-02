@@ -1,7 +1,7 @@
 # dede_en2b
 
 [![Actions Status](https://github.com/arquisoft/dede_en2b/workflows/CI%20for%20ASW2122/badge.svg)](https://github.com/arquisoft/dede_en2b/actions)
-[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=Arquisoft_dede_en_2b&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=Arquisoft_dede_en2b)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=Arquisoft_dede_en2b&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=Arquisoft_dede_en2b)
 [![codecov](https://codecov.io/gh/Arquisoft/dede_en2b/branch/master/graph/badge.svg?token=Z8pXR7uwo4)](https://codecov.io/gh/Arquisoft/dede_en2b)
 
 <p float="left">
