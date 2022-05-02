@@ -2,6 +2,8 @@ import {useSession} from "@inrupt/solid-ui-react";
 import {getSolidDataset, getThing, getUrl, Thing, getStringNoLocale} from "@inrupt/solid-client";
 import {VCARD} from "@inrupt/vocab-common-rdf";
 
+let lastDeliveryCost = 0;
+
 export async function GetPostalCode(): Promise<number> {
     const {session} = useSession();
     let webId = session.info.webId as string;
@@ -77,5 +79,17 @@ export async function GetDeliveryCost(): Promise<number> {
         shippingCost = 15.5; //not spain
     }
 
+    lastDeliveryCost = shippingCost;
+
     return shippingCost;
+}
+
+export function setLastDeliveryCost(n:number): void {
+
+    lastDeliveryCost = n;
+}
+
+export function getLastDeliveryCost(): number{
+
+    return lastDeliveryCost;
 }
