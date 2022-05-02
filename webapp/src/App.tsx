@@ -29,6 +29,7 @@ function App(): JSX.Element {
                             <CartProvider>
                                 <Navbar />
                                 <Routes>
+                                    <Route path="/" element={<HomePage />} />
                                     <Route path="/products" element={<ListProducts />} />
                                     <Route path="/products?filter=:filter" element={<ListProducts />} />
                                     <Route path="/products/:id" element={<ProductDetail />} />
@@ -39,7 +40,7 @@ function App(): JSX.Element {
                                     <Route path="/about" element={<About />} />
                                     <Route path="/admin/addProduct" element={<AddProduct />} />
                                     <Route path="/data" element={<ChangeData />} />
-                                    <Route path="/" element={<HomePage />} />
+                                    <Route path="/*" element={<p> The page is not available </p>} />
                                 </Routes>
                                 <Footer/>
                             </CartProvider>
