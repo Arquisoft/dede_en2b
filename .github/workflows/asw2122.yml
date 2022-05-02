@@ -15,7 +15,6 @@ jobs:
                 working-directory: restapi-springboot
         steps:
             - uses: actions/checkout@v2
-            - uses: codecov/codecov-action@v2
             - uses: actions/setup-java@v2
               with:
                   distribution: "zulu"
@@ -31,6 +30,7 @@ jobs:
                   -DMYSQL_HOST=uw63uehcq4yfuo2h:ezPqJY9awdqrr5H7y4uJ@bdc5rfw8rgtu1kxrwjln-mysql.services.clever-cloud.com
                   -DMYSQL_USER=bdc5rfw8rgtu1kxrwjln
                   -DMYSQL_DATABASE_NAME=bdc5rfw8rgtu1kxrwjln
+            - uses: codecov/codecov-action@v2
     unit-test-webapp:
         runs-on: ubuntu-latest
         defaults:
