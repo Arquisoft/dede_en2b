@@ -49,13 +49,13 @@ For multiple environments or alternative deployments please copy that section of
 ****
  
  
-image:07_deployment_infraestructure.png["Infraestructure diagram"]
+image:07_deployment_infraestructure_azure.png["Infraestructure diagram "]
  
 Motivation::
  
 The motivation of this project is to have a functional webapp deployed. 
  
-For this purpose we will use Amazon Web Services.
+For this purpose we will use Azure.
 The application is deployed by using GitHub actions over ssh and docker, since there is a container for each of the elements that are inside the VM:
 *   WebApp: with React
 *   Restapi: in SpringBoot
@@ -83,8 +83,8 @@ The ports for each image are the following (refering to the internal and externa
  
   
  
-AWS::
-Amazon Web Services is the provider for this project, we are using an EC2 VM instance. Other alternatives are Azure, Google Cloud, etc. Nowadays all of them offer pretty much the same service and the hability to change between different providers with ease.
+Azure::
+Azure is the provider for this project, we are using an EC2 VM instance. Other alternatives are Amazon Web Services, Google Cloud, etc. Nowadays all of them offer pretty much the same service and the hability to change between different providers with ease.
  
  
   
