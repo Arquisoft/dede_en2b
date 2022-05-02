@@ -1,0 +1,2 @@
+ignore:
+  - "webapp/src/api/*"
