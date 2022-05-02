@@ -36,7 +36,7 @@ const Footer = () => {
     getPodPostalCode().then();
 
     return (
-        <div className="cartSummaryContainer">
+        <div className="cartSummaryContainer" data-testid={"footerContainer"}>
             <div className="cartSummary">
                 <p> Total: {calculateTotal(cartItems).toFixed(2)}€ </p>
             </div>
