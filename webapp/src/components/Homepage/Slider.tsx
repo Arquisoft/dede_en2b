@@ -60,7 +60,7 @@ const Slider = () => {
                             <h1 className="Title">{item.title}</h1>
                             <p className="Description">{item.description}</p>
                             <Link to="/products">
-                                <button className="Button">SHOP NOW</button>
+                                <button data-testid="shopNowButton" className="Button">SHOP NOW</button>
                             </Link>
                         </div>
                     </Slide>
