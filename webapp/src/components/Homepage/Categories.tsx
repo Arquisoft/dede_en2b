@@ -18,7 +18,7 @@ const Categories = () => {
                         <Link to="/products?category=fruit">
                         <a>
                             <img src={fruit}/>
-                            <p>FRUIT</p>
+                            <p data-testid={"fruitFilter"}>FRUIT</p>
                         </a>
                         </Link>
                     </li>
@@ -26,7 +26,7 @@ const Categories = () => {
                         <Link to="/products?category=meat">
                         <a>
                             <img src={meat}/>
-                            <p>MEAT</p>
+                            <p data-testid={"meatFilter"}>MEAT</p>
                         </a>
                         </Link>
                     </li>
@@ -34,7 +34,7 @@ const Categories = () => {
                         <Link to="/products?category=fish">
                         <a>
                             <img src={fish}/>
-                            <p>FISH</p>
+                            <p data-testid={"fishFilter"}>FISH</p>
                         </a>
                         </Link>
                     </li>
@@ -42,7 +42,7 @@ const Categories = () => {
                         <Link to="/products?category=vegetable">
                         <a>
                             <img src={vegetable}/>
-                            <p>VEGETABLES</p>
+                            <p data-testid={"vegetablesFilter"}>VEGETABLES</p>
                         </a>
                         </Link>
                     </li>
