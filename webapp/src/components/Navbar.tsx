@@ -57,7 +57,7 @@ let sidebarData = [
     },
 ];
 
-const loadAddProduct = (session:any) => {
+const loadAddProduct = () => {
 
     if(temporalWebId === "https://dd2badm.inrupt.net/profile/card#me"){
         if(!adminOptions) {
@@ -103,7 +103,7 @@ const Navbar = () => {
 
     console.log(session.info.webId);
 
-    loadAddProduct(session);
+    loadAddProduct();
 
     //We have logged in
     session.onLogin(()=>{
