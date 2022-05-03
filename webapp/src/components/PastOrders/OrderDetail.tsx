@@ -186,7 +186,7 @@ const OrderDetail = () => {
                                         pb: 1,
                                         flex: 1
                                     }}>
-                                        <span>{order.totalPrice}€</span>
+                                        <span>{order.totalPrice.toFixed(2)}€</span>
                                     </Box>
 
                                 </Box>
