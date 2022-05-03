@@ -2,7 +2,6 @@ import {PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
 import { calculateTotal } from '../../helper/calculateCartTotal';
 import React, { useContext } from "react";
 import {CartContext} from "../CartContext";
-import paypal from "@paypal/paypal-js";
 import {GetDeliveryCost} from "../../helper/calculateDeliveryCost";
 
 //

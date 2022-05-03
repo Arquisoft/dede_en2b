@@ -1,5 +1,5 @@
 import {render} from "@testing-library/react";
-import PaypalButton from "./PaypalCheckoutButton";
+import PaypalButton from "./PaypalButton";
 import * as cost from "../../helper/calculateCartTotal"
 import * as shipping from "../../helper/calculateDeliveryCost"
 
@@ -7,7 +7,7 @@ test("Check that for the paypal payment total order cost and shipping cost are c
     let costCall = jest.spyOn(cost, "calculateTotal").mockReturnValue(2);
     let shippingCostCall = jest.spyOn(shipping, "GetDeliveryCost").mockReturnValue(Promise.resolve(1.3));
 
-    render(<PaypalButton payed={() => {}}/>)
+    render(<PaypalButton payed={() => { /*intentionally left blank*/}}/>)
 
     expect(costCall).toHaveBeenCalledTimes(1);
     expect(shippingCostCall).toHaveBeenCalledTimes(1);

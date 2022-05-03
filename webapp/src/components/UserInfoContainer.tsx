@@ -7,8 +7,6 @@ import "./Login.css";
 const UserInfoContainer = () => {
     const {session} = useSession();
 
-    // <Text property={VCARD.note.iri.value}/> USE THIS TO ACCESS THE ADDRESS (for the future)
-
     return (
 
         <Container fixed>

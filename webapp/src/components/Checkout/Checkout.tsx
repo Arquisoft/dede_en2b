@@ -13,7 +13,7 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import "./Checkout.css";
 import Order from "../Order/Order";
 import CompleteOrder from "./CompleteOrder";
-import PaypalButton from './PaypalCheckoutButton';
+import PaypalButton from './PaypalButton';
 import {GetAddress, GetPostalCode} from "../../helper/calculateDeliveryCost";
 import {Address} from "../../shared/shareddtypes";
 import {useSession} from "@inrupt/solid-ui-react";

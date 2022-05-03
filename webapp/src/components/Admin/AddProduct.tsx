@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Button, FormHelperText, TextField, Typography } from '@mui/material';
+import { Button, TextField, Typography } from '@mui/material';
 import {Link} from "react-router-dom";
 import Autocomplete from '@mui/material/Autocomplete';
 import {ProductType} from "../../shared/shareddtypes";

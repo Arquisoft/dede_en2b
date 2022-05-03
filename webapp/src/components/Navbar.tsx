@@ -9,7 +9,7 @@ import LoginButtonContainer from "./LoginButtonContainer";
 import UserInfoContainer from "./UserInfoContainer";
 import Stack from "@mui/material/Stack";
 import "./Navbar.css";
-import { Search, ShoppingCartOutlined } from "@mui/icons-material";
+import { ShoppingCartOutlined } from "@mui/icons-material";
 import "./SearchBar";
 import SearchBar from "./SearchBar";
 import Toolbar from "@mui/material/Toolbar";
@@ -57,7 +57,7 @@ let sidebarData = [
     },
 ];
 
-const loadAddProduct = (session:any) => {
+const loadAddProduct = () => {
 
     if(temporalWebId === "https://dd2badm.inrupt.net/profile/card#me"){
         if(!adminOptions) {
@@ -103,7 +103,7 @@ const Navbar = () => {
 
     console.log(session.info.webId);
 
-    loadAddProduct(session);
+    loadAddProduct();
 
     //We have logged in
     session.onLogin(()=>{

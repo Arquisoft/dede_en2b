@@ -2,8 +2,6 @@ import * as React from "react";
 import {Search} from "@mui/icons-material";
 import styled from "styled-components";
 import {useState} from "react";
-import ListProducts from "./ListProducts";
-import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import {Button} from "@mui/material";
 
@@ -28,13 +26,6 @@ const SearchBar = () => {
     const handleChange = (e: { preventDefault: () => void; target: { value: React.SetStateAction<string>; }; }) => {
         e.preventDefault();
         setSearchInput(e.target.value);
-
-        //if(window.location.href.toString().includes("/products")) {
-        //    navigate("/products?filter=" + searchInput);
-        //    refreshPage()
-        //} else {
-        //    navigate("/products?filter=" + searchInput);
-        //}
     };
 
     let input = document.getElementById("searchInput");
@@ -47,8 +38,6 @@ const SearchBar = () => {
     });
 
     const formSearch = () => {
-        //refreshPage();
-        //onSearch();
         navigate("/products?filter=" + searchInput);
         navigate(0);
     }
