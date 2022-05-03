@@ -10,6 +10,12 @@
 <img src="https://miro.medium.com/max/365/1*Jr3NFSKTfQWRUyjblBSKeg.png" height="100">
 </p>
 
+Link to the app
+https://dedeen2b.tk/
+
+Link to the documentation
+https://arquisoft.github.io/dede_en2b/
+
 
 This project is a basic example of website using **React** with **Typescript** and an endpoint using **NodeJS** with **express**.
 
