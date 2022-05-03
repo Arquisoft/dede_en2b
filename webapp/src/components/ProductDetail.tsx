@@ -155,7 +155,7 @@ const ProductDetail = () => {
             </div>
         );
     } else {
-        return <h1 data-testid="loadingProduct"> No product could be loaded :( </h1>;
+        return <h1 data-testid="loadingProduct"> Loading product </h1>;
     }
 };
 
