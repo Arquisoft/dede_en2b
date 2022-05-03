@@ -480,20 +480,15 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#section-runtime-view">6. Runtime View</a>
 <ul class="sectlevel2">
 <li><a href="#_user_interaction">6.1. User interaction</a></li>
-<li><a href="#_administrator_interaction">6.2. Administrator interaction</a></li>
 </ul>
 </li>
-<li><a href="#section-deployment-view">7. Deployment View</a>
-<ul class="sectlevel2">
-<li><a href="#_infrastructure_level_1">7.1. Infrastructure Level 1</a></li>
-<li><a href="#_infrastructure_level_2">7.2. Infrastructure Level 2</a></li>
-</ul>
-</li>
+<li><a href="#section-deployment-view">7. Deployment View</a></li>
 <li><a href="#section-concepts">8. Cross-cutting Concepts</a>
 <ul class="sectlevel2">
 <li><a href="#_domain_model">8.1. Domain model</a></li>
-<li><a href="#_concept_2">8.2. <em>&lt;Concept 2&gt;</em></a></li>
-<li><a href="#_concept_n">8.3. <em>&lt;Concept n&gt;</em></a></li>
+<li><a href="#_domain_concepts">8.2. <em>Domain concepts</em></a></li>
+<li><a href="#_user_experience">8.3. <em>User experience</em></a></li>
+<li><a href="#_security">8.4. <em>Security</em></a></li>
 </ul>
 </li>
 <li><a href="#section-design-decisions">9. Design Decisions</a></li>
@@ -572,7 +567,7 @@ For documentation of your own system you use better the <em>plain</em> version.<
 </div>
 </div>
 <div class="paragraph">
-<p>A retail company is in the need for an online retail system that ensures the privacy of its users based on the Solid principles (not to be misinterpreted with the SOLID principles of Object Oriented Programming). We will call this app DeDe (Decentralized Delivery).</p>
+<p>A retail company is in the need for an online retail system that ensures the privacy of its users based on the Solid specification (not to be misinterpreted with the SOLID principles of Object Oriented Programming). We will call this app DeDe (Decentralized Delivery).</p>
 </div>
 <div class="paragraph">
 <p>Moreover, this will be ensured with the utilization of Solid Pods; a specification that lets people store their data securely in decentralized data stores. This grants the user total control of the data that is exposed using this retail service delivery, since they can concede or revoke access when needed (and the app will not store personal info).</p>
@@ -732,10 +727,8 @@ If requirements documents exist this overview should refer to these documents.</
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Students</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Carolina Barrios González<br>
- Diego Martín Fernández<br>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Diego Martín Fernández<br>
  Laura Pernía Blanco<br>
- Sara María Ramírez Pérez<br>
  Stelian Adrian Stanci</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">The members of the team that is going to develop this project.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">They are expected to deliver a functional version of this product with the use of several different technologies, and which meets the stated requirements.</p></td>
@@ -841,10 +834,6 @@ conventions (e.g. programming or versioning guidelines, documentation or naming 
 <td class="tableblock halign-left valign-top"><p class="tableblock">The application has to be accessible and deployed using a continuous integration system.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Keep track of orders done</em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The system has to allow users to visualize the orders done, so it has to keep track of them.</p></td>
-</tr>
-<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><em>GitHub</em></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">The code has to be deployed in GitHub, a public repository.</p></td>
 </tr>
@@ -890,11 +879,15 @@ conventions (e.g. programming or versioning guidelines, documentation or naming 
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><em>Team</em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The team is composed by five people.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The team is composed by only three people.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><em>Students</em></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">All of us are students with more subjects and projects, so we can not dedicate full time to the project.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Keep track of orders done</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The system has to allow users to visualize the orders done, so it has to keep track of them.</p></td>
 </tr>
 </tbody>
 </table>
@@ -982,8 +975,8 @@ The title of the table is the name of your system, the three columns contain the
 <td class="tableblock halign-left valign-top"><p class="tableblock">They have information about client&#8217;s addresses. The system obtains this information to calculate shipping costs and process orders.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Carrier API</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">DeDe uses them to obtain shipping costs from one address to another one.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Paypal API</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">During checkout process, DeDe uses the PayPal API to allow clients to play for their order.</p></td>
 </tr>
 </tbody>
 </table>
@@ -1008,16 +1001,15 @@ together with a mapping table showing the relationships between channels and inp
 </div>
 </div>
 <div class="paragraph">
-<p>The system will follow the SOLID principles by which the user&#8217;s privacy will be preserved.
+<p>The system will follow the SOLID specification by which the user&#8217;s privacy will be preserved.
 This means non storing personal information and using "pods" (Personal Online Data Store), where the customer&#8217;s personal data is stored.</p>
 </div>
 <div class="paragraph">
 <p>All the application will be developed by using Typescript and the React framework.
-Using React will allow us to create iteractive user interfaces in an easy way.</p>
+Using React will allow us to create interactive user interfaces in an easy way.</p>
 </div>
 <div class="paragraph">
-<p>We are going to use a relational database to store the information about the products. We have proposed
-Oracle, but it may change when we start coding.</p>
+<p>We are going to use a relational database to store the information about the products. We have chosen MySQL for this.</p>
 </div>
 <div class="paragraph">
 <p><span class="image"><img src="./images/03-technicalContext.png" alt="Technical context diagram"></span></p>
@@ -1069,7 +1061,7 @@ Refer to details in the following sections.</p>
 <div class="sect2">
 <h3 id="_technology_commitments">4.1. Technology commitments</h3>
 <div class="paragraph">
-<p>As we commented before we will use <strong>React</strong> and <strong>TypeScript</strong>. Moreover, we have also decided that the most optimal decision regarding the database of the product is a relational one.</p>
+<p>As we commented before we will use <strong>React</strong> and <strong>TypeScript</strong>. Moreover, we have also decided that the most optimal decision regarding the database of the product is a relational one, such as MySQL.</p>
 </div>
 <div class="paragraph">
 <p>This is due to the need of knowing the relations between the different items such as clients, products bought from clients, records, deliveries and so on. On the other hand, the experience that we already have will be of great use, since all of us are experienced in SQL databases usage.</p>
@@ -1396,22 +1388,35 @@ You will mainly capture scenarios in your documentation to communicate your arch
 </div>
 </div>
 </div>
+<div class="paragraph">
+<p>===LogIn</p>
+</div>
+<div class="paragraph">
+<p>The user can log in into the application at any time during navigation, following the next diagram:</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="./images/06.3-LogIn.png" alt="&quot;Login diagram"></span></p>
+</div>
 <div class="sect2">
 <h3 id="_user_interaction">6.1. User interaction</h3>
 <div class="paragraph">
-<p>The user will follow the next interaction diagram:</p>
+<p>The user will follow the next diagram in order to order some products:</p>
 </div>
 <div class="paragraph">
-<p><span class="image"><img src="./images/06.1.2-userDiagram.png" alt="User&#8217;s interaction diagram"></span></p>
+<p><span class="image"><img src="./images/06.3-UserInteraction.png" alt="User&#8217;s interaction diagram"></span></p>
 </div>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<p>=== Administrator interaction</p>
 </div>
-<div class="sect2">
-<h3 id="_administrator_interaction">6.2. Administrator interaction</h3>
 <div class="paragraph">
 <p>The admin can add and delete products, change the price and update the quantity of products:</p>
 </div>
 <div class="paragraph">
 <p><span class="image"><img src="./images/06-adminDiagram.png" alt="Admin&#8217;s interaction diagram"></span></p>
+</div>
+</div>
 </div>
 <div style="page-break-after: always;"></div>
 </div>
@@ -1470,8 +1475,6 @@ when your infrastructure is more complex.</p>
 </div>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_infrastructure_level_1">7.1. Infrastructure Level 1</h3>
 <div class="sidebarblock arc42help">
 <div class="content">
 <div class="paragraph">
@@ -1499,60 +1502,67 @@ when your infrastructure is more complex.</p>
 </div>
 </div>
 <div class="paragraph">
-<p><em><strong>&lt;Overview Diagram&gt;</strong></em></p>
+<p><span class="image"><img src="./images/07_deployment_infraestructure.png" alt="Infraestructure diagram"></span></p>
 </div>
 <div class="dlist">
 <dl>
 <dt class="hdlist1">Motivation</dt>
 <dd>
-<p><em>&lt;explanation in text form&gt;</em></p>
-</dd>
-<dt class="hdlist1">Quality and/or Performance Features</dt>
-<dd>
-<p><em>&lt;explanation in text form&gt;</em></p>
-</dd>
-<dt class="hdlist1">Mapping of Building Blocks to Infrastructure</dt>
-<dd>
-<p><em>&lt;description of the mapping&gt;</em></p>
+<p>The motivation of this project is to have a functional webapp deployed.</p>
 </dd>
 </dl>
 </div>
-</div>
-<div class="sect2">
-<h3 id="_infrastructure_level_2">7.2. Infrastructure Level 2</h3>
-<div class="sidebarblock arc42help">
-<div class="content">
 <div class="paragraph">
-<p>Here you can include the internal structure of (some) infrastructure elements from level 1.</p>
+<p>For this purpose we will use Amazon Web Services.
+The application is deployed by using GitHub actions over ssh and docker, since there is a container for each of the elements that are inside the VM:
+*   WebApp: with React
+*   Restapi: in SpringBoot
+*   Database: using MySQL</p>
 </div>
-<div class="paragraph">
-<p>Please copy the structure from level 1 for each selected element.</p>
-</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_infrastructure_element_1">7.2.1. <em>&lt;Infrastructure Element 1&gt;</em></h4>
-<div class="paragraph">
-<p><em>&lt;diagram + explanation&gt;</em></p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_infrastructure_element_2">7.2.2. <em>&lt;Infrastructure Element 2&gt;</em></h4>
-<div class="paragraph">
-<p><em>&lt;diagram + explanation&gt;</em></p>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Github Actions and SSH</dt>
+<dd>
+<p>Github actions is a series of scripts executed inside a virtual machine on github, you can even set up docker containers or databases (although they are short lived). An example could be to set up a database before running the test that the restapi has.</p>
+</dd>
+</dl>
 </div>
 <div class="paragraph">
-<p>&#8230;&#8203;</p>
+<p>We are using GitHub actions for automating the process described above. We connect to the VM instance using SSH and deploy the application inside it with Docker.</p>
 </div>
-</div>
-<div class="sect3">
-<h4 id="_infrastructure_element_n">7.2.3. <em>&lt;Infrastructure Element n&gt;</em></h4>
 <div class="paragraph">
-<p><em>&lt;diagram + explanation&gt;</em></p>
+<p>Github actions provides us with the hability to execute the deployment each time a new release is made, we can also change this for making it when a commit is added or a pull request is issued.</p>
+</div>
+<div class="paragraph">
+<p>The code for this workflow is inside .github/workflows in asw2122.yml. Moreover, since the default implementation was supposed for Nodejs and, because we are using SpringBoot, we had to add new actions.</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Docker</dt>
+<dd>
+<p>Each of the containers has its own DockerFile with the instructions needed for creating the images. There are only two, for the webapp and the restapi, because we are using a mysql image from the marketplace.
+The ports for each image are the following (refering to the internal and external ports, they have the same value to avoid complications):</p>
+<div class="ulist">
+<ul>
+<li>
+<p>WebApp &#8594; 3000:3000</p>
+</li>
+<li>
+<p>RestApi &#8594; 5000:5000</p>
+</li>
+<li>
+<p>DataBase &#8594; 3306:3306</p>
+</li>
+</ul>
+</div>
+</dd>
+<dt class="hdlist1">AWS</dt>
+<dd>
+<p>Amazon Web Services is the provider for this project, we are using an EC2 VM instance. Other alternatives are Azure, Google Cloud, etc. Nowadays all of them offer pretty much the same service and the hability to change between different providers with ease.</p>
+</dd>
+</dl>
 </div>
 <div style="page-break-after: always;"></div>
-</div>
-</div>
 </div>
 </div>
 <div class="sect1">
@@ -1657,22 +1667,82 @@ on this list.</p>
 <div class="sect2">
 <h3 id="_domain_model">8.1. Domain model</h3>
 <div class="paragraph">
-<p><span class="image"><img src="./images/UmlDiagram.png" alt="Example UML Diagram"></span></p>
+<p><span class="image"><img src="./images/08.1-domainModel.png" alt="Domain model"></span></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_concept_2">8.2. <em>&lt;Concept 2&gt;</em></h3>
-<div class="paragraph">
-<p><em>&lt;explanation&gt;</em></p>
+<h3 id="_domain_concepts">8.2. <em>Domain concepts</em></h3>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 66.6667%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Concept</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>user (Order)</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The attribute user in the Order entity refers to the webId of the user. Regarding users, we only store their webId in hexadecimal form tied to the order.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>image (Product)</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">We store the image as a link to an external site where it is stored.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Rating</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Users can leave a review consisting of a comment and a numerical rating in every existing product through the product detail view.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>user (Rating)</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Ratings can be anonymous, in that situation, "user" value is "Guest". In case the user is logged in, "user" contains the name stored in the POD.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>status (Order)</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Makes reference to the shipping status. It has three possible values: "PROCESSING", "SHIPPED" and "RECEIVED".</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_user_experience">8.3. <em>User experience</em></h3>
+<div class="ulist">
+<div class="title">Our intention is to make the user interface as intuitive as possible. To achieve it, we follow the usual standars of e-commerce websites:</div>
+<ul>
+<li>
+<p>The shopping cart is at the upper-right corner, represented with the typical cart icon.</p>
+</li>
+<li>
+<p>Login is at the left of the cart.</p>
+</li>
+<li>
+<p>DeDe logo takes to the home page.</p>
+</li>
+<li>
+<p>Order detail view has a status progress bar to make it easy to see in which state the order is and what is left to be received.</p>
+</li>
+<li>
+<p>Checkout process follows the usual steps: order overview, payment and order completed message.</p>
+</li>
+<li>
+<p>Side bar button in the upper-left corner and contains direct links to the homepage and products accesible from anywhere.</p>
+</li>
+<li>
+<p>Footer at the bottom with About us page and links to resources relevant to the project.</p>
+</li>
+</ul>
 </div>
 <div class="paragraph">
-<p>&#8230;&#8203;</p>
+<p>The entire web is in English, but to make it accesible to more users, the idea would be to internationalize it in the future, specially in Spanish.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_concept_n">8.3. <em>&lt;Concept n&gt;</em></h3>
+<h3 id="_security">8.4. <em>Security</em></h3>
 <div class="paragraph">
-<p><em>&lt;explanation&gt;</em></p>
+<p>Users do not create an account in DeDe website, they have all their information stored in their own POD. We only store the address and postal code when an order is made to guarantee delivery of the purchased products. Besides, such information is tied to the order and never used for any other purpose. WebId is also saved with the order to allow users to check their order history and current order status. In case there is no address in the POD, a direct way to add one is provided through the website, but always with the permission of the user and storing only the information they provide for that purpose.</p>
 </div>
 <div style="page-break-after: always;"></div>
 </div>
@@ -1940,6 +2010,10 @@ concrete and measurable.</p>
 </thead>
 <tbody>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Small team</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Prioritize the most important things, as we will probably not have much time to do several extra things</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Lack of time</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Be as effective as possible with the time we have, keep realistic expectations of what we can achieve
 in a given span of time</p></td>
@@ -2032,12 +2106,44 @@ decided to retrieve it from a note, as we had some problems getting it using the
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">&lt;Term-1&gt;</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">&lt;definition-1&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Azure</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Azure is a very big collection of servers and networking hardware, which runs a complex set of distributed applications.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">&lt;Term-2&gt;</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">&lt;definition-2&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Caddy</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Reverse Proxy used and file server</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Continuous Integration</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Introduce changes to the system as fast as possible in order to detect errors early</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Docker</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Open source containerization platform. It enables developers to package applications into containers.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">React</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">JavaScript library that helps building efficient interfaces for applications</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Rest API</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">An application programming interface (API or web API) that conforms to the constraints of REST architectural style and allows for interaction with RESTful web services</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">SOLID</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Solid is a specification that lets people store their data securely in decentralized data stores called Pods.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">SOLID PODs</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">They have information about client’s addresses. The system obtains this information to calculate shipping costs and process orders.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">SpringBoot</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Tool that makes developing web application and microservices with Spring Framework faster and easier, as it helps with several aspects of the configuration.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">TypeScript</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Language built upon JavaScript that takes into account types</p></td>
 </tr>
 </tbody>
 </table>
