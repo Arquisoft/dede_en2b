@@ -25,11 +25,9 @@ const ListProducts = () => {
   }
 
   let category = params.get('category')!;
-  let hasCategory:boolean = false;
 
   if (category !== null && category.trim().length > 0 && typeof category != undefined ) {
     category = category.toLowerCase();
-    hasCategory = true;
   }
 
   const products = useFetch(category);

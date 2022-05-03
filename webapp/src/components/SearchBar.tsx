@@ -26,13 +26,6 @@ const SearchBar = () => {
     const handleChange = (e: { preventDefault: () => void; target: { value: React.SetStateAction<string>; }; }) => {
         e.preventDefault();
         setSearchInput(e.target.value);
-
-        //if(window.location.href.toString().includes("/products")) {
-        //    navigate("/products?filter=" + searchInput);
-        //    refreshPage()
-        //} else {
-        //    navigate("/products?filter=" + searchInput);
-        //}
     };
 
     let input = document.getElementById("searchInput");
@@ -45,8 +38,6 @@ const SearchBar = () => {
     });
 
     const formSearch = () => {
-        //refreshPage();
-        //onSearch();
         navigate("/products?filter=" + searchInput);
         navigate(0);
     }
