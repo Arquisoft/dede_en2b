@@ -9,7 +9,7 @@ Describes the relevant requirements and the driving forces that software archite
 * quality goals for the architecture
 * relevant stakeholders and their expectations
 ****
-A retail company is in the need for an online retail system that ensures the privacy of its users based on the Solid principles (not to be misinterpreted with the SOLID principles of Object Oriented Programming). We will call this app DeDe (Decentralized Delivery).
+A retail company is in the need for an online retail system that ensures the privacy of its users based on the Solid specification (not to be misinterpreted with the SOLID principles of Object Oriented Programming). We will call this app DeDe (Decentralized Delivery).
 
 Moreover, this will be ensured with the utilization of Solid Pods; a specification that lets people store their data securely in decentralized data stores. This grants the user total control of the data that is exposed using this retail service delivery, since they can concede or revoke access when needed (and the app will not store personal info). 
 
@@ -68,10 +68,8 @@ Keep these excerpts as short as possible. Balance readability of this document w
 .Stakeholders
 |===
 |Role/Name|Contact|Description|Expectations
-| Students | Carolina Barrios González +
- Diego Martín Fernández +
+| Students | Diego Martín Fernández +
  Laura Pernía Blanco +
- Sara María Ramírez Pérez +
  Stelian Adrian Stanci | The members of the team that is going to develop this project. | They are expected to deliver a functional version of this product with the use of several different technologies, and which meets the stated requirements.
 | Teachers | Pablo González González +
  José Emilio Labra Gallo | Qualified instructors who are able to teach, guide, and supervise students throughout the development process. | The teachers are expected to evaluate the work of the students and to help them achieve their objective.
