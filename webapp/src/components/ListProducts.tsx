@@ -1,4 +1,4 @@
-import React, {useContext, useEffect} from "react";
+import React, {useContext} from "react";
 import useFetch from "../hooks/useFetch";
 import Product from "./Product";
 import { CartContext } from "./CartContext";

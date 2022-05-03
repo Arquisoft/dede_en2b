@@ -1,5 +1,5 @@
 import {render} from "@testing-library/react";
-import PaypalButton from "./PaypalCheckoutButton";
+import PaypalButton from "./PaypalButton";
 import * as cost from "../../helper/calculateCartTotal"
 import * as shipping from "../../helper/calculateDeliveryCost"
 

@@ -1,6 +1,5 @@
-import {render, screen, waitFor, waitForElementToBeRemoved} from "@testing-library/react";
+import {render, screen, waitFor} from "@testing-library/react";
 import {OrderProduct, OrderType, ProductType} from "../../shared/shareddtypes";
-import {getOrderById} from "../../api/api";
 import * as api from "../../api/api";
 import OrderDetail from "./OrderDetail";
 

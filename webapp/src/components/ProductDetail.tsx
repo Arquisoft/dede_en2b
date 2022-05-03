@@ -2,7 +2,7 @@ import React, {useContext, useState, useEffect} from "react";
 import {useParams} from "react-router-dom";
 import {getProductById, getRatingsForProduct, addRatingForProduct} from "../api/api";
 import {ProductType, RatingType} from "../shared/shareddtypes";
-import {CardActions, Grid} from "@mui/material";
+import {CardActions, Grid, Rating} from "@mui/material";
 import CardMedia from "@mui/material/CardMedia";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
@@ -10,11 +10,9 @@ import Card from "@mui/material/Card";
 import Box from '@mui/material/Box';
 import {CartContext} from "./CartContext";
 import "./ProductDetail.css";
-
-import {Rating} from "@mui/material";
 import {useSession} from "@inrupt/solid-ui-react";
 
-const ProductDetails = () => {
+const ProductDetail = () => {
 
     const {id} = useParams();
     const [product, setProduct] = useState<ProductType>();
@@ -161,4 +159,4 @@ const ProductDetails = () => {
     }
 };
 
-export default ProductDetails;
+export default ProductDetail;

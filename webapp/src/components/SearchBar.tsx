@@ -2,8 +2,6 @@ import * as React from "react";
 import {Search} from "@mui/icons-material";
 import styled from "styled-components";
 import {useState} from "react";
-import ListProducts from "./ListProducts";
-import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import {Button} from "@mui/material";
 
