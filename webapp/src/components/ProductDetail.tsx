@@ -21,14 +21,6 @@ const ProductDetail = () => {
     let [ratingList, setRatingList] = useState<JSX.Element[]>([]);
     const {session} = useSession();
 
-    let ratingValue = 2.5;
-
-    function setValue(newRating : number | null) {
-        if(newRating != null){
-            ratingValue = newRating;
-        }
-    }
-
     // LOAD RATINGS
     const getProduct = async () => {setProduct(await getProductById(id!));};
     const getRatings = async () => {setRatings(await getRatingsForProduct(id!));};
@@ -54,6 +46,20 @@ const ProductDetail = () => {
     // LOAD RATINGS
 
     // ADD RATING
+
+    const [inputValue, setInputValue] = useState("");
+    const [ratingValue, setRatingValue] = useState(2.5);
+
+    // Input Field handler
+    const handleUserInput = (e:any) => {
+        setInputValue(e.target.value);
+    };
+
+    // Reset Input Field
+    const resetInputField = () => {
+        setInputValue("");
+    };
+
     let userName = "Guest";
 
     if(session.info.isLoggedIn) {
@@ -63,7 +69,6 @@ const ProductDetail = () => {
     function addRating(message: string, rating: number){
 
         const newRating : RatingType = {
-
             user: userName,
             comment: message,
             rating: rating,
@@ -135,15 +140,15 @@ const ProductDetail = () => {
                     </Typography>
                     <Rating name="half-rating" defaultValue={2.5} precision={0.5} size="large"
                             onChange={(event, newValue) => {
-                                setValue(newValue);}}/>
+                                setRatingValue(newValue!);}}/>
                     <div className={"addReview"}>
                         <div className={"reviewText"}>
-                            <input className={"reviewInput"} id={"reviewInput"} type={"text"}></input>
+                            <input value={inputValue} onChange={handleUserInput} className={"reviewInput"} id={"reviewInput"} type={"text"}></input>
                         </div>
 
-                        <button className={"reviewButton"} title={"setMessage"} type = "button" onClick={() => addRating(
-                            (document.getElementById("reviewInput") as HTMLInputElement).value,
-                            ratingValue)}>Send</button>
+                        <button className={"reviewButton"} title={"setMessage"} type = "button" onClick={() => {
+                            addRating((document.getElementById("reviewInput") as HTMLInputElement).value, ratingValue);
+                            resetInputField();}}>Send</button>
                     </div>
                     <div id="reviews" className="reviews">
                         {
