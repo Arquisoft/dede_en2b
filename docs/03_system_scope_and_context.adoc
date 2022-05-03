@@ -64,13 +64,12 @@ E.g. UML deployment diagram describing channels to neighboring systems,
 together with a mapping table showing the relationships between channels and input/output.
 
 ****
-The system will follow the SOLID principles by which the user's privacy will be preserved.
+The system will follow the SOLID specification by which the user's privacy will be preserved.
 This means non storing personal information and using "pods" (Personal Online Data Store), where the customer's personal data is stored. 
 
 All the application will be developed by using Typescript and the React framework. 
-Using React will allow us to create iteractive user interfaces in an easy way. 
+Using React will allow us to create interactive user interfaces in an easy way. 
 
-We are going to use a relational database to store the information about the products. We have proposed 
-Oracle, but it may change when we start coding.
+We are going to use a relational database to store the information about the products. We have chosen MySQL for this.
 
 image:03-technicalContext.png["Technical context diagram"]

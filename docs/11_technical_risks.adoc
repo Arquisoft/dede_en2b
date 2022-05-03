@@ -24,7 +24,7 @@ The risks that we might find during the development of the project are the follo
 [%header, cols=2]
 |===
 | Risk | Remediation
-
+| Small team | Prioritize the most important things, as we will probably not have much time to do several extra things
 | Lack of time | Be as effective as possible with the time we have, keep realistic expectations of what we can achieve
 in a given span of time
 | No previous knowledge of React, Typescript nor SOLID | Spend some time learning the basics of this technologies,
