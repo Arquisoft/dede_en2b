@@ -480,6 +480,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#section-runtime-view">6. Runtime View</a>
 <ul class="sectlevel2">
 <li><a href="#_user_interaction">6.1. User interaction</a></li>
+<li><a href="#_administrator_interaction">6.2. Administrator interaction</a></li>
 </ul>
 </li>
 <li><a href="#section-deployment-view">7. Deployment View</a>
@@ -491,10 +492,8 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#section-concepts">8. Cross-cutting Concepts</a>
 <ul class="sectlevel2">
 <li><a href="#_domain_model">8.1. Domain model</a></li>
-<li><a href="#_domain_concepts">8.2. <em>Domain concepts</em></a></li>
-<li><a href="#_user_experience">8.3. <em>User experience</em></a></li>
-<li><a href="#_security">8.4. <em>Security</em></a></li>
-<li><a href="#_additional_libraries">8.5. <em>Additional libraries</em></a></li>
+<li><a href="#_concept_2">8.2. <em>&lt;Concept 2&gt;</em></a></li>
+<li><a href="#_concept_n">8.3. <em>&lt;Concept n&gt;</em></a></li>
 </ul>
 </li>
 <li><a href="#section-design-decisions">9. Design Decisions</a></li>
@@ -842,6 +841,10 @@ conventions (e.g. programming or versioning guidelines, documentation or naming 
 <td class="tableblock halign-left valign-top"><p class="tableblock">The application has to be accessible and deployed using a continuous integration system.</p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Keep track of orders done</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The system has to allow users to visualize the orders done, so it has to keep track of them.</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><em>GitHub</em></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">The code has to be deployed in GitHub, a public repository.</p></td>
 </tr>
@@ -892,10 +895,6 @@ conventions (e.g. programming or versioning guidelines, documentation or naming 
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><em>Students</em></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">All of us are students with more subjects and projects, so we can not dedicate full time to the project.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Keep track of orders done</em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The system has to allow users to visualize the orders done, so it has to keep track of them.</p></td>
 </tr>
 </tbody>
 </table>
@@ -983,8 +982,8 @@ The title of the table is the name of your system, the three columns contain the
 <td class="tableblock halign-left valign-top"><p class="tableblock">They have information about client&#8217;s addresses. The system obtains this information to calculate shipping costs and process orders.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Paypal API</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">During checkout process, DeDe uses the PayPal API to allow clients to play for their order.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Carrier API</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DeDe uses them to obtain shipping costs from one address to another one.</p></td>
 </tr>
 </tbody>
 </table>
@@ -1397,35 +1396,22 @@ You will mainly capture scenarios in your documentation to communicate your arch
 </div>
 </div>
 </div>
-<div class="paragraph">
-<p>===LogIn</p>
-</div>
-<div class="paragraph">
-<p>The user can log in into the application at any time during navigation, following the next diagram:</p>
-</div>
-<div class="paragraph">
-<p><span class="image"><img src="./images/06.3-LogIn.png" alt="&quot;Login diagram"></span></p>
-</div>
 <div class="sect2">
 <h3 id="_user_interaction">6.1. User interaction</h3>
 <div class="paragraph">
-<p>The user will follow the next diagram in order to order some products:</p>
+<p>The user will follow the next interaction diagram:</p>
 </div>
 <div class="paragraph">
-<p><span class="image"><img src="./images/06.3-UserInteraction.png" alt="User&#8217;s interaction diagram"></span></p>
+<p><span class="image"><img src="./images/06.1.2-userDiagram.png" alt="User&#8217;s interaction diagram"></span></p>
 </div>
-<div class="sidebarblock">
-<div class="content">
-<div class="paragraph">
-<p>=== Administrator interaction</p>
 </div>
+<div class="sect2">
+<h3 id="_administrator_interaction">6.2. Administrator interaction</h3>
 <div class="paragraph">
 <p>The admin can add and delete products, change the price and update the quantity of products:</p>
 </div>
 <div class="paragraph">
 <p><span class="image"><img src="./images/06-adminDiagram.png" alt="Admin&#8217;s interaction diagram"></span></p>
-</div>
-</div>
 </div>
 <div style="page-break-after: always;"></div>
 </div>
@@ -1671,96 +1657,22 @@ on this list.</p>
 <div class="sect2">
 <h3 id="_domain_model">8.1. Domain model</h3>
 <div class="paragraph">
-<p><span class="image"><img src="./images/08.1-domainModel.png" alt="Domain model"></span></p>
+<p><span class="image"><img src="./images/UmlDiagram.png" alt="Example UML Diagram"></span></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_domain_concepts">8.2. <em>Domain concepts</em></h3>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 33.3333%;">
-<col style="width: 66.6667%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Concept</th>
-<th class="tableblock halign-left valign-top">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>POD</em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Stores the user information following Solid specification.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>User</em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Represents the client logged in. Its information will be accessed through its POD.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Order</em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">List of CartItems that has been ordered once or that is in the Cart at the moment with the total price.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Cart</em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Contains the Order to be ordered in the current session.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>CartItem</em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Units of a specific Item that is in the order with the total price.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Item</em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Food product available to buy.</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect2">
-<h3 id="_user_experience">8.3. <em>User experience</em></h3>
+<h3 id="_concept_2">8.2. <em>&lt;Concept 2&gt;</em></h3>
 <div class="paragraph">
-<p>Our intention is to make the user interface as intuitive as possible, following the usual standars of the e-commerce webs.
-To achieve it, cart is at the upper-right corner, login at the left of the cart, page-navigation at the left, logo at upper-left, etc.</p>
+<p><em>&lt;explanation&gt;</em></p>
 </div>
 <div class="paragraph">
-<p>The entire web is in English.</p>
+<p>&#8230;&#8203;</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_security">8.4. <em>Security</em></h3>
+<h3 id="_concept_n">8.3. <em>&lt;Concept n&gt;</em></h3>
 <div class="paragraph">
-<p>We are not storing information about the user. Instead, we access it through the POD the user provides us, so we only have the necessary information at the right time.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_additional_libraries">8.5. <em>Additional libraries</em></h3>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 33.3333%;">
-<col style="width: 66.6667%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Libraries</th>
-<th class="tableblock halign-left valign-top">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>React and React-dom</em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Necessary for codding with React, a constraint for the webapp.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Typescript</em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Necessary for coding in Typescript, a constraint for the webapp.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Web-vitals</em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Modular library for measuring all the Web Vitals metrics on real users.</p></td>
-</tr>
-</tbody>
-</table>
-<div class="paragraph">
-<p><em>&lt;To do: keep adding as libraries are added&gt;</em></p>
+<p><em>&lt;explanation&gt;</em></p>
 </div>
 <div style="page-break-after: always;"></div>
 </div>
@@ -2154,7 +2066,7 @@ Created by Dr. Peter Hruschka &amp; Dr. Gernot Starke.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2022-04-01 23:15:43 +0200
+Last updated 2022-03-31 19:01:21 +0200
 </div>
 </div>
 </body>
