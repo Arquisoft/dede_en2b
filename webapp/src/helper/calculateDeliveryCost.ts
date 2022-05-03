@@ -2,6 +2,8 @@ import {useSession} from "@inrupt/solid-ui-react";
 import {getSolidDataset, getThing, getUrl, Thing, getStringNoLocale} from "@inrupt/solid-client";
 import {VCARD} from "@inrupt/vocab-common-rdf";
 
+let lastDeliveryCost = 0;
+
 export async function GetPostalCode(): Promise<number> {
     const {session} = useSession();
     let webId = session.info.webId as string;
@@ -77,5 +79,43 @@ export async function GetDeliveryCost(): Promise<number> {
         shippingCost = 15.5; //not spain
     }
 
+    lastDeliveryCost = shippingCost;
+
     return shippingCost;
+}
+
+export function CalculateDeliveryCost(postalCode: number): number {
+    let shippingCost = 0;
+
+    if (postalCode >= 1000 && postalCode <=50840 ){ //spain
+        if (postalCode >=7000 && postalCode <= 7860){ //baleares
+            shippingCost = 7.0
+        }
+        if ((postalCode >=35000 && postalCode <= 35640) || (postalCode >=38000  && postalCode <= 38911)){ //canarias
+            shippingCost = 8.5
+        }
+        if (postalCode >=51000 && postalCode <= 51001){ //ceuta
+            shippingCost = 6.0
+        }
+        if (postalCode >= 52000 && postalCode <= 52001){ //melilla
+            shippingCost = 6.0
+        }
+        shippingCost = 5.75;
+    } else {
+        shippingCost = 15.5; //not spain
+    }
+
+    lastDeliveryCost = shippingCost;
+
+    return shippingCost;
+}
+
+export function setLastDeliveryCost(n:number): void {
+
+    lastDeliveryCost = n;
+}
+
+export function getLastDeliveryCost(): number{
+
+    return lastDeliveryCost;
 }
