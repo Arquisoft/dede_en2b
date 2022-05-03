@@ -8,6 +8,7 @@ import {useSession} from "@inrupt/solid-ui-react";
 import {stringToHexadecimal} from "../../helper/stringToHexadecimal";
 import {Link} from "react-router-dom";
 import './CompleteOrder.css';
+import {getLastDeliveryCost} from "../../helper/calculateDeliveryCost";
 
 type Props = {
     address: string,
@@ -30,23 +31,25 @@ const CompleteOrder = (props:Props) => {
         product: {id: item.id, name: item.name, category: "Order", price: item.price, image: item.image, description: "Ordered item"}
     }));
 
-    const subTotal = calculateTotal(cartItems);
+    let deliveryCost = getLastDeliveryCost();
+    const subTotal = parseFloat((+calculateTotal(cartItems).toFixed(2) + +deliveryCost).toFixed(2));
     const {session} = useSession();
+    const {dispatch} = useContext(CartContext);
     const webId = stringToHexadecimal(session.info.webId!);
     const date = new Date();
 
     let day = "";
 
-    if(date.getDate() < 10){
+    if (date.getDate() < 10){
         day = "0" + date.getDate().toString();
-    } else{
+    } else {
         day = date.getDate().toString();
     }
 
     let month = "";
-    if(date.getMonth() < 10){
+    if (date.getMonth() < 10){
         month = "0" + date.getMonth().toString();
-    } else{
+    } else {
         month = date.getMonth().toString();
     }
 
@@ -62,8 +65,6 @@ const CompleteOrder = (props:Props) => {
     }
 
     const addOrder = addOrderForUser(productsType);
-
-    const {dispatch} = useContext(CartContext);
 
     return (
         <div className={"centerDiv"}>

@@ -33,7 +33,7 @@ const CartItemCheckout = ({item}:Props) => {
                                     {item.name}
                                 </div>
                                 <div className="item-price">
-                                    <span>{item.price}€</span>
+                                    <span>{item.price.toFixed(2)}€</span>
                                 </div>
                                 <div className="item-units">
                                     <span>Units: {item.amount}</span>
@@ -45,7 +45,7 @@ const CartItemCheckout = ({item}:Props) => {
                     <Divider orientation="vertical" flexItem />
 
                     <Box sx={{display: 'flex', alignItems: 'center', justifyContent: 'center', pl: 1, pb: 1, flex : 1}}>
-                        <span>{item.amount  * item.price}€</span>
+                        <span>{(item.amount  * item.price).toFixed(2)}€</span>
                     </Box>
                 </Box>
             </Card>

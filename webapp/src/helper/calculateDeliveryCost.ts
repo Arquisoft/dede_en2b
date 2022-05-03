@@ -2,6 +2,8 @@ import {useSession} from "@inrupt/solid-ui-react";
 import {getSolidDataset, getThing, getUrl, Thing, getStringNoLocale} from "@inrupt/solid-client";
 import {VCARD} from "@inrupt/vocab-common-rdf";
 
+let lastDeliveryCost = 0;
+
 export async function GetPostalCode(): Promise<number> {
     const {session} = useSession();
     let webId = session.info.webId as string;
@@ -55,23 +57,64 @@ export async function GetName(): Promise<string> {
 }
 
 export async function GetDeliveryCost(): Promise<number> {
+    let shippingCost = 0;
+
     let code = await GetPostalCode();
 
     if (code >= 1000 && code <=50840 ){ //spain
         if (code >=7000 && code <= 7860){ //baleares
-            return 7.0
+            shippingCost = 7.0
         }
         if ((code >=35000 && code <= 35640) || (code >=38000  && code <= 38911)){ //canarias
-            return 8.5
+            shippingCost = 8.5
         }
         if (code >=51000 && code <= 51001){ //ceuta
-            return 6.0
+            shippingCost = 6.0
         }
         if (code >= 52000 && code <= 52001){ //melilla
-            return 6.0
+            shippingCost = 6.0
+        } else {
+            shippingCost = 5.75
         }
-        return 5.75;
     } else {
-        return 15.5; //not spain
+        shippingCost = 15.5; //not spain
     }
+
+    lastDeliveryCost = shippingCost;
+    return shippingCost;
+}
+
+export function CalculateDeliveryCost(postalCode: number): number {
+    let shippingCost = 0;
+
+    if (postalCode >= 1000 && postalCode <=50840 ){ //spain
+        if (postalCode >=7000 && postalCode <= 7860){ //baleares
+            shippingCost = 7.0
+        }
+        if ((postalCode >=35000 && postalCode <= 35640) || (postalCode >=38000  && postalCode <= 38911)){ //canarias
+            shippingCost = 8.5
+        }
+        if (postalCode >=51000 && postalCode <= 51001){ //ceuta
+            shippingCost = 6.0
+        }
+        if (postalCode >= 52000 && postalCode <= 52001){ //melilla
+            shippingCost = 6.0
+        } else {
+            shippingCost = 5.75;
+        }
+    } else {
+        shippingCost = 15.5; //not spain
+    }
+
+    lastDeliveryCost = shippingCost;
+
+    return shippingCost;
+}
+
+export function setLastDeliveryCost(n:number): void {
+    lastDeliveryCost = n;
+}
+
+export function getLastDeliveryCost(): number{
+    return lastDeliveryCost;
 }
