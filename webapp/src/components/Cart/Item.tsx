@@ -36,7 +36,7 @@ const Item = ({item}:Props) => {
                                 {item.name}
                             </div>
                             <div className="item-price">
-                                <span>{item.price.toFixed(2)}€</span>
+                                <span>{item.price}€</span>
                             </div>
                         </div>
                     </div>

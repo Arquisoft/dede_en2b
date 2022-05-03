@@ -26,7 +26,7 @@ const OrderDetailProduct = ({item}:Props) => {
                                     {item.product.name}
                                 </div>
                                 <div className="item-price">
-                                    <span>{item.price.toFixed(2)}€</span>
+                                    <span>{item.price}€</span>
                                 </div>
                                 <div className="item-units">
                                     <span>Units: {item.quantity}</span>
