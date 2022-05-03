@@ -69,7 +69,7 @@ const Footer = () => {
                     </Column>
                     <Column>
                         <Link to="/about">
-                        <FooterLink>About Us</FooterLink>
+                        <FooterLink data-testid="aboutUsLink">About Us</FooterLink>
                         </Link>
                     </Column>
                     <Column>

@@ -2,8 +2,6 @@ import * as React from "react";
 import {Search} from "@mui/icons-material";
 import styled from "styled-components";
 import {useState} from "react";
-import ListProducts from "./ListProducts";
-import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import {Button} from "@mui/material";
 
@@ -28,13 +26,6 @@ const SearchBar = () => {
     const handleChange = (e: { preventDefault: () => void; target: { value: React.SetStateAction<string>; }; }) => {
         e.preventDefault();
         setSearchInput(e.target.value);
-
-        //if(window.location.href.toString().includes("/products")) {
-        //    navigate("/products?filter=" + searchInput);
-        //    refreshPage()
-        //} else {
-        //    navigate("/products?filter=" + searchInput);
-        //}
     };
 
     let input = document.getElementById("searchInput");
@@ -42,27 +33,31 @@ const SearchBar = () => {
     input?.addEventListener("keyup", function(event: any) {
         if (event.keyCode === 13) {
             event.preventDefault();
-            document.getElementById("searchButton")?.click();
-            onSearch();
+            formSearch();
         }
     });
 
     const formSearch = () => {
-        document.getElementById("searchButton")?.click();
-        onSearch();
+        navigate("/products?filter=" + searchInput);
+        navigate(0);
     }
 
     const onSearch = ()=>{
 
-        window.location.href = "/products?filter=" + searchInput;
+        navigate("/products?filter=" + searchInput);
+
+    }
+
+    const refreshPage = () => {
+        navigate("/products");
     }
 
     return (
         <SearchContainer>
             <Input id="searchInput" onChange={handleChange} />
-                <Button id="submitBtn"  type="submit" onClick={formSearch}>
-                    <Search style={{ color: "gray", fontSize: 20 }}/>
-                </Button>
+                    <Button id="submitBtn"  type="submit" onClick={formSearch}>
+                        <Search style={{ color: "gray", fontSize: 20 }}/>
+                    </Button>
         </SearchContainer>
     );
 

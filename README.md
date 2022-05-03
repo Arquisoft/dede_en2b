@@ -1,7 +1,7 @@
 # dede_en2b
 
 [![Actions Status](https://github.com/arquisoft/dede_en2b/workflows/CI%20for%20ASW2122/badge.svg)](https://github.com/arquisoft/dede_en2b/actions)
-[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=Arquisoft_dede_0&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=Arquisoft_dede_0)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=Arquisoft_dede_en2b&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=Arquisoft_dede_en2b)
 [![codecov](https://codecov.io/gh/Arquisoft/dede_en2b/branch/master/graph/badge.svg?token=Z8pXR7uwo4)](https://codecov.io/gh/Arquisoft/dede_en2b)
 
 <p float="left">
@@ -9,6 +9,12 @@
 <img src="https://miro.medium.com/max/1200/0*RbmfNyhuBb8G3LWh.png" height="100">
 <img src="https://miro.medium.com/max/365/1*Jr3NFSKTfQWRUyjblBSKeg.png" height="100">
 </p>
+
+Link to the app
+https://dedeen2b.tk/
+
+Link to the documentation
+https://arquisoft.github.io/dede_en2b/
 
 
 This project is a basic example of website using **React** with **Typescript** and an endpoint using **NodeJS** with **express**.
@@ -51,8 +57,6 @@ You can get more information about the respository in the other README files:
 - Restapi: https://github.com/arquisoft/dede_en2b/tree/master/restapi
 
 ## Participants: 
-- Sara María Ramírez Pérez (uo276188@uniovi.es)
 - Diego Martín Fernández (uo276345@uniovi.es)
 - Stelian Adrian Stanci (uo277653@uniovi.es)
 - Laura Pernía Blanco (uo276264@uniovi.es)
-- Carolina Barrios González (uo275673@uniovi.es)

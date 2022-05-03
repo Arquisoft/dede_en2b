@@ -36,13 +36,13 @@ const Footer = () => {
     getPodPostalCode().then();
 
     return (
-        <div className="cartSummaryContainer">
+        <div className="cartSummaryContainer" data-testid={"footerContainer"}>
             <div className="cartSummary">
                 <p> Total: {calculateTotal(cartItems).toFixed(2)}€ </p>
             </div>
             {!session.info.isLoggedIn ?
                 <div className="notLoggedIn">
-                    <p>Log in to proceed<br/> with checkout</p>
+                    <p data-testid="notLoggedIn">Log in to proceed<br/> with checkout</p>
                 </div> : (adds.length > 0 || (address !== "" && (!isNaN(postalCode) && postalCode != 0))) ?
                     <Link to="/checkout" >
                         <button> Checkout </button>

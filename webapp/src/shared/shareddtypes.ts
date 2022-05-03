@@ -50,11 +50,10 @@ export type OrderProduct = {
 }
 
 export type RatingType = {
-
     user: string
     comment: string
     rating: number
-    profileImage: string
+    profileImage?: string
     product: ProductType
 }
 

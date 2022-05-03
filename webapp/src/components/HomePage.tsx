@@ -7,7 +7,6 @@ import Categories from "./Homepage/Categories";
 
 export default function HomePage(): JSX.Element {
 
-
     return (
         <div>
             <Slider/>

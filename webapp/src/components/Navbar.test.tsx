@@ -1,5 +1,5 @@
 import React from 'react'
-import { render, screen } from "@testing-library/react";
+import { fireEvent, render, screen } from "@testing-library/react";
 import App from "../App";
 
 test('check that the logo DeDe is rendered', async () => {
@@ -18,4 +18,12 @@ test('check that the orders button does not appear when not in session', async (
     render(<App/>);
     const orders = screen.queryByText("Orders");
     expect(orders).toBeNull();
+});
+
+test('check that sidebar is properly rendered', async () => {
+    render(<App/>);
+    fireEvent.click(screen.getByTestId("sidebar"))
+    expect(screen.getByText("Home")).toBeInTheDocument();
+    expect(screen.getByText("Products")).toBeInTheDocument();
+    expect(screen.getByText("Delivery info")).toBeInTheDocument();
 });

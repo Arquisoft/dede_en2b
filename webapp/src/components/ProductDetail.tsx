@@ -2,7 +2,7 @@ import React, {useContext, useState, useEffect} from "react";
 import {useParams} from "react-router-dom";
 import {getProductById, getRatingsForProduct, addRatingForProduct} from "../api/api";
 import {ProductType, RatingType} from "../shared/shareddtypes";
-import {CardActions, Grid} from "@mui/material";
+import {CardActions, Grid, Rating} from "@mui/material";
 import CardMedia from "@mui/material/CardMedia";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
@@ -10,11 +10,9 @@ import Card from "@mui/material/Card";
 import Box from '@mui/material/Box';
 import {CartContext} from "./CartContext";
 import "./ProductDetail.css";
-
-import {Rating} from "@mui/material";
 import {useSession} from "@inrupt/solid-ui-react";
 
-const ProductDetails = () => {
+const ProductDetail = () => {
 
     const {id} = useParams();
     const [product, setProduct] = useState<ProductType>();
@@ -22,14 +20,6 @@ const ProductDetails = () => {
     const [ratings, setRatings] = useState<RatingType[]>();
     let [ratingList, setRatingList] = useState<JSX.Element[]>([]);
     const {session} = useSession();
-
-    let ratingValue = 2.5;
-
-    function setValue(newRating : number | null) {
-        if(newRating != null){
-            ratingValue = newRating;
-        }
-    }
 
     // LOAD RATINGS
     const getProduct = async () => {setProduct(await getProductById(id!));};
@@ -56,6 +46,20 @@ const ProductDetails = () => {
     // LOAD RATINGS
 
     // ADD RATING
+
+    const [inputValue, setInputValue] = useState("");
+    const [ratingValue, setRatingValue] = useState(2.5);
+
+    // Input Field handler
+    const handleUserInput = (e:any) => {
+        setInputValue(e.target.value);
+    };
+
+    // Reset Input Field
+    const resetInputField = () => {
+        setInputValue("");
+    };
+
     let userName = "Guest";
 
     if(session.info.isLoggedIn) {
@@ -65,7 +69,6 @@ const ProductDetails = () => {
     function addRating(message: string, rating: number){
 
         const newRating : RatingType = {
-
             user: userName,
             comment: message,
             rating: rating,
@@ -137,15 +140,15 @@ const ProductDetails = () => {
                     </Typography>
                     <Rating name="half-rating" defaultValue={2.5} precision={0.5} size="large"
                             onChange={(event, newValue) => {
-                                setValue(newValue);}}/>
+                                setRatingValue(newValue!);}}/>
                     <div className={"addReview"}>
                         <div className={"reviewText"}>
-                            <input className={"reviewInput"} id={"reviewInput"} type={"text"}></input>
+                            <input value={inputValue} onChange={handleUserInput} className={"reviewInput"} id={"reviewInput"} type={"text"}></input>
                         </div>
 
-                        <button className={"reviewButton"} title={"setMessage"} type = "button" onClick={() => addRating(
-                            (document.getElementById("reviewInput") as HTMLInputElement).value,
-                            ratingValue)}>Send</button>
+                        <button className={"reviewButton"} title={"setMessage"} type = "button" onClick={() => {
+                            addRating((document.getElementById("reviewInput") as HTMLInputElement).value, ratingValue);
+                            resetInputField();}}>Send</button>
                     </div>
                     <div id="reviews" className="reviews">
                         {
@@ -157,8 +160,8 @@ const ProductDetails = () => {
             </div>
         );
     } else {
-        return <h1> No product could be loaded :( </h1>;
+        return <h1 data-testid="loadingProduct"> Loading product </h1>;
     }
 };
 
-export default ProductDetails;
+export default ProductDetail;

@@ -68,7 +68,7 @@ const CompleteOrder = (props:Props) => {
         <div className={"centerDiv"}>
             <p>Thank you for your purchase</p>
             <Link to="/products">
-                <button onClick={() => dispatch({
+                <button data-testid="continueShopping" onClick={() => dispatch({
                     payload: "",
                     type: 'CLEAR'
                 })} type="button">

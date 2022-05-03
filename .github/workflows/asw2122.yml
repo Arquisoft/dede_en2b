@@ -30,6 +30,8 @@ jobs:
                   -DMYSQL_HOST=uw63uehcq4yfuo2h:ezPqJY9awdqrr5H7y4uJ@bdc5rfw8rgtu1kxrwjln-mysql.services.clever-cloud.com
                   -DMYSQL_USER=bdc5rfw8rgtu1kxrwjln
                   -DMYSQL_DATABASE_NAME=bdc5rfw8rgtu1kxrwjln
+            - name: Upload to Codecov
+              run: bash <(curl -s https://codecov.io/bash)
     unit-test-webapp:
         runs-on: ubuntu-latest
         defaults:
@@ -102,5 +104,5 @@ jobs:
                       docker-compose rm -f
                       docker-compose pull   
                       docker-compose up -d
-              
+                      nohup caddy run &
                   

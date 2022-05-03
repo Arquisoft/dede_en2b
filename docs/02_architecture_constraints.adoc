@@ -63,7 +63,7 @@ The business constraints are those decisions affecting the software architecture
 |===
 |Constraint|Description
 | _Schedule_ | The system has to be finished by the 13th week of the laboratory, with deliveries by the 4th, the 7th and the 10th weeks.
-| _Team_| The team is composed by five people.
+| _Team_| The team is composed by only three people.
 | _Students_| All of us are students with more subjects and projects, so we can not dedicate full time to the project.
 | _Keep track of orders done_|The system has to allow users to visualize the orders done, so it has to keep track of them.
 |===

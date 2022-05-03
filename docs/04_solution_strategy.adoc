@@ -24,7 +24,7 @@ Refer to details in the following sections.
 ****
 
 === Technology commitments
-As we commented before we will use **React** and **TypeScript**. Moreover, we have also decided that the most optimal decision regarding the database of the product is a relational one. 
+As we commented before we will use **React** and **TypeScript**. Moreover, we have also decided that the most optimal decision regarding the database of the product is a relational one, such as MySQL. 
 
 This is due to the need of knowing the relations between the different items such as clients, products bought from clients, records, deliveries and so on. On the other hand, the experience that we already have will be of great use, since all of us are experienced in SQL databases usage.
 

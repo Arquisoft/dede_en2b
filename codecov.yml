@@ -1,0 +1,6 @@
+ignore:
+  - "**/helper"
+  - "**/api"
+  - "**/shared"
+  - "**/reducer"
+  - "**/hooks"

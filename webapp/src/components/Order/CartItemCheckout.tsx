@@ -2,7 +2,7 @@ import {CartItem} from "../../shared/shareddtypes";
 import React, {useContext} from "react";
 import {CartContext} from "../CartContext";
 import {useTheme} from "@mui/material/styles";
-import {Button, Card, CardMedia} from "@mui/material";
+import {Card, CardMedia} from "@mui/material";
 import Box from "@mui/material/Box";
 import Divider from "@mui/material/Divider";
 import "./CartItemCheckout.css";

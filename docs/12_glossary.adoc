@@ -26,6 +26,14 @@ Potentially more columns in case you need translations.
 [options="header"]
 |===
 | Term         | Definition
-| <Term-1>     | <definition-1>
-| <Term-2>     | <definition-2>
+| Azure     | Azure is a very big collection of servers and networking hardware, which runs a complex set of distributed applications.
+| Caddy     | Reverse Proxy used and file server
+| Continuous Integration | Introduce changes to the system as fast as possible in order to detect errors early
+| Docker    | Open source containerization platform. It enables developers to package applications into containers.
+| React     | JavaScript library that helps building efficient interfaces for applications
+| Rest API  | An application programming interface (API or web API) that conforms to the constraints of REST architectural style and allows for interaction with RESTful web services
+| SOLID     | Solid is a specification that lets people store their data securely in decentralized data stores called Pods.
+| SOLID PODs     | They have information about client’s addresses. The system obtains this information to calculate shipping costs and process orders.
+| SpringBoot | Tool that makes developing web application and microservices with Spring Framework faster and easier, as it helps with several aspects of the configuration.
+| TypeScript     | Language built upon JavaScript that takes into account types
 |===
