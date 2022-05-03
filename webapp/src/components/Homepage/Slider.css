@@ -39,8 +39,9 @@
 }
 
 .ImageContainer {
-    height: 100%;
+    height: 104%;
     flex: 1;
+
 }
 
 .InfoContainer {
@@ -70,7 +71,8 @@
 
 
 
-.Image {
-    max-width: 100%;
+.Image img {
+    max-width: 76%;
     height: auto;
+    margin-left: 5em;
 }
