@@ -8,7 +8,7 @@ import "./Order.css";
 import Box from "@mui/material/Box";
 import logo from '../../img/shippingicon.jpg';
 import logoReceipt from '../../img/receipticon.png';
-import {GetPostalCode, GetAddress, GetDeliveryCost} from "../../helper/calculateDeliveryCost";
+import {GetPostalCode, GetAddress, GetDeliveryCost, CalculateDeliveryCost} from "../../helper/calculateDeliveryCost";
 
 import {Address} from "../../shared/shareddtypes";
 import {useSession} from "@inrupt/solid-ui-react";
@@ -50,6 +50,12 @@ export default function Order() {
     getPodPostalCode();
     getDeliveryCost();
     // DATA FROM POD
+
+    let thingDeliveryCost = 0;
+
+    if(adds.length > 0) {
+        thingDeliveryCost = CalculateDeliveryCost(parseInt(adds[0].postalCode!));
+    }
 
     const subTotal = (+calculateTotal(cartItems).toFixed(2) + +deliveryCost).toFixed(2);
 
@@ -105,9 +111,29 @@ export default function Order() {
 
                     <Divider orientation="vertical" flexItem />
 
-                    <Box sx={{display: 'flex', alignItems: 'center', justifyContent: 'center', pl: 1, pb: 1, flex : 1}}>
-                        <span>{deliveryCost}€</span>
-                    </Box>
+                    {
+                        ((!isNaN(postalCode) && postalCode != 0)) ?
+                            <Box sx={{
+                                display: 'flex',
+                                alignItems: 'center',
+                                justifyContent: 'center',
+                                pl: 1,
+                                pb: 1,
+                                flex: 1
+                            }}>
+                                {<span>{deliveryCost}€</span>}
+                            </Box> :
+                            <Box sx={{
+                                display: 'flex',
+                                alignItems: 'center',
+                                justifyContent: 'center',
+                                pl: 1,
+                                pb: 1,
+                                flex: 1
+                            }}>
+                                {<span>{thingDeliveryCost}€</span>}
+                            </Box>
+                    }
 
                 </Box>
             </Card>
