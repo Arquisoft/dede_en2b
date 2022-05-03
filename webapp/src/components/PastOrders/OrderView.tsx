@@ -29,7 +29,7 @@ const OrderView = ({order}: Props) => {
                     </Typography>
                     <div>
                         {order.date} <br/>
-                        Total: {order.totalPrice}€ <br/>
+                        Total: {order.totalPrice.toFixed(2)}€ <br/>
                     </div>
                 </CardContent>
             </CardActionArea>
