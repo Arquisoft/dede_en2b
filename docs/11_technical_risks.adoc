@@ -40,8 +40,15 @@ Now we talk about some technical debts, that are also ordered by importance
 
 | Using Springboot and MySQL technologies | At the beginning of the project they looked like a good choice as many
 members of the team had some experience working with them, but as it progressed we started having some problems, that
-would not have happened using other technologies
-| Storing the address in a note in the POD | As an alternative for accessing the address stored directly in the POD, we
-decided to retrieve it from a note, as we had some problems getting it using the other way
-
+would not have happened using other technologies.
+| Not validating user input | Due to the lack of time and with the goal of achieving a functional application in a short
+period of time, we did not pay enough attention to user input, that should be validated to a bigger extent to preserve security.
+| Code good practices | In some parts of the code we have neglected code quality (as in the use of suitable design patterns and code
+design) to obtain a functional product faster. Since we had no prior experience using React nor Typescript, we don't really know all
+the good practises and most optimal way of coding with them, so it would have taken us a lot of time to be proficient.
+| Hardcoded credentials | He have hardcoded credentials in the code, which constitute a very serious security problem. As this is not
+a real project and we only use sandbox/free services we decided to leave them that way in order to spend more time in more critical
+aspects of the functionality.
+| Lack of some tests | We didn't have enough time to perform integration and load test, so there might be problems we are not aware of
+that we may have noticed when doing such tests.
 |===

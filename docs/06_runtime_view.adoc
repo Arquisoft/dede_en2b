@@ -30,7 +30,7 @@ There are many notations for describing scenarios, e.g.
 
 ****
 
-===LogIn
+LogIn::
 
 The user can log in into the application at any time during navigation, following the next diagram:
 
@@ -42,12 +42,4 @@ The user will follow the next diagram in order to order some products:
 
 image:06.3-UserInteraction.png["User's interaction diagram"]
 
-
-****
-=== Administrator interaction
-
-The admin can add and delete products, change the price and update the quantity of products:
-
-image:06-adminDiagram.png["Admin's interaction diagram"]
-****
 

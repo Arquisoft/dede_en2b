@@ -74,9 +74,6 @@ The user creates and interacts with its own Pod and with de DeDe system. The DeD
 | _User_| Person accessing to the DeDe system and that has its own Pod.
 |===
 
-Important Interfaces::
-_To do_
-
 === Level 1
 
 Motivation::
