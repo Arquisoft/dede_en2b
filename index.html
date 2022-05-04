@@ -826,7 +826,7 @@ conventions (e.g. programming or versioning guidelines, documentation or naming 
 <td class="tableblock halign-left valign-top"><p class="tableblock">TypeScript is a strongly typed programming language that builds on JavaScript.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>SOLID principles</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>SOLID</em></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Solid is a specification that lets people store their data securely in decentralized data stores called Pods. When data is stored in someone&#8217;s Pod, they control its access.</p></td>
 </tr>
 <tr>
@@ -1240,14 +1240,6 @@ In the best case you will get away with examples or simple signatures.</p>
 </tr>
 </tbody>
 </table>
-<div class="dlist">
-<dl>
-<dt class="hdlist1">Important Interfaces</dt>
-<dd>
-<p><em>To do</em></p>
-</dd>
-</dl>
-</div>
 </div>
 <div class="sect2">
 <h3 id="_level_1">5.3. Level 1</h3>
@@ -1388,11 +1380,13 @@ You will mainly capture scenarios in your documentation to communicate your arch
 </div>
 </div>
 </div>
-<div class="paragraph">
-<p>===LogIn</p>
-</div>
-<div class="paragraph">
+<div class="dlist">
+<dl>
+<dt class="hdlist1">LogIn</dt>
+<dd>
 <p>The user can log in into the application at any time during navigation, following the next diagram:</p>
+</dd>
+</dl>
 </div>
 <div class="paragraph">
 <p><span class="image"><img src="./images/06.3-LogIn.png" alt="&quot;Login diagram"></span></p>
@@ -1404,19 +1398,6 @@ You will mainly capture scenarios in your documentation to communicate your arch
 </div>
 <div class="paragraph">
 <p><span class="image"><img src="./images/06.3-UserInteraction.png" alt="User&#8217;s interaction diagram"></span></p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="paragraph">
-<p>=== Administrator interaction</p>
-</div>
-<div class="paragraph">
-<p>The admin can add and delete products, change the price and update the quantity of products:</p>
-</div>
-<div class="paragraph">
-<p><span class="image"><img src="./images/06-adminDiagram.png" alt="Admin&#8217;s interaction diagram"></span></p>
-</div>
-</div>
 </div>
 <div style="page-break-after: always;"></div>
 </div>
@@ -2045,12 +2026,29 @@ and build upon that basis to get the knowledge required for working with these t
 <td class="tableblock halign-left valign-top"><p class="tableblock">Using Springboot and MySQL technologies</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">At the beginning of the project they looked like a good choice as many
 members of the team had some experience working with them, but as it progressed we started having some problems, that
-would not have happened using other technologies</p></td>
+would not have happened using other technologies.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Storing the address in a note in the POD</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">As an alternative for accessing the address stored directly in the POD, we
-decided to retrieve it from a note, as we had some problems getting it using the other way</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Not validating user input</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Due to the lack of time and with the goal of achieving a functional application in a short
+period of time, we did not pay enough attention to user input, that should be validated to a bigger extent to preserve security.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Code good practices</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">In some parts of the code we have neglected code quality (as in the use of suitable design patterns and code
+design) to obtain a functional product faster. Since we had no prior experience using React nor Typescript, we don&#8217;t really know all
+the good practises and most optimal way of coding with them, so it would have taken us a lot of time to be proficient.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Hardcoded credentials</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">He have hardcoded credentials in the code, which constitute a very serious security problem. As this is not
+a real project and we only use sandbox/free services we decided to leave them that way in order to spend more time in more critical
+aspects of the functionality.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Lack of some tests</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">We didn&#8217;t have enough time to perform integration and load test, so there might be problems we are not aware of
+that we may have noticed when doing such tests.</p></td>
 </tr>
 </tbody>
 </table>
@@ -2172,7 +2170,7 @@ Created by Dr. Peter Hruschka &amp; Dr. Gernot Starke.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2022-04-14 10:39:17 +0200
+Last updated 2022-03-31 19:01:21 +0200
 </div>
 </div>
 </body>
