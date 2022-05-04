@@ -13,6 +13,10 @@
 Link to the app
 https://dedeen2b.tk/
 
+Mock PayPal user:
+Username:sb-gleno15567032@personal.example.com
+Password:4;(5K/fs
+
 Link to the documentation
 https://arquisoft.github.io/dede_en2b/
 
